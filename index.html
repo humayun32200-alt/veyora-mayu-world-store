@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,41 +9,22 @@
 
 <style>
 :root{
-  --black:#171714;
-  --black2:#24231f;
-  --gold:#c5a46d;
-  --gold-light:#e6d3a8;
-  --cream:#f8f5ef;
-  --white:#fffefa;
-  --text:#292720;
-  --muted:#77736b;
-  --border:#e9e2d6;
-  --shadow:0 12px 36px rgba(35,29,18,.08);
+  --black:#171714;--black2:#24231f;--gold:#c5a46d;
+  --gold-light:#e6d3a8;--cream:#f8f5ef;--white:#fffefa;
+  --text:#292720;--muted:#77736b;--border:#e9e2d6;
+  --shadow:0 12px 36px rgba(35,29,18,.08)
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-  margin:0;background:var(--cream);color:var(--text);
-  font-family:Arial,Helvetica,sans-serif;line-height:1.6
-}
+body{margin:0;background:var(--cream);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 .container{width:min(1240px,92%);margin:auto}
-.topbar{
-  background:var(--black);color:#e9d9b8;text-align:center;
-  padding:9px 12px;font-size:10px;letter-spacing:3px;
-  text-transform:uppercase
-}
-header{
-  position:sticky;top:0;z-index:20;background:rgba(248,245,239,.96);
-  backdrop-filter:blur(14px);border-bottom:1px solid var(--border)
-}
-.header-inner{
-  min-height:86px;display:flex;align-items:center;
-  justify-content:space-between;gap:20px
-}
+.topbar{background:var(--black);color:#e9d9b8;text-align:center;padding:9px 12px;font-size:10px;letter-spacing:3px;text-transform:uppercase}
+header{position:sticky;top:0;z-index:20;background:rgba(248,245,239,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.header-inner{min-height:86px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .brand{display:flex;align-items:center;gap:12px;min-width:0}
 .brand img{width:54px;height:54px;object-fit:contain;border-radius:50%}
 .brand-name{font-family:Georgia,serif;font-size:25px;letter-spacing:4px;line-height:1.2}
@@ -53,47 +33,22 @@ nav{display:flex;align-items:center;gap:25px}
 nav a{font-size:11px;letter-spacing:1.4px;text-transform:uppercase}
 nav a:hover{color:#a47f3e}
 .header-actions{display:flex;gap:9px;align-items:center}
-.btn{
-  border:1px solid var(--black);background:var(--black);color:white;
-  padding:12px 19px;font-size:11px;letter-spacing:1.1px;
-  text-transform:uppercase;transition:.25s;display:inline-flex;
-  align-items:center;justify-content:center;gap:8px
-}
+.btn{border:1px solid var(--black);background:var(--black);color:white;padding:12px 19px;font-size:11px;letter-spacing:1.1px;text-transform:uppercase;transition:.25s;display:inline-flex;align-items:center;justify-content:center;gap:8px}
 .btn:hover{background:var(--gold);border-color:var(--gold);color:var(--black)}
 .btn-gold{background:var(--gold);border-color:var(--gold);color:var(--black)}
 .btn-outline{background:transparent;color:var(--black)}
 .btn-small{padding:8px 12px;font-size:10px}
 .icon-btn{border:1px solid var(--border);background:var(--white);padding:11px 14px}
-.hero{
-  background:radial-gradient(ellipse at 85% 25%,#49402e 0%,transparent 40%),
-  linear-gradient(120deg,#171714 0%,#24231f 60%,#302a20 100%);
-  color:white;overflow:hidden;position:relative
-}
-.hero:after{
-  content:"V";position:absolute;right:8%;top:-100px;
-  font:400 520px Georgia,serif;color:rgba(197,164,109,.075);
-  pointer-events:none
-}
-.hero-inner{
-  min-height:460px;padding:75px 0;display:grid;
-  grid-template-columns:1.2fr .8fr;align-items:center;gap:30px;position:relative;z-index:1
-}
+.hero{background:radial-gradient(ellipse at 85% 25%,#49402e 0%,transparent 40%),linear-gradient(120deg,#171714 0%,#24231f 60%,#302a20 100%);color:white;overflow:hidden;position:relative}
+.hero:after{content:"V";position:absolute;right:8%;top:-100px;font:400 520px Georgia,serif;color:rgba(197,164,109,.075);pointer-events:none}
+.hero-inner{min-height:460px;padding:75px 0;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:30px;position:relative;z-index:1}
 .eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-light)}
-.hero h1{
-  font:400 clamp(40px,6vw,72px)/1.08 Georgia,serif;
-  letter-spacing:1px;margin:20px 0
-}
+.hero h1{font:400 clamp(40px,6vw,72px)/1.08 Georgia,serif;letter-spacing:1px;margin:20px 0}
 .hero h1 span{color:var(--gold-light);font-style:italic}
 .hero p{color:#d0ccc2;max-width:500px;font-size:14px;line-height:1.9}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.hero-seal{
-  width:min(290px,80%);aspect-ratio:1;border:1px solid rgba(230,211,168,.6);
-  border-radius:50%;display:flex;align-items:center;justify-content:center;
-  margin:auto;position:relative
-}
-.hero-seal:before,.hero-seal:after{
-  content:"";position:absolute;border:1px solid rgba(230,211,168,.28);border-radius:50%
-}
+.hero-seal{width:min(290px,80%);aspect-ratio:1;border:1px solid rgba(230,211,168,.6);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:auto;position:relative}
+.hero-seal:before,.hero-seal:after{content:"";position:absolute;border:1px solid rgba(230,211,168,.28);border-radius:50%}
 .hero-seal:before{inset:15px}.hero-seal:after{inset:28px}
 .seal-text{text-align:center;color:var(--gold-light);z-index:1}
 .seal-text strong{display:block;font:36px Georgia,serif;letter-spacing:8px}
@@ -109,60 +64,34 @@ nav a:hover{color:#a47f3e}
 .section-head p{font-size:13px;color:var(--muted);margin:0}
 .shop-toolbar{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:25px;flex-wrap:wrap}
 .category-list{display:flex;gap:8px;flex-wrap:wrap}
-.chip{
-  border:1px solid var(--border);background:transparent;padding:9px 14px;
-  font-size:10px;letter-spacing:.6px;transition:.2s
-}
+.chip{border:1px solid var(--border);background:transparent;padding:9px 14px;font-size:10px;letter-spacing:.6px;transition:.2s}
 .chip:hover,.chip.active{background:var(--black);color:white;border-color:var(--black)}
-.sort-select{
-  background:var(--white);border:1px solid var(--border);padding:10px 12px;
-  color:var(--text);max-width:100%
-}
+.sort-select{background:var(--white);border:1px solid var(--border);padding:10px 12px;color:var(--text);max-width:100%}
 .product-count{font-size:11px;color:var(--muted);margin-bottom:15px}
 .product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
-.product-card{
-  background:var(--white);border:1px solid #eee7db;position:relative;
-  transition:transform .3s,box-shadow .3s;min-width:0
-}
+.product-card{background:var(--white);border:1px solid #eee7db;position:relative;transition:transform .3s,box-shadow .3s;min-width:0}
 .product-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-.product-image{
-  aspect-ratio:4/5;background:#f0ece4;overflow:hidden;position:relative
-}
+.product-image{aspect-ratio:4/5;background:#f0ece4;overflow:hidden;position:relative}
 .product-image img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .product-card:hover .product-image img{transform:scale(1.035)}
-.product-image-placeholder{
-  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
-  color:#a79a81;font:italic 22px Georgia,serif
-}
-.product-tag{
-  position:absolute;top:12px;left:12px;background:rgba(248,245,239,.94);
-  padding:6px 9px;font-size:9px;letter-spacing:1.2px;text-transform:uppercase
-}
+.product-image-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#a79a81;font:italic 22px Georgia,serif}
+.product-tag{position:absolute;top:12px;left:12px;background:rgba(248,245,239,.94);padding:6px 9px;font-size:9px;letter-spacing:1.2px;text-transform:uppercase}
 .product-info{padding:16px}
 .product-category{font-size:9px;color:#987844;text-transform:uppercase;letter-spacing:1.4px}
 .product-title{font:400 18px/1.35 Georgia,serif;margin:7px 0}
 .product-description{font-size:11px;color:var(--muted);line-height:1.65;margin:0 0 12px}
 .product-price{font-size:15px;font-weight:700;margin:10px 0}
 .product-stock{font-size:10px;color:var(--muted);margin-bottom:10px}
-.product-select{
-  width:100%;padding:10px;border:1px solid var(--border);
-  background:#fffefa;font-size:11px;margin:4px 0 10px
-}
+.product-select{width:100%;padding:10px;border:1px solid var(--border);background:#fffefa;font-size:11px;margin:4px 0 10px}
 .product-info .btn{width:100%}
-.empty-state{
-  padding:50px 20px;text-align:center;color:var(--muted);
-  background:var(--white);border:1px dashed var(--border);grid-column:1/-1
-}
+.empty-state{padding:50px 20px;text-align:center;color:var(--muted);background:var(--white);border:1px dashed var(--border);grid-column:1/-1}
 .benefits{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
 .benefit{text-align:center;padding:10px}
 .benefit-symbol{color:#a9864d;font:30px Georgia,serif}
 .benefit h3{font:400 19px Georgia,serif;margin:9px 0}
 .benefit p{font-size:12px;color:var(--muted);margin:0}
-.about-box{
-  background:linear-gradient(120deg,#eee6d8,#faf7f0);
-  padding:48px;text-align:center;border:1px solid #e5d9c5
-}
+.about-box{background:linear-gradient(120deg,#eee6d8,#faf7f0);padding:48px;text-align:center;border:1px solid #e5d9c5}
 .about-box p{max-width:700px;margin:15px auto;color:#666056;font-size:13px;line-height:1.9}
 footer{background:var(--black);color:#e8e2d7;padding:45px 0 20px}
 .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:30px;padding-bottom:32px}
@@ -173,16 +102,9 @@ footer h3{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(-
 .footer-bottom{border-top:1px solid #3a3933;padding-top:18px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
 .admin-link{font-size:9px;color:#a49a85;border:1px solid #4b463a;padding:5px 10px;letter-spacing:1px}
 .admin-link:hover{color:var(--gold-light);border-color:var(--gold)}
-/* Cart */
-.drawer-backdrop,.modal-backdrop{
-  display:none;position:fixed;inset:0;background:rgba(12,12,10,.58);z-index:50
-}
+.drawer-backdrop,.modal-backdrop{display:none;position:fixed;inset:0;background:rgba(12,12,10,.58);z-index:50}
 .drawer-backdrop.show,.modal-backdrop.show{display:block}
-.cart-drawer{
-  position:fixed;right:0;top:0;height:100dvh;width:min(440px,100%);
-  background:var(--cream);z-index:51;transform:translateX(105%);
-  transition:transform .3s;display:flex;flex-direction:column
-}
+.cart-drawer{position:fixed;right:0;top:0;height:100dvh;width:min(440px,100%);background:var(--cream);z-index:51;transform:translateX(105%);transition:transform .3s;display:flex;flex-direction:column}
 .cart-drawer.show{transform:translateX(0)}
 .drawer-head{padding:22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
 .drawer-head h2{font:28px Georgia,serif;margin:0}
@@ -194,8 +116,9 @@ footer h3{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(-
 .qty-controls{display:flex;align-items:center;gap:9px;font-size:12px}
 .qty-controls button{border:1px solid var(--border);background:white;width:25px;height:25px}
 .cart-remove{border:0;background:none;color:#997b51;font-size:10px;margin-top:5px}
-.cart-summary{border-top:1px solid var(--border);padding:18px 22px}
-.summary-line{display:flex;justify-content:space-between;font-size:12px;margin:8px 0}
+.cart-summary{position:relative;isolation:isolate;overflow:hidden;border-top:1px solid var(--border);padding:18px 22px}
+.cart-summary::before{content:"MAYU WORLD";position:absolute;z-index:-1;top:48%;left:50%;transform:translate(-50%,-50%) rotate(-25deg);font:700 28px Georgia,serif;letter-spacing:5px;white-space:nowrap;color:rgba(160,126,67,.10);pointer-events:none}
+.summary-line{display:flex;justify-content:space-between;gap:12px;font-size:12px;margin:8px 0}
 .summary-total{font-weight:700;font-size:16px;padding-top:10px;border-top:1px solid var(--border)}
 .checkout-fields{display:grid;gap:10px;margin-top:16px}
 .field{width:100%;padding:12px;border:1px solid var(--border);background:white;outline:none;min-width:0}
@@ -203,10 +126,7 @@ footer h3{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(-
 textarea.field{resize:vertical}
 .notice{font-size:12px;margin:10px 0;color:#6f633e}
 .modal-backdrop{z-index:60;overflow:auto;padding:24px 12px}
-.modal{
-  width:min(760px,100%);margin:3vh auto;background:var(--cream);
-  border:1px solid var(--gold);box-shadow:0 25px 80px #0004
-}
+.modal{width:min(760px,100%);margin:3vh auto;background:var(--cream);border:1px solid var(--gold);box-shadow:0 25px 80px #0004}
 .modal-head{padding:18px 22px;background:var(--black);color:white;display:flex;justify-content:space-between;align-items:center}
 .modal-head h2{font:24px Georgia,serif;margin:0}
 .modal-body{padding:22px}
@@ -226,53 +146,36 @@ textarea.field{resize:vertical}
 .admin-row-actions .delete{color:#a13c32}
 .status-pill{font-size:10px;background:#eee6d8;padding:4px 8px}
 .hidden{display:none!important}
-.toast{
-  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
-  z-index:100;background:var(--black);color:white;padding:12px 18px;
-  box-shadow:var(--shadow);font-size:12px;max-width:90%;text-align:center
-}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:100;background:var(--black);color:white;padding:12px 18px;box-shadow:var(--shadow);font-size:12px;max-width:90%;text-align:center}
 @media(max-width:900px){
-  .product-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-  .hero-inner{min-height:400px}
-  nav{gap:14px}
-  .brand-name{font-size:21px}
+.product-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.hero-inner{min-height:400px}nav{gap:14px}.brand-name{font-size:21px}
 }
 @media(max-width:650px){
-  .header-inner{min-height:72px;flex-wrap:wrap;padding:10px 0;gap:9px}
-  .brand img{width:43px;height:43px}
-  .brand-name{font-size:19px;letter-spacing:3px}
-  .brand-sub{font-size:8px;letter-spacing:2px}
-  nav{order:3;width:100%;justify-content:center;padding:5px 0 2px;gap:26px}
-  nav a{font-size:10px}
-  .header-actions .btn{padding:10px 12px}
-  .hero-inner{grid-template-columns:1fr;padding:58px 0;min-height:0}
-  .hero-copy{text-align:center}
-  .hero p{margin-left:auto;margin-right:auto}
-  .hero-actions{justify-content:center}
-  .hero-seal{width:155px;margin-top:10px}
-  .seal-text strong{font-size:24px;letter-spacing:5px}
-  .hero:after{font-size:300px;right:-20px;top:100px}
-  .trust-inner{grid-template-columns:1fr;padding:13px 0;gap:14px}
-  .trust-item{font-size:10px}
-  .trust-item span{margin-top:0}
-  .section{padding:48px 0}
-  .shop-toolbar{align-items:stretch}
-  .category-list{gap:6px}
-  .chip{padding:8px 10px;font-size:9px}
-  .sort-select{width:100%}
-  .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-  .product-info{padding:11px}
-  .product-title{font-size:16px}
-  .product-description{font-size:10px}
-  .product-info .btn{padding:10px 6px;font-size:9px}
-  .product-image{aspect-ratio:3/4}
-  .product-tag{top:7px;left:7px;padding:5px 6px;font-size:8px}
-  .benefit-grid{grid-template-columns:1fr;gap:24px}
-  .about-box{padding:30px 18px}
-  .footer-grid{grid-template-columns:1fr;gap:20px}
-  .admin-grid{grid-template-columns:1fr}
-  .form-group.full{grid-column:auto}
-  .modal-body{padding:15px}
+.header-inner{min-height:72px;flex-wrap:wrap;padding:10px 0;gap:9px}
+.brand img{width:43px;height:43px}.brand-name{font-size:19px;letter-spacing:3px}
+.brand-sub{font-size:8px;letter-spacing:2px}
+nav{order:3;width:100%;justify-content:center;padding:5px 0 2px;gap:26px}
+nav a{font-size:10px}.header-actions .btn{padding:10px 12px}
+.hero-inner{grid-template-columns:1fr;padding:58px 0;min-height:0}
+.hero-copy{text-align:center}.hero p{margin-left:auto;margin-right:auto}
+.hero-actions{justify-content:center}.hero-seal{width:155px;margin-top:10px}
+.seal-text strong{font-size:24px;letter-spacing:5px}
+.hero:after{font-size:300px;right:-20px;top:100px}
+.trust-inner{grid-template-columns:1fr;padding:13px 0;gap:14px}
+.trust-item{font-size:10px}.trust-item span{margin-top:0}
+.section{padding:48px 0}.shop-toolbar{align-items:stretch}
+.category-list{gap:6px}.chip{padding:8px 10px;font-size:9px}
+.sort-select{width:100%}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.product-info{padding:11px}.product-title{font-size:16px}
+.product-description{font-size:10px}
+.product-info .btn{padding:10px 6px;font-size:9px}
+.product-image{aspect-ratio:3/4}
+.product-tag{top:7px;left:7px;padding:5px 6px;font-size:8px}
+.benefit-grid{grid-template-columns:1fr;gap:24px}
+.about-box{padding:30px 18px}.footer-grid{grid-template-columns:1fr;gap:20px}
+.admin-grid{grid-template-columns:1fr}.form-group.full{grid-column:auto}
+.modal-body{padding:15px}
 }
 </style>
 </head>
@@ -284,19 +187,10 @@ textarea.field{resize:vertical}
   <div class="container header-inner">
     <a href="#home" class="brand" aria-label="VEYORA Home">
       <img src="./WhatsApp%20Image%202026-10-12%20at%2011.22.27%20PM%20(1).jpeg" alt="VEYORA Logo" onerror="this.style.display='none'">
-      <div>
-        <div class="brand-name">VEYORA</div>
-        <div class="brand-sub">MAYU WORLD</div>
-      </div>
+      <div><div class="brand-name">VEYORA</div><div class="brand-sub">MAYU WORLD</div></div>
     </a>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#shop">Shop</a>
-      <a href="#about">Our Story</a>
-    </nav>
-    <div class="header-actions">
-      <button class="btn" id="cartOpen">Bag (<span id="cartCount">0</span>)</button>
-    </div>
+    <nav><a href="#home">Home</a><a href="#shop">Shop</a><a href="#about">Our Story</a></nav>
+    <div class="header-actions"><button class="btn" id="cartOpen">Bag (<span id="cartCount">0</span>)</button></div>
   </div>
 </header>
 
@@ -312,111 +206,72 @@ textarea.field{resize:vertical}
         <a href="#about" class="btn btn-outline" style="color:white;border-color:#80745d">Discover Veyora</a>
       </div>
     </div>
-    <div class="hero-seal">
-      <div class="seal-text"><strong>VEYORA</strong><small>STYLE · HOME · LIVING</small></div>
-    </div>
+    <div class="hero-seal"><div class="seal-text"><strong>VEYORA</strong><small>STYLE · HOME · LIVING</small></div></div>
   </div>
 </section>
 
-<div class="trust-strip">
-  <div class="container trust-inner">
-    <div class="trust-item">✧ Curated Collection<span>Fashion and everyday essentials</span></div>
-    <div class="trust-item">✧ Cash on Delivery<span>Pay when your order arrives</span></div>
-    <div class="trust-item">✧ Personal Service<span>Support for your order</span></div>
+<div class="trust-strip"><div class="container trust-inner">
+  <div class="trust-item">✧ Curated Collection<span>Fashion and everyday essentials</span></div>
+  <div class="trust-item">✧ Cash on Delivery<span>Pay when your order arrives</span></div>
+  <div class="trust-item">✧ Personal Service<span>Support for your order</span></div>
+</div></div>
+
+<section class="section" id="shop"><div class="container">
+  <div class="section-head"><div class="section-kicker">A considered selection</div><h2>Shop the Collection</h2><p>Find something special for your style and your home.</p></div>
+  <div class="shop-toolbar">
+    <div class="category-list" id="categoryList">
+      <button class="chip active" data-category="All">All Products</button>
+      <button class="chip" data-category="Men">Men</button>
+      <button class="chip" data-category="Women">Women</button>
+      <button class="chip" data-category="Bedsheets">Bedsheets</button>
+      <button class="chip" data-category="Shawls">Shawls</button>
+      <button class="chip" data-category="Home & Kitchen">Home & Kitchen</button>
+    </div>
+    <select id="sortProducts" class="sort-select" aria-label="Sort products">
+      <option value="newest">Newest first</option><option value="low">Price: Low to High</option><option value="high">Price: High to Low</option><option value="az">Name: A to Z</option>
+    </select>
   </div>
-</div>
+  <div class="product-count" id="productCount">Loading collection…</div>
+  <div class="product-grid" id="productGrid"><div class="empty-state">Preparing the VEYORA collection…</div></div>
+</div></section>
 
-<section class="section" id="shop">
-  <div class="container">
-    <div class="section-head">
-      <div class="section-kicker">A considered selection</div>
-      <h2>Shop the Collection</h2>
-      <p>Find something special for your style and your home.</p>
-    </div>
-
-    <div class="shop-toolbar">
-      <div class="category-list" id="categoryList">
-        <button class="chip active" data-category="All">All Products</button>
-        <button class="chip" data-category="Men">Men</button>
-        <button class="chip" data-category="Women">Women</button>
-        <button class="chip" data-category="Bedsheets">Bedsheets</button>
-        <button class="chip" data-category="Shawls">Shawls</button>
-        <button class="chip" data-category="Home & Kitchen">Home & Kitchen</button>
-      </div>
-      <select id="sortProducts" class="sort-select" aria-label="Sort products">
-        <option value="newest">Newest first</option>
-        <option value="low">Price: Low to High</option>
-        <option value="high">Price: High to Low</option>
-        <option value="az">Name: A to Z</option>
-      </select>
-    </div>
-
-    <div class="product-count" id="productCount">Loading collection…</div>
-    <div class="product-grid" id="productGrid">
-      <div class="empty-state">Preparing the VEYORA collection…</div>
-    </div>
+<section class="benefits"><div class="container section">
+  <div class="section-head"><div class="section-kicker">The Veyora difference</div><h2>Made for Everyday Moments</h2></div>
+  <div class="benefit-grid">
+    <div class="benefit"><div class="benefit-symbol">✧</div><h3>Curated with Care</h3><p>Explore selected pieces for fashion, home and daily life.</p></div>
+    <div class="benefit"><div class="benefit-symbol">◇</div><h3>Easy Ordering</h3><p>Choose your product and preferred design before ordering.</p></div>
+    <div class="benefit"><div class="benefit-symbol">♡</div><h3>Here to Help</h3><p>We aim to make your shopping experience simple and clear.</p></div>
   </div>
-</section>
+</div></section>
 
-<section class="benefits">
-  <div class="container section">
-    <div class="section-head">
-      <div class="section-kicker">The Veyora difference</div>
-      <h2>Made for Everyday Moments</h2>
-    </div>
-    <div class="benefit-grid">
-      <div class="benefit"><div class="benefit-symbol">✧</div><h3>Curated with Care</h3><p>Explore selected pieces for fashion, home and daily life.</p></div>
-      <div class="benefit"><div class="benefit-symbol">◇</div><h3>Easy Ordering</h3><p>Choose your product and preferred design before ordering.</p></div>
-      <div class="benefit"><div class="benefit-symbol">♡</div><h3>Here to Help</h3><p>We aim to make your shopping experience simple and clear.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="about">
-  <div class="container">
-    <div class="about-box">
-      <div class="section-kicker">Our story</div>
-      <h2>Welcome to VEYORA</h2>
-      <p>VEYORA — MAYU WORLD brings fashion, home essentials and everyday products together in one thoughtfully curated collection. Our goal is to make discovering your next favourite product feel simple, enjoyable and special.</p>
-      <a href="#shop" class="btn">Discover the Collection</a>
-    </div>
-  </div>
-</section>
+<section class="section" id="about"><div class="container"><div class="about-box">
+  <div class="section-kicker">Our story</div><h2>Welcome to VEYORA</h2>
+  <p>VEYORA — MAYU WORLD brings fashion, home essentials and everyday products together in one thoughtfully curated collection. Our goal is to make discovering your next favourite product feel simple, enjoyable and special.</p>
+  <a href="#shop" class="btn">Discover the Collection</a>
+</div></div></section>
 </main>
 
-<footer id="contact">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">VEYORA</div>
-        <p> MAYU WORLD — Premium products for everyday life.</p>
-      </div>
-      <div>
-        <h3>Explore</h3>
-        <div class="footer-links">
-          <a href="#home">Home</a><a href="#shop">Shop Products</a><a href="#about">About Veyora</a>
-        </div>
-      </div>
-      <div>
-        <h3>Shopping Information</h3>
-        <p>Cash on Delivery available where supported. Delivery charges and availability are confirmed with your order.</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span style="font-size:10px;color:#a49d90">© <span id="year"></span> VEYORA — MAYU WORLD. All rights reserved.</span>
-      <button class="admin-link" id="adminOpen">ADMIN ACCESS</button>
-    </div>
+<footer id="contact"><div class="container">
+  <div class="footer-grid">
+    <div><div class="footer-brand">VEYORA</div><p>MAYU WORLD — Premium products for everyday life.</p></div>
+    <div><h3>Explore</h3><div class="footer-links"><a href="#home">Home</a><a href="#shop">Shop Products</a><a href="#about">About Veyora</a></div></div>
+    <div><h3>Shopping Information</h3><p>Cash on Delivery available where supported. Delivery charges are calculated in your bag.</p></div>
   </div>
-</footer>
+  <div class="footer-bottom">
+    <span style="font-size:10px;color:#a49d90">© <span id="year"></span> VEYORA — MAYU WORLD. All rights reserved.</span>
+    <button class="admin-link" id="adminOpen">ADMIN ACCESS</button>
+  </div>
+</div></footer>
 
 <div class="drawer-backdrop" id="drawerBackdrop"></div>
 <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping bag">
   <div class="drawer-head"><h2>Your Bag</h2><button class="icon-btn" id="cartClose">✕</button></div>
   <div class="drawer-content" id="cartItems"></div>
   <div class="cart-summary">
-    <div class="summary-line"><span>Subtotal</span><span id="cartSubtotal">Rs 0</span></div>
-    <div class="summary-line"><span>Delivery</span><span id="cartDelivery">To be confirmed</span></div>
-    <div class="summary-line summary-total"><span>Estimated Total</span><span id="cartTotal">Rs 0</span></div>
+    <div class="summary-line"><span>Product Subtotal</span><span id="cartSubtotal">Rs 0</span></div>
+    <div class="summary-line"><span>Delivery Charges</span><span id="cartDelivery">Rs 0</span></div>
+    <div class="summary-line summary-total"><span>Final Total</span><span id="cartTotal">Rs 0</span></div>
+    <div class="notice">Cash on Delivery (COD)</div>
     <form id="checkoutForm" class="checkout-fields">
       <input class="field" name="customer_name" placeholder="Full name" required maxlength="100">
       <input class="field" name="phone" placeholder="Phone number" required maxlength="30">
@@ -428,73 +283,60 @@ textarea.field{resize:vertical}
   </div>
 </aside>
 
-<div class="modal-backdrop" id="adminModal">
-  <div class="modal">
-    <div class="modal-head"><h2>VEYORA Admin Studio</h2><button class="icon-btn" id="adminClose">✕</button></div>
-    <div class="modal-body">
-      <form id="loginForm" class="checkout-fields">
-        <p style="font-size:12px;color:var(--muted);margin:0">Sign in with your authorised admin account.</p>
-        <input class="field" type="email" id="adminEmail" placeholder="Admin email" required autocomplete="username">
-        <input class="field" type="password" id="adminPassword" placeholder="Password" required autocomplete="current-password">
-        <button class="btn btn-gold" type="submit">Sign In</button>
-        <div id="loginMessage" class="notice"></div>
-      </form>
+<div class="modal-backdrop" id="adminModal"><div class="modal">
+  <div class="modal-head"><h2>VEYORA Admin Studio</h2><button class="icon-btn" id="adminClose">✕</button></div>
+  <div class="modal-body">
+    <form id="loginForm" class="checkout-fields">
+      <p style="font-size:12px;color:var(--muted);margin:0">Sign in with your authorised admin account.</p>
+      <input class="field" type="email" id="adminEmail" placeholder="Admin email" required autocomplete="username">
+      <input class="field" type="password" id="adminPassword" placeholder="Password" required autocomplete="current-password">
+      <button class="btn btn-gold" type="submit">Sign In</button><div id="loginMessage" class="notice"></div>
+    </form>
 
-      <div id="adminPanel" class="hidden">
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px">
-          <p style="font-size:12px;margin:0;color:var(--muted)">Manage your shop without editing code.</p>
-          <button class="btn btn-outline btn-small" id="adminLogout">Sign Out</button>
-        </div>
-        <div class="admin-tabs">
-          <button class="admin-tab active" data-tab="productsTab">Products</button>
-          <button class="admin-tab" data-tab="ordersTab">Orders</button>
-          <button class="admin-tab" data-tab="settingsTab">Settings</button>
-        </div>
-
-        <section id="productsTab">
-          <h3 style="font:24px Georgia,serif;margin:0 0 15px">Product Studio</h3>
-          <form id="productForm" class="admin-grid">
-            <input type="hidden" id="productId">
-            <div class="form-group full"><label class="form-label" for="productTitle">Product title</label><input class="field" id="productTitle" required maxlength="200" placeholder="e.g. Premium Boski Suit"></div>
-            <div class="form-group"><label class="form-label" for="productCategory">Category</label><input class="field" id="productCategory" required list="categorySuggestions" placeholder="e.g. Men"><datalist id="categorySuggestions"><option>Men</option><option>Women</option><option>Bedsheets</option><option>Shawls</option><option>Home & Kitchen</option></datalist></div>
-            <div class="form-group"><label class="form-label" for="productPrice">Price (PKR)</label><input class="field" id="productPrice" type="number" min="0" step="1" required placeholder="0"></div>
-            <div class="form-group"><label class="form-label" for="productStock">Total stock</label><input class="field" id="productStock" type="number" min="0" step="1" value="0" required></div>
-            <div class="form-group"><label class="form-label" for="productPhotos">Product photos</label><input class="field" id="productPhotos" type="file" accept="image/*" multiple></div>
-            <div class="form-group full"><label class="form-label" for="productDescription">Description</label><textarea class="field" id="productDescription" rows="3" maxlength="3000" placeholder="Write product details…"></textarea></div>
-            <div class="form-group"><label class="form-label" for="optionName">Variant name</label><input class="field" id="optionName" placeholder="e.g. Design / Colour"></div>
-            <div class="form-group"><label class="form-label" for="productVariants">Variants (one per line)</label><textarea class="field" id="productVariants" rows="4" placeholder="Black | 5&#10;Cream | 3&#10;Blue | 4"></textarea></div>
-            <div class="form-group full" id="existingImages" style="font-size:11px;color:var(--muted)"></div>
-            <div class="form-group full" style="display:flex;gap:9px;flex-wrap:wrap">
-              <button class="btn btn-gold" type="submit" id="saveProduct">Save Product</button>
-              <button class="btn btn-outline" type="button" id="productReset">Clear Form</button>
-            </div>
-          </form>
-          <h3 style="font:22px Georgia,serif;margin:28px 0 10px">Your Products</h3>
-          <div class="admin-list" id="adminProducts">Loading products…</div>
-        </section>
-
-        <section id="ordersTab" class="hidden">
-          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
-            <h3 style="font:24px Georgia,serif;margin:0">Customer Orders</h3>
-            <button class="btn btn-outline btn-small" id="refreshOrders">Refresh</button>
-          </div>
-          <div class="admin-list" id="adminOrders">Sign in to view orders.</div>
-        </section>
-
-        <section id="settingsTab" class="hidden">
-          <h3 style="font:24px Georgia,serif;margin:0 0 12px">Store Settings</h3>
-          <form id="settingsForm" class="checkout-fields">
-            <label class="form-label" for="deliveryFeeInput">Delivery fee (PKR)</label>
-            <input class="field" id="deliveryFeeInput" type="number" min="0" step="1" required value="0">
-            <button class="btn btn-gold" type="submit">Save Delivery Fee</button>
-            <div id="settingsMessage" class="notice"></div>
-          </form>
-          <p style="font-size:11px;color:var(--muted)">The delivery fee is applied to new orders. Banner text can be changed in the website code.</p>
-        </section>
+    <div id="adminPanel" class="hidden">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px">
+        <p style="font-size:12px;margin:0;color:var(--muted)">Manage your shop without editing code.</p>
+        <button class="btn btn-outline btn-small" id="adminLogout">Sign Out</button>
       </div>
+      <div class="admin-tabs">
+        <button class="admin-tab active" data-tab="productsTab">Products</button>
+        <button class="admin-tab" data-tab="ordersTab">Orders</button>
+        <button class="admin-tab" data-tab="settingsTab">Settings</button>
+      </div>
+
+      <section id="productsTab">
+        <h3 style="font:24px Georgia,serif;margin:0 0 15px">Product Studio</h3>
+        <form id="productForm" class="admin-grid">
+          <input type="hidden" id="productId">
+          <div class="form-group full"><label class="form-label" for="productTitle">Product title</label><input class="field" id="productTitle" required maxlength="200" placeholder="e.g. Premium Boski Suit"></div>
+          <div class="form-group"><label class="form-label" for="productCategory">Category</label><input class="field" id="productCategory" required list="categorySuggestions" placeholder="e.g. Men"><datalist id="categorySuggestions"><option>Men</option><option>Women</option><option>Bedsheets</option><option>Shawls</option><option>Home & Kitchen</option></datalist></div>
+          <div class="form-group"><label class="form-label" for="productPrice">Price (PKR)</label><input class="field" id="productPrice" type="number" min="0" step="1" required placeholder="0"></div>
+          <div class="form-group"><label class="form-label" for="productStock">Total stock</label><input class="field" id="productStock" type="number" min="0" step="1" value="0" required></div>
+          <div class="form-group"><label class="form-label" for="productPhotos">Product photos</label><input class="field" id="productPhotos" type="file" accept="image/*" multiple></div>
+          <div class="form-group full"><label class="form-label" for="productDescription">Description</label><textarea class="field" id="productDescription" rows="3" maxlength="3000" placeholder="Write product details…"></textarea></div>
+          <div class="form-group"><label class="form-label" for="optionName">Variant name</label><input class="field" id="optionName" placeholder="e.g. Design / Colour"></div>
+          <div class="form-group"><label class="form-label" for="productVariants">Variants (one per line)</label><textarea class="field" id="productVariants" rows="4" placeholder="Black | 5&#10;Cream | 3&#10;Blue | 4"></textarea></div>
+          <div class="form-group full" id="existingImages" style="font-size:11px;color:var(--muted)"></div>
+          <div class="form-group full" style="display:flex;gap:9px;flex-wrap:wrap">
+            <button class="btn btn-gold" type="submit" id="saveProduct">Save Product</button><button class="btn btn-outline" type="button" id="productReset">Clear Form</button>
+          </div>
+        </form>
+        <h3 style="font:22px Georgia,serif;margin:28px 0 10px">Your Products</h3><div class="admin-list" id="adminProducts">Loading products…</div>
+      </section>
+
+      <section id="ordersTab" class="hidden">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><h3 style="font:24px Georgia,serif;margin:0">Customer Orders</h3><button class="btn btn-outline btn-small" id="refreshOrders">Refresh</button></div>
+        <div class="admin-list" id="adminOrders">Sign in to view orders.</div>
+      </section>
+
+      <section id="settingsTab" class="hidden">
+        <h3 style="font:24px Georgia,serif;margin:0 0 12px">Store Settings</h3>
+        <p style="font-size:12px;color:var(--muted)">Shipping is automatically calculated: Rs 200 for the first unit of each product and Rs 50 for every additional unit of that same product. The fixed delivery fee setting is no longer used for checkout calculations.</p>
+        <div id="settingsMessage" class="notice">Automatic shipping calculation is active.</div>
+      </section>
     </div>
   </div>
-</div>
+</div></div>
 
 <div id="toast" class="toast hidden" role="status"></div>
 
@@ -571,10 +413,7 @@ function renderProducts(){
       </select>` : "";
     const out = stock <= 0;
     return `<article class="product-card">
-      <div class="product-image">
-        ${imageMarkup(imgs[0] || "",p.title)}
-        <span class="product-tag">${out ? "Sold Out" : "VEYORA EDIT"}</span>
-      </div>
+      <div class="product-image">${imageMarkup(imgs[0] || "",p.title)}<span class="product-tag">${out ? "Sold Out" : "VEYORA EDIT"}</span></div>
       <div class="product-info">
         <div class="product-category">${safe(p.category || "Collection")}</div>
         <h3 class="product-title">${safe(p.title)}</h3>
@@ -641,16 +480,50 @@ $("productGrid").addEventListener("click",e=>{
   const btn=e.target.closest("[data-add]");
   if(btn) addToCart(btn.dataset.add);
 });
-function cartTotals(){
-  const subtotal=cart.reduce((sum,i)=>sum+i.price*i.qty,0);
-  return {subtotal,delivery:cart.length?deliveryFee:0,total:subtotal+(cart.length?deliveryFee:0)};
+
+/* SHIPPING RULE:
+   First unit of each distinct product ID = Rs 200.
+   Every additional unit of that product ID = Rs 50.
+   Different variants of the same product share the same product shipping group.
+*/
+function calculateDelivery(){
+  const quantitiesByProduct = new Map();
+
+  for(const item of cart){
+    const id = String(item.id);
+    const quantity = Number(item.qty || 0);
+    quantitiesByProduct.set(
+      id,
+      (quantitiesByProduct.get(id) || 0) + quantity
+    );
+  }
+
+  let fee = 0;
+  for(const quantity of quantitiesByProduct.values()){
+    if(quantity > 0){
+      fee += 200 + (quantity - 1) * 50;
+    }
+  }
+  return fee;
 }
+
+function cartTotals(){
+  const subtotal = cart.reduce(
+    (sum,item)=>sum + Number(item.price||0) * Number(item.qty||0),
+    0
+  );
+  const delivery = cart.length ? calculateDelivery() : 0;
+  return {subtotal,delivery,total:subtotal+delivery};
+}
+
 function renderCart(){
   $("cartCount").textContent=cart.reduce((sum,i)=>sum+i.qty,0);
   $("cartItems").innerHTML=cart.length?cart.map(item=>`
     <div class="cart-item">
       ${imageMarkup(item.image,item.title)}
-      <div><h4>${safe(item.title)}</h4><p>${item.variant?`Design: ${safe(item.variant)} · `:""}${money(item.price)}</p>
+      <div>
+        <h4>${safe(item.title)}</h4>
+        <p>${item.variant?`Design: ${safe(item.variant)} · `:""}${money(item.price)}</p>
         <div class="qty-controls">
           <button data-qty="${safe(item.key)}" data-delta="-1" aria-label="Decrease quantity">−</button>
           <span>${item.qty}</span>
@@ -660,9 +533,10 @@ function renderCart(){
       </div>
       <strong style="font-size:12px">${money(item.price*item.qty)}</strong>
     </div>`).join(""):`<div class="empty-state"><div style="font:22px Georgia,serif;margin-bottom:8px">Your bag is waiting</div>Add something you love from our collection.</div>`;
+
   const totals=cartTotals();
   $("cartSubtotal").textContent=money(totals.subtotal);
-  $("cartDelivery").textContent=cart.length?money(totals.delivery):"—";
+  $("cartDelivery").textContent=money(totals.delivery);
   $("cartTotal").textContent=money(totals.total);
   $("placeOrder").disabled=!cart.length;
 }
@@ -674,7 +548,7 @@ $("cartItems").addEventListener("click",e=>{
     const item=cart.find(i=>i.key===qty.dataset.qty);
     if(!item)return;
     const next=item.qty+Number(qty.dataset.delta);
-    if(next<=0) cart=cart.filter(i=>i.key!==item.key);
+    if(next<=0)cart=cart.filter(i=>i.key!==item.key);
     else if(next>item.stock){notify("Available stock limit reached.");return;}
     else item.qty=next;
     renderCart();
@@ -692,11 +566,12 @@ $("cartOpen").addEventListener("click",openCart);
 $("cartClose").addEventListener("click",closeCart);
 $("drawerBackdrop").addEventListener("click",closeCart);
 
+/* Retained for compatibility; saved fixed fee is intentionally ignored. */
 async function loadSettings(){
-  const {data,error}=await supabase.from("store_settings").select("delivery_fee").limit(1).maybeSingle();
-  if(!error && data) deliveryFee=Number(data.delivery_fee||0);
+  deliveryFee=0;
   renderCart();
 }
+
 $("checkoutForm").addEventListener("submit",async e=>{
   e.preventDefault();
   if(!cart.length){notify("Your bag is empty.");return;}
@@ -705,30 +580,51 @@ $("checkoutForm").addEventListener("submit",async e=>{
   const phone=String(form.get("phone")||"").trim();
   const city=String(form.get("city")||"").trim();
   const address=String(form.get("address")||"").trim();
-  if(!name||!phone||!city||!address){$("checkoutMessage").textContent="Please complete all delivery fields.";return;}
+  if(!name||!phone||!city||!address){
+    $("checkoutMessage").textContent="Please complete all delivery fields.";
+    return;
+  }
+
   $("placeOrder").disabled=true;
   $("checkoutMessage").textContent="Submitting your order…";
+
   try{
     // Re-check current stock before accepting the order.
     const ids=[...new Set(cart.map(i=>i.id))];
     const {data:latest,error:stockError}=await supabase.from("products").select("*").in("id",ids);
-    if(stockError) throw stockError;
+    if(stockError)throw stockError;
+
     for(const item of cart){
       const p=(latest||[]).find(x=>String(x.id)===String(item.id));
-      if(!p) throw new Error(`${item.title} is no longer available.`);
+      if(!p)throw new Error(`${item.title} is no longer available.`);
       const v=variantsOf(p).find(x=>String(x.name||x.value||"")===String(item.variant));
       const stock=item.variant?(v?Number(v.stock||0):0):availableStock(p);
-      if(stock<item.qty) throw new Error(`Stock has changed for ${item.title}. Please update your bag.`);
+      if(stock<item.qty)throw new Error(`Stock has changed for ${item.title}. Please update your bag.`);
     }
+
+    // Recalculate shipping immediately before saving the order.
     const totals=cartTotals();
     const payload={
-      customer_name:name,phone,address:`${address}, ${city}`,
-      city,items:cart.map(i=>({product_id:i.id,title:i.title,price:i.price,quantity:i.qty,variant:i.variant||null})),
-      total:totals.total,delivery_fee:totals.delivery,
-      payment_method:"COD",status:"Pending"
+      customer_name:name,
+      phone,
+      address:`${address}, ${city}`,
+      city,
+      items:cart.map(i=>({
+        product_id:i.id,
+        title:i.title,
+        price:i.price,
+        quantity:i.qty,
+        variant:i.variant||null
+      })),
+      total:totals.total,
+      delivery_fee:totals.delivery,
+      payment_method:"COD",
+      status:"Pending"
     };
+
     const {error}=await supabase.from("orders").insert(payload);
-    if(error) throw error;
+    if(error)throw error;
+
     cart=[];
     renderCart();
     e.currentTarget.reset();
@@ -737,7 +633,9 @@ $("checkoutForm").addEventListener("submit",async e=>{
   }catch(err){
     console.error(err);
     $("checkoutMessage").textContent=err.message||"Order could not be placed. Please try again.";
-  }finally{$("placeOrder").disabled=!cart.length;}
+  }finally{
+    $("placeOrder").disabled=!cart.length;
+  }
 });
 
 function openAdmin(){
@@ -765,7 +663,8 @@ $("loginForm").addEventListener("submit",async e=>{
   e.preventDefault();
   $("loginMessage").textContent="Signing in…";
   const {error}=await supabase.auth.signInWithPassword({
-    email:$("adminEmail").value.trim(),password:$("adminPassword").value
+    email:$("adminEmail").value.trim(),
+    password:$("adminPassword").value
   });
   if(error){$("loginMessage").textContent=error.message;return;}
   $("loginMessage").textContent="";
@@ -794,10 +693,17 @@ document.querySelector(".admin-tabs").addEventListener("click",e=>{
 
 function renderAdminProducts(){
   if(!$("adminProducts"))return;
-  if(!products.length){$("adminProducts").innerHTML='<div class="empty-state">No products yet. Add your first product above.</div>';return;}
+  if(!products.length){
+    $("adminProducts").innerHTML='<div class="empty-state">No products yet. Add your first product above.</div>';
+    return;
+  }
   $("adminProducts").innerHTML=products.map(p=>`
     <div class="admin-row">
-      <div><strong>${safe(p.title)}</strong><small>${safe(p.category||"Uncategorised")} · ${money(p.price)} · Stock: ${availableStock(p)}</small><small>Barcode: ${safe(p.barcode||"Not set")}</small></div>
+      <div>
+        <strong>${safe(p.title)}</strong>
+        <small>${safe(p.category||"Uncategorised")} · ${money(p.price)} · Stock: ${availableStock(p)}</small>
+        <small>Barcode: ${safe(p.barcode||"Not set")}</small>
+      </div>
       <div class="admin-row-actions"><button data-edit="${safe(p.id)}">Edit</button><button class="delete" data-delete="${safe(p.id)}">Delete</button></div>
     </div>`).join("");
 }
@@ -879,7 +785,8 @@ $("productForm").addEventListener("submit",async e=>{
       price:Math.max(0,Number($("productPrice").value)||0),
       stock:totalStock,
       description:$("productDescription").value.trim(),
-      image_url:images[0]||null,images,
+      image_url:images[0]||null,
+      images,
       barcode:editingProduct?.barcode||barcode(),
       colors:variants.map(v=>v.name),
       options:{name:$("optionName").value.trim()||"Design"},
@@ -913,34 +820,36 @@ async function loadOrders(){
     $("adminOrders").innerHTML=`<div class="empty-state">Orders could not load. Check your orders table and admin read policy. ${safe(error.message)}</div>`;
     return;
   }
-  if(!data?.length){$("adminOrders").innerHTML='<div class="empty-state">No customer orders yet.</div>';return;}
+  if(!data?.length){
+    $("adminOrders").innerHTML='<div class="empty-state">No customer orders yet.</div>';
+    return;
+  }
   $("adminOrders").innerHTML=data.map(o=>{
     const items=Array.isArray(o.items)?o.items:[];
     const summary=items.map(i=>`${i.title||"Product"}${i.variant?` (${i.variant})`:""} × ${i.quantity||i.qty||1}`).join(", ");
+    const total=Number(o.total||0);
+    const delivery=Number(o.delivery_fee||0);
+    const subtotal=total-delivery;
     return `<div class="admin-row" style="align-items:flex-start">
-      <div style="min-width:200px;flex:1"><strong>${safe(o.customer_name||"Customer")}</strong><small>${safe(o.phone||"")} · ${safe(o.city||"")}</small><small>${safe(o.address||"")}</small><small>${safe(summary)}</small><small>${o.created_at?safe(new Date(o.created_at).toLocaleString()):""}</small></div>
-      <div><strong>${money(o.total)}</strong><small>COD · ${safe(o.status||"Pending")}</small></div>
+      <div style="min-width:200px;flex:1">
+        <strong>${safe(o.customer_name||"Customer")}</strong>
+        <small>${safe(o.phone||"")} · ${safe(o.city||"")}</small>
+        <small>${safe(o.address||"")}</small>
+        <small>${safe(summary)}</small>
+        <small>${o.created_at?safe(new Date(o.created_at).toLocaleString()):""}</small>
+      </div>
+      <div>
+        <small>Product Subtotal: ${money(subtotal)}</small>
+        <small>Delivery: ${money(delivery)}</small>
+        <strong>Final Total: ${money(total)}</strong>
+        <small>COD · ${safe(o.status||"Pending")}</small>
+      </div>
     </div>`;
   }).join("");
 }
 $("refreshOrders").addEventListener("click",loadOrders);
 
-$("settingsForm").addEventListener("submit",async e=>{
-  e.preventDefault();
-  const fee=Math.max(0,Number($("deliveryFeeInput").value)||0);
-  $("settingsMessage").textContent="Saving…";
-  const {data:existing,error:readError}=await supabase.from("store_settings").select("id").limit(1).maybeSingle();
-  if(readError){$("settingsMessage").textContent="Could not read settings: "+readError.message;return;}
-  let result;
-  if(existing) result=await supabase.from("store_settings").update({delivery_fee:fee}).eq("id",existing.id);
-  else result=await supabase.from("store_settings").insert({delivery_fee:fee});
-  if(result.error){$("settingsMessage").textContent="Save failed: "+result.error.message;return;}
-  deliveryFee=fee;
-  renderCart();
-  $("settingsMessage").textContent="Delivery fee saved.";
-  notify("Delivery fee updated.");
-});
-
+/* Fixed-fee settings are intentionally not used; shipping is automatic. */
 $("year").textContent=new Date().getFullYear();
 await loadSettings();
 await loadProducts();

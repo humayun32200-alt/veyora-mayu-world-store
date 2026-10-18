@@ -2,915 +2,442 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#11110f">
-  <meta name="description" content="VEYORA — MAYU WORLD. Fashion, home essentials and everyday products.">
-  <title>VEYORA — MAYU WORLD</title>
-
-  <style>
-    :root {
-      --black: #11110f;
-      --gold: #c7a45b;
-      --cream: #f7f3ea;
-      --white: #ffffff;
-      --muted: #77736b;
-      --border: #e6dece;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      background: var(--cream);
-      color: var(--black);
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    button, input, select { font: inherit; }
-    button { cursor: pointer; }
-
-    .announcement {
-      background: var(--gold);
-      color: #17140d;
-      padding: 10px;
-      text-align: center;
-      font-size: 11px;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-
-    header {
-      background: var(--black);
-      color: white;
-      padding: 15px 5%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-      border-bottom: 1px solid #4b402a;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand-logo {
-      height: 64px;
-      width: auto;
-      max-width: 140px;
-      object-fit: contain;
-    }
-
-    .brand-text {
-      font-family: Georgia, serif;
-      font-size: 19px;
-      letter-spacing: 3px;
-      font-weight: bold;
-    }
-
-    .brand-text small {
-      display: block;
-      color: var(--gold);
-      font-family: Arial, sans-serif;
-      font-size: 9px;
-      letter-spacing: 3px;
-      margin-top: 5px;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    nav a {
-      font-size: 13px;
-      color: #f2eee6;
-    }
-
-    nav a:hover { color: var(--gold); }
-
-    .cart-button {
-      border: 0;
-      padding: 11px 15px;
-      background: var(--gold);
-      color: var(--black);
-      font-weight: bold;
-    }
-
-    .hero {
-      min-height: 420px;
-      padding: 65px 7%;
-      display: flex;
-      align-items: center;
-      color: white;
-      background:
-        linear-gradient(90deg, rgba(0,0,0,.92), rgba(0,0,0,.45)),
-        radial-gradient(ellipse at 75% 35%, #79613a, #28231a 48%, #11110f);
-    }
-
-    .hero-content { max-width: 650px; }
-
-    .eyebrow {
-      color: var(--gold);
-      font-size: 11px;
-      letter-spacing: 4px;
-      font-weight: bold;
-    }
-
-    .hero h1 {
-      font-family: Georgia, serif;
-      font-size: clamp(38px, 6vw, 66px);
-      line-height: 1.1;
-      font-weight: normal;
-      margin: 20px 0;
-    }
-
-    .hero p {
-      max-width: 510px;
-      color: #e1ddd4;
-      line-height: 1.8;
-      font-size: 14px;
-    }
-
-    .gold-button {
-      display: inline-block;
-      border: 0;
-      margin-top: 15px;
-      padding: 14px 24px;
-      background: var(--gold);
-      color: #17140d;
-      font-weight: bold;
-    }
-
-    .section { padding: 52px 5%; }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 28px;
-    }
-
-    .section-heading span {
-      color: #927137;
-      font-size: 11px;
-      font-weight: bold;
-      letter-spacing: 3px;
-    }
-
-    .section-heading h2 {
-      font-family: Georgia, serif;
-      font-weight: normal;
-      font-size: 33px;
-      margin: 10px 0;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .category {
-      background: var(--black);
-      color: white;
-      border: 1px solid #4d4029;
-      padding: 22px 10px;
-      text-align: center;
-      transition: .2s;
-    }
-
-    .category:hover, .category.active {
-      background: #382d1b;
-      border-color: var(--gold);
-    }
-
-    .category-icon {
-      display: block;
-      color: var(--gold);
-      font-size: 26px;
-      margin-bottom: 10px;
-    }
-
-    .category strong { font-size: 12px; }
-
-    .toolbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 24px 0;
-    }
-
-    .toolbar input, .toolbar select {
-      background: white;
-      border: 1px solid #d9d0bf;
-      padding: 12px;
-      min-width: 170px;
-      max-width: 100%;
-    }
-
-    .toolbar input { flex: 1; }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .product-card {
-      background: white;
-      border: 1px solid var(--border);
-      min-width: 0;
-    }
-
-    .product-image {
-      width: 100%;
-      height: 245px;
-      object-fit: cover;
-      display: block;
-      background: #e9e1d1;
-    }
-
-    .image-placeholder {
-      height: 245px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      background: linear-gradient(135deg, #e9e0d0, #cbb993);
-      color: #665333;
-      text-align: center;
-      padding: 12px;
-    }
-
-    .image-placeholder span { font-size: 38px; }
-    .image-placeholder small { margin-top: 10px; }
-
-    .product-info { padding: 15px; }
-
-    .product-category {
-      color: #927137;
-      font-size: 10px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .product-info h3 {
-      font-size: 15px;
-      margin: 9px 0;
-      overflow-wrap: anywhere;
-    }
-
-    .product-info p {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.6;
-    }
-
-    .price {
-      font-size: 17px;
-      font-weight: bold;
-      margin: 12px 0;
-    }
-
-    .add-button {
-      width: 100%;
-      padding: 12px 8px;
-      border: 0;
-      background: var(--black);
-      color: white;
-      font-size: 12px;
-    }
-
-    .add-button:hover { background: #49381d; }
-
-    .empty-message {
-      grid-column: 1 / -1;
-      text-align: center;
-      padding: 35px;
-      background: white;
-      color: var(--muted);
-    }
-
-    .benefits {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      padding: 30px 5%;
-      background: #eee7d8;
-      text-align: center;
-    }
-
-    .benefit strong { display: block; margin-bottom: 8px; }
-    .benefit p { color: var(--muted); font-size: 12px; }
-
-    .about {
-      padding: 55px 8%;
-      text-align: center;
-      background: #eae2d2;
-    }
-
-    .about p {
-      max-width: 720px;
-      margin: 15px auto;
-      color: #5f5a50;
-      font-size: 14px;
-      line-height: 1.9;
-    }
-
-    footer {
-      background: var(--black);
-      color: white;
-      padding: 38px 5% 20px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 28px;
-    }
-
-    footer h3 {
-      color: var(--gold);
-      font-size: 13px;
-      letter-spacing: 1px;
-    }
-
-    footer p, footer a {
-      color: #d1ccc2;
-      font-size: 12px;
-      line-height: 2;
-    }
-
-    footer a:hover { color: var(--gold); }
-
-    .footer-bottom {
-      border-top: 1px solid #39352c;
-      margin-top: 25px;
-      padding-top: 18px;
-      text-align: center;
-      color: #b9b3a7;
-      font-size: 11px;
-    }
-
-    .cart-panel {
-      position: fixed;
-      top: 0;
-      right: -450px;
-      width: min(420px, 100%);
-      height: 100vh;
-      overflow-y: auto;
-      background: white;
-      z-index: 100;
-      padding: 22px;
-      box-shadow: -5px 0 30px #0002;
-      transition: right .25s;
-    }
-
-    .cart-panel.open { right: 0; }
-
-    .cart-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 12px;
-    }
-
-    .close-button {
-      background: none;
-      border: 0;
-      font-size: 26px;
-    }
-
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 0;
-      border-bottom: 1px solid #eee;
-      font-size: 13px;
-    }
-
-    .cart-item button {
-      background: none;
-      border: 0;
-      color: #a33;
-      padding: 5px;
-    }
-
-    .cart-total {
-      display: flex;
-      justify-content: space-between;
-      padding: 18px 0;
-      font-weight: bold;
-    }
-
-    .whatsapp-button {
-      display: block;
-      width: 100%;
-      padding: 14px;
-      border: 0;
-      background: #218c52;
-      color: white;
-      text-align: center;
-      font-weight: bold;
-    }
-
-    .notice {
-      color: var(--muted);
-      font-size: 11px;
-      line-height: 1.6;
-    }
-
-    @media (max-width: 900px) {
-      .products { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .categories { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    }
-
-    @media (max-width: 650px) {
-      header { padding: 12px 4%; }
-      .brand-logo { height: 48px; max-width: 95px; }
-      .brand-text { font-size: 15px; letter-spacing: 2px; }
-      .brand-text small { font-size: 8px; letter-spacing: 2px; }
-      nav { gap: 12px; }
-      nav a { font-size: 12px; }
-      .hero { min-height: 360px; padding: 48px 6%; }
-      .section { padding: 38px 4%; }
-      .products { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-      .product-image, .image-placeholder { height: 175px; }
-      .product-info { padding: 10px; }
-      .product-info h3 { font-size: 13px; }
-      .product-info p { font-size: 11px; }
-      .categories { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .benefits { grid-template-columns: 1fr; gap: 8px; }
-      .footer-grid { grid-template-columns: 1fr; gap: 12px; }
-      .section-heading h2 { font-size: 28px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#11110f">
+<meta name="description" content="VEYORA — MAYU WORLD. Fashion, home essentials and everyday products.">
+<title>VEYORA — MAYU WORLD</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+<style>
+:root{--bg:#11110f;--panel:#1c1b18;--gold:#d5b36a;--cream:#f7f2e8;--muted:#aaa69b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--cream);font-family:Arial,sans-serif}
+header{padding:18px 5%;border-bottom:1px solid #39352b;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:60px;height:60px;object-fit:contain}
+.brand h1{color:var(--gold);font-size:23px;margin:0;letter-spacing:2px}
+.brand p{font-size:11px;letter-spacing:2px;margin:5px 0 0}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer;border:1px solid var(--gold);background:var(--gold);color:#17140e;padding:11px 15px;border-radius:5px;font-weight:bold}
+button.secondary{background:transparent;color:var(--gold)}
+button.danger{background:#612b26;border-color:#612b26;color:white}
+main{max-width:1200px;margin:auto;padding:22px 5% 50px}
+.banner{text-align:center;padding:24px 10px;color:var(--gold);letter-spacing:3px;border-bottom:1px solid #39352b}
+h2{color:var(--gold)}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+.tools input,.tools select{flex:1;min-width:150px}
+input,textarea,select{width:100%;padding:11px;background:#121210;color:var(--cream);border:1px solid #514a3b;border-radius:5px;margin:5px 0 12px}
+textarea{min-height:85px;resize:vertical}
+label{font-size:13px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:17px}
+.card{background:var(--panel);border:1px solid #383329;border-radius:8px;overflow:hidden}
+.card img.product-img{width:100%;height:230px;object-fit:cover;background:#27251f}
+.card-content{padding:14px}
+.card h3{margin:0 0 9px}
+.price{color:var(--gold);font-size:20px;font-weight:bold}
+.small{font-size:12px;color:var(--muted)}
+.panel{background:var(--panel);padding:18px;border:1px solid #403a2d;border-radius:8px;margin:22px 0}
+.hidden{display:none!important}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.cart-item{border-bottom:1px solid #403a2d;padding:10px 0}
+footer{text-align:center;padding:25px;border-top:1px solid #39352b;color:var(--muted)}
+a{color:var(--gold)}
+#notice{padding:12px;border-radius:5px;margin:12px 0;white-space:pre-wrap}
+@media(max-width:500px){.brand h1{font-size:18px}.card img.product-img{height:190px}}
+</style>
 </head>
-
 <body>
-  <div class="announcement">
-    WELCOME TO VEYORA — MAYU WORLD
+<header>
+  <div class="brand">
+    <img src="./WhatsApp%20Image%202026-10-12%20at%2011.22.27%20PM%20(1).jpeg" alt="VEYORA Markhor Logo">
+    <div><h1>VEYORA</h1><p>MAYU WORLD</p></div>
   </div>
+  <div class="actions">
+    <button class="secondary" onclick="showCart()">Cart (<span id="cartCount">0</span>)</button>
+    <button class="secondary" onclick="document.getElementById('adminLogin').classList.toggle('hidden')">Admin Login</button>
+  </div>
+</header>
 
-  <header>
-    <a class="brand" href="#home" aria-label="VEYORA home">
-      <img
-        class="brand-logo"
-        src="./WhatsApp%20Image%202026-10-12%20at%2011.22.27%20PM%20(1).jpeg"
-        alt="VEYORA Markhor Logo"
-        onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block';"
-      >
-      <span id="logoFallback" style="display:none;color:#c7a45b;font-weight:bold;">VEYORA</span>
-      <span class="brand-text">
-        VEYORA
-        <small>MAYU WORLD</small>
-      </span>
-    </a>
+<div class="banner">WELCOME TO VEYORA — PREMIUM PRODUCTS FOR EVERY LIFE</div>
 
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#categories">Categories</a>
-      <a href="#shop">Shop</a>
-      <a href="#about">About Us</a>
-    </nav>
+<main>
+  <section id="notice" class="hidden"></section>
 
-    <button class="cart-button" onclick="toggleCart(true)">
-      Cart (<span id="cartCount">0</span>)
-    </button>
-  </header>
+  <section id="adminLogin" class="panel hidden">
+    <h2>Admin Login</h2>
+    <p class="small">Sign in with the admin email and password you created in Supabase.</p>
+    <form id="loginForm">
+      <label>Email</label><input id="loginEmail" type="email" required autocomplete="username">
+      <label>Password</label><input id="loginPassword" type="password" required autocomplete="current-password">
+      <button type="submit">Login</button>
+    </form>
+  </section>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-content">
-        <div class="eyebrow">WELCOME TO VEYORA</div>
-        <h1>Elegance for<br>Everyday Living.</h1>
-        <p>
-          Discover fashion, home essentials and everyday products
-          selected for your lifestyle. Explore the world of VEYORA.
-        </p>
-        <a class="gold-button" href="#shop">EXPLORE COLLECTION</a>
-      </div>
-    </section>
-
-    <section class="section" id="categories">
-      <div class="section-heading">
-        <span>EXPLORE VEYORA</span>
-        <h2>Shop By Category</h2>
-        <p>Find something special for every part of your life.</p>
-      </div>
-
-      <div class="categories">
-        <button class="category" onclick="selectCategory('Men’s Unstitched Suits',this)">
-          <span class="category-icon">✦</span>
-          <strong>Men's Suits</strong>
-        </button>
-        <button class="category" onclick="selectCategory('Women’s Premium Suits',this)">
-          <span class="category-icon">✧</span>
-          <strong>Women's Suits</strong>
-        </button>
-        <button class="category" onclick="selectCategory('Bedsheets',this)">
-          <span class="category-icon">⌂</span>
-          <strong>Bedsheets</strong>
-        </button>
-        <button class="category" onclick="selectCategory('Shawls',this)">
-          <span class="category-icon">◇</span>
-          <strong>Shawls</strong>
-        </button>
-        <button class="category" onclick="selectCategory('Home Accessories',this)">
-          <span class="category-icon">❖</span>
-          <strong>Home Accessories</strong>
-        </button>
-      </div>
-    </section>
-
-    <section class="section" id="shop">
-      <div class="section-heading">
-        <span>THE VEYORA COLLECTION</span>
-        <h2>Our Products</h2>
-        <p>Product details and prices can be edited in the website code.</p>
-      </div>
-
-      <div class="toolbar">
-        <input id="searchInput" type="search" placeholder="Search products..." oninput="renderProducts()">
-
-        <select id="categoryFilter" onchange="renderProducts()">
-          <option value="">All Categories</option>
-          <option>Men’s Unstitched Suits</option>
-          <option>Women’s Premium Suits</option>
-          <option>Bedsheets</option>
-          <option>Shawls</option>
-          <option>Home Accessories</option>
-        </select>
-
-        <select id="sortFilter" onchange="renderProducts()">
-          <option value="default">Sort: Default</option>
-          <option value="low">Price: Low to High</option>
-          <option value="high">Price: High to Low</option>
-          <option value="name">Name: A to Z</option>
-        </select>
-
-        <button class="gold-button" onclick="clearFilters()">Show All</button>
-      </div>
-
-      <div class="products" id="productGrid"></div>
-    </section>
-
-    <section class="benefits">
-      <div class="benefit">
-        <strong>✦ Carefully Selected</strong>
-        <p>Products for fashion and everyday living.</p>
-      </div>
-      <div class="benefit">
-        <strong>✧ Convenient Shopping</strong>
-        <p>Browse your collection in one place.</p>
-      </div>
-      <div class="benefit">
-        <strong>◇ Contact Us</strong>
-        <p>Ask questions before placing an order.</p>
-      </div>
-    </section>
-
-    <section class="about" id="about">
-      <div class="section-heading">
-        <span>OUR STORY</span>
-        <h2>About VEYORA</h2>
-      </div>
-      <p>
-        Welcome to VEYORA — MAYU WORLD. Our goal is to bring fashion,
-        home essentials and useful everyday products together in one
-        convenient shopping destination.
-      </p>
-      <p>
-        Explore our collections, find products you love, and contact
-        us if you need help with your order.
-      </p>
-      <a class="gold-button" href="#shop">DISCOVER OUR PRODUCTS</a>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-grid">
-      <div>
-        <h3>VEYORA — MAYU WORLD</h3>
-        <p>Your destination for fashion, home essentials and everyday living.</p>
-      </div>
-
-      <div>
-        <h3>QUICK LINKS</h3>
-        <p><a href="#home">Home</a></p>
-        <p><a href="#categories">Categories</a></p>
-        <p><a href="#shop">Shop Products</a></p>
-        <p><a href="#about">About Us</a></p>
-      </div>
-
-      <div>
-        <h3>CONTACT</h3>
-        <p>For product enquiries and orders, contact us on WhatsApp.</p>
-        <p><a id="footerWhatsApp" href="#" onclick="openWhatsApp(event)">WhatsApp Us</a></p>
-      </div>
+  <section id="adminPanel" class="panel hidden">
+    <div class="actions" style="justify-content:space-between">
+      <h2>VEYORA Admin Panel</h2>
+      <button class="secondary" onclick="logout()">Logout</button>
     </div>
+    <h3 id="formHeading">Add New Product</h3>
+    <form id="productForm">
+      <input type="hidden" id="productId">
+      <div class="row">
+        <div><label>Product Title *</label><input id="title" required></div>
+        <div><label>Price (PKR) *</label><input id="price" type="number" min="0" step="0.01" required></div>
+        <div><label>Category</label><input id="category" placeholder="Men, Women, Home..."></div>
+        <div><label>Stock quantity</label><input id="stock" type="number" min="0" value="1" required></div>
+      </div>
+      <label>Description</label><textarea id="description"></textarea>
+      <label>Colours (comma separated)</label><input id="colors" placeholder="Black, Cream, Blue">
+      <label>Product photo</label><input id="photo" type="file" accept="image/*">
+      <p class="small">Photo limit: 5 MB. For editing, select a new photo only if you want to replace the existing one.</p>
+      <div class="actions">
+        <button type="submit">Save Product</button>
+        <button type="button" class="secondary" onclick="resetProductForm()">Clear Form</button>
+      </div>
+    </form>
+    <hr style="border-color:#403a2d;margin:25px 0">
+    <h2>Manage Products</h2>
+    <div id="manageProducts"></div>
+    <hr style="border-color:#403a2d;margin:25px 0">
+    <h2>Customer COD Orders</h2>
+    <button class="secondary" onclick="loadOrders()">Refresh Orders</button>
+    <div id="ordersList"></div>
+  </section>
 
-    <div class="footer-bottom">
-      © <span id="year"></span> VEYORA — MAYU WORLD. All rights reserved.
+  <section>
+    <h2>Shop Products</h2>
+    <div class="tools">
+      <input id="search" placeholder="Search products..." oninput="renderProducts()">
+      <select id="categoryFilter" onchange="renderProducts()"><option value="">All Categories</option></select>
+      <select id="sort" onchange="renderProducts()">
+        <option value="new">Newest first</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+      </select>
     </div>
-  </footer>
+    <div id="products" class="grid">Loading products...</div>
+  </section>
 
-  <aside class="cart-panel" id="cartPanel" aria-label="Shopping cart">
-    <div class="cart-header">
-      <h2>Your Cart</h2>
-      <button class="close-button" onclick="toggleCart(false)" aria-label="Close cart">×</button>
+  <section id="cartPanel" class="panel hidden">
+    <div class="actions" style="justify-content:space-between">
+      <h2>Your Cart</h2><button class="secondary" onclick="hideCart()">Continue Shopping</button>
     </div>
-
     <div id="cartItems"></div>
+    <h3>Total: PKR <span id="cartTotal">0</span></h3>
+    <h2>Cash on Delivery Checkout</h2>
+    <form id="checkoutForm">
+      <label>Full name *</label><input id="customerName" required>
+      <label>Phone number *</label><input id="customerPhone" type="tel" required>
+      <label>City *</label><input id="customerCity" required>
+      <label>Complete delivery address *</label><textarea id="customerAddress" required></textarea>
+      <p class="small">Payment method: Cash on Delivery (COD)</p>
+      <button type="submit">Place COD Order</button>
+    </form>
+  </section>
 
-    <div class="cart-total">
-      <span>Total</span>
-      <span id="cartTotal">Rs 0</span>
-    </div>
+  <section class="panel">
+    <h2>About VEYORA</h2>
+    <p>Welcome to VEYORA — MAYU WORLD. Discover fashion, home essentials and everyday products in one place.</p>
+    <p class="small">Orders are subject to product availability and delivery confirmation.</p>
+  </section>
+</main>
 
-    <p class="notice">
-      Delivery charges, availability and final order details should be
-      confirmed with the store before purchase.
-    </p>
+<footer>© <span id="year"></span> VEYORA — MAYU WORLD</footer>
 
-    <button class="whatsapp-button" onclick="checkoutWhatsApp()">
-      ORDER VIA WHATSAPP
-    </button>
-  </aside>
+<script>
+/* STEP 2: Replace only these two placeholder values with your Supabase details. */
+const SUPABASE_URL = "https://klarsnibooxtzehnzjwa.supabase.co/rest/v1/";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_Yplii1XM_u7T4-GwkMVcNg_0zjM_tex";
 
-  <script>
-    // STORE SETTINGS: Change the WhatsApp number here if required.
-    const STORE = {
-      name: "VEYORA — MAYU WORLD",
-      whatsappNumber: "923713763119"
+/* Use the exact bucket name created in Supabase Storage. */
+const IMAGE_BUCKET = "Product-images";
+
+let db = null;
+let currentUser = null;
+let products = [];
+let cart = [];
+
+const $ = id => document.getElementById(id);
+const money = value => Number(value || 0).toLocaleString("en-PK", {maximumFractionDigits:2});
+const escapeHTML = value => String(value ?? "").replace(/[&<>"']/g, c => ({
+  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+}[c]));
+
+function notify(message, error=false) {
+  const box = $("notice");
+  box.textContent = message;
+  box.classList.remove("hidden");
+  box.style.color = error ? "#ffaaa0" : "#d5b36a";
+  box.scrollIntoView({behavior:"smooth", block:"nearest"});
+}
+function clearNotice(){ $("notice").classList.add("hidden"); }
+
+async function init() {
+  $("year").textContent = new Date().getFullYear();
+  if (SUPABASE_URL.startsWith("PASTE_") || SUPABASE_PUBLISHABLE_KEY.startsWith("PASTE_")) {
+    notify("Setup needed: add your Supabase Project URL and Publishable key in the code.", true);
+    $("products").textContent = "Website setup is not complete yet.";
+    return;
+  }
+  try {
+    db = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+    const {data:{session}} = await db.auth.getSession();
+    currentUser = session?.user || null;
+    setAdminUI();
+    await loadProducts();
+    db.auth.onAuthStateChange((_event, session) => {
+      currentUser = session?.user || null;
+      setAdminUI();
+    });
+  } catch (e) {
+    notify("Connection error: " + e.message, true);
+  }
+}
+function setAdminUI() {
+  $("adminPanel").classList.toggle("hidden", !currentUser);
+  if (currentUser) $("adminLogin").classList.add("hidden");
+}
+async function login(event) {
+  event.preventDefault();
+  clearNotice();
+  const {error} = await db.auth.signInWithPassword({
+    email:$("loginEmail").value.trim(),
+    password:$("loginPassword").value
+  });
+  if(error) return notify("Login failed: " + error.message, true);
+  currentUser = (await db.auth.getUser()).data.user;
+  setAdminUI();
+  await loadProducts();
+  await loadOrders();
+  notify("Admin login successful.");
+}
+async function logout() {
+  const {error} = await db.auth.signOut();
+  if(error) return notify(error.message, true);
+  currentUser = null;
+  setAdminUI();
+  notify("You have logged out.");
+}
+$("loginForm").addEventListener("submit", login);
+
+async function loadProducts() {
+  const {data, error} = await db.from("products").select("*").order("created_at",{ascending:false});
+  if(error) {
+    $("products").textContent = "Could not load products: " + error.message;
+    return;
+  }
+  products = data || [];
+  const oldCategory = $("categoryFilter").value;
+  const categories = [...new Set(products.map(p=>p.category).filter(Boolean))];
+  $("categoryFilter").innerHTML = '<option value="">All Categories</option>' +
+    categories.map(c=>`<option value="${escapeHTML(c)}">${escapeHTML(c)}</option>`).join("");
+  $("categoryFilter").value = categories.includes(oldCategory) ? oldCategory : "";
+  renderProducts();
+  renderManageProducts();
+}
+function renderProducts() {
+  const query = $("search").value.toLowerCase();
+  const category = $("categoryFilter").value;
+  let list = products.filter(p =>
+    (String(p.title||"")+" "+String(p.description||"")+" "+String(p.category||"")).toLowerCase().includes(query) &&
+    (!category || p.category===category)
+  );
+  if($("sort").value==="low") list.sort((a,b)=>Number(a.price)-Number(b.price));
+  if($("sort").value==="high") list.sort((a,b)=>Number(b.price)-Number(a.price));
+  $("products").innerHTML = list.length ? list.map(p=>`
+    <article class="card">
+      ${p.image_url ? `<img class="product-img" src="${escapeHTML(p.image_url)}" alt="${escapeHTML(p.title)}">` : `<div class="product-img"></div>`}
+      <div class="card-content">
+        <h3>${escapeHTML(p.title)}</h3>
+        <div class="price">PKR ${money(p.price)}</div>
+        <p>${escapeHTML(p.description||"")}</p>
+        ${p.category?`<p class="small">Category: ${escapeHTML(p.category)}</p>`:""}
+        ${p.colors?.length?`<p class="small">Colours: ${p.colors.map(escapeHTML).join(", ")}</p>`:""}
+        <p class="small">${Number(p.stock)>0?"In stock: "+Number(p.stock):"Currently unavailable"}</p>
+        ${p.barcode?`<p class="small">Barcode: ${escapeHTML(p.barcode)}</p>`:""}
+        <button ${Number(p.stock)<=0?"disabled":""} onclick="addToCart(${Number(p.id)})">Add to Cart</button>
+      </div>
+    </article>`).join("") : "<p>No products found yet.</p>";
+}
+function addToCart(id) {
+  const p = products.find(item=>Number(item.id)===id);
+  if(!p || Number(p.stock)<=0) return notify("This product is unavailable.", true);
+  const item = cart.find(x=>x.id===id);
+  if(item) {
+    if(item.quantity>=Number(p.stock)) return notify("Only "+p.stock+" available.", true);
+    item.quantity++;
+  } else cart.push({id:p.id,title:p.title,price:Number(p.price),quantity:1});
+  renderCart();
+  notify("Added to cart.");
+}
+function renderCart() {
+  $("cartCount").textContent = cart.reduce((n,p)=>n+p.quantity,0);
+  $("cartItems").innerHTML = cart.length ? cart.map(p=>`
+    <div class="cart-item">
+      <strong>${escapeHTML(p.title)}</strong> — PKR ${money(p.price)} × ${p.quantity}
+      <div class="actions">
+        <button class="secondary" onclick="changeQty(${Number(p.id)},-1)">−</button>
+        <button class="secondary" onclick="changeQty(${Number(p.id)},1)">+</button>
+        <button class="danger" onclick="removeCart(${Number(p.id)})">Remove</button>
+      </div>
+    </div>`).join("") : "<p>Your cart is empty.</p>";
+  $("cartTotal").textContent = money(cart.reduce((n,p)=>n+p.price*p.quantity,0));
+}
+function changeQty(id, delta) {
+  const item=cart.find(p=>Number(p.id)===id);
+  const product=products.find(p=>Number(p.id)===id);
+  if(!item) return;
+  if(delta>0 && item.quantity>=Number(product?.stock||0)) return notify("Stock limit reached.",true);
+  item.quantity+=delta;
+  if(item.quantity<=0) cart=cart.filter(p=>Number(p.id)!==id);
+  renderCart();
+}
+function removeCart(id){cart=cart.filter(p=>Number(p.id)!==id);renderCart()}
+function showCart(){$("cartPanel").classList.remove("hidden");renderCart();$("cartPanel").scrollIntoView({behavior:"smooth"})}
+function hideCart(){$("cartPanel").classList.add("hidden")}
+
+function newBarcode() {
+  return "VYR"+Date.now().toString()+Math.random().toString(10).slice(2,6);
+}
+function resetProductForm() {
+  $("productForm").reset();
+  $("productId").value="";
+  $("stock").value="1";
+  $("formHeading").textContent="Add New Product";
+}
+async function uploadPhoto(file) {
+  if(!file) return null;
+  if(file.size>5*1024*1024) throw new Error("Photo must be 5 MB or smaller.");
+  if(!file.type.startsWith("image/")) throw new Error("Please select an image file.");
+  const ext=(file.name.split(".").pop()||"jpg").replace(/[^a-zA-Z0-9]/g,"");
+  const path=Date.now()+"-"+Math.random().toString(36).slice(2)+"."+ext;
+  const {error}=await db.storage.from(IMAGE_BUCKET).upload(path,file,{upsert:false,contentType:file.type});
+  if(error) throw error;
+  return db.storage.from(IMAGE_BUCKET).getPublicUrl(path).data.publicUrl;
+}
+$("productForm").addEventListener("submit", async event=>{
+  event.preventDefault();
+  if(!currentUser) return notify("Please login as admin first.",true);
+  clearNotice();
+  try {
+    const id=$("productId").value;
+    const old=products.find(p=>String(p.id)===id);
+    let image_url=old?.image_url||"";
+    const file=$("photo").files[0];
+    if(file) image_url=await uploadPhoto(file);
+    const payload={
+      title:$("title").value.trim(),
+      description:$("description").value.trim(),
+      price:Number($("price").value),
+      category:$("category").value.trim(),
+      stock:Math.max(0,parseInt($("stock").value,10)||0),
+      colors:$("colors").value.split(",").map(x=>x.trim()).filter(Boolean),
+      image_url
     };
-
-    // ADD YOUR PRODUCTS HERE.
-    // Replace example products, prices, descriptions and image paths
-    // with your own product details.
-    // Image files should be uploaded to the GitHub repository root.
-
-    const products = [
-      {
-        id: 1,
-        name: "Your Men's Suit",
-        category: "Men’s Unstitched Suits",
-        price: 0,
-        description: "Add your product description here.",
-        image: ""
-      },
-      {
-        id: 2,
-        name: "Your Women's Suit",
-        category: "Women’s Premium Suits",
-        price: 0,
-        description: "Add your product description here.",
-        image: ""
-      },
-      {
-        id: 3,
-        name: "Your Bedsheet",
-        category: "Bedsheets",
-        price: 0,
-        description: "Add your product description here.",
-        image: ""
-      },
-      {
-        id: 4,
-        name: "Your Shawl",
-        category: "Shawls",
-        price: 0,
-        description: "Add your product description here.",
-        image: ""
-      },
-      {
-        id: 5,
-        name: "Your Home Accessory",
-        category: "Home Accessories",
-        price: 0,
-        description: "Add your product description here.",
-        image: ""
-      }
-    ];
-
-    let cart = [];
-    let selectedCategory = "";
-
-    const money = amount =>
-      "Rs " + Number(amount).toLocaleString("en-PK");
-
-    function renderProducts() {
-      const search = document.getElementById("searchInput").value
-        .trim().toLowerCase();
-
-      const category = selectedCategory ||
-        document.getElementById("categoryFilter").value;
-
-      const sort = document.getElementById("sortFilter").value;
-
-      let filtered = products.filter(product => {
-        const matchesSearch =
-          (product.name + " " + product.category + " " +
-          product.description).toLowerCase().includes(search);
-
-        const matchesCategory = !category ||
-          product.category === category;
-
-        return matchesSearch && matchesCategory;
-      });
-
-      if (sort === "low") filtered.sort((a, b) => a.price - b.price);
-      if (sort === "high") filtered.sort((a, b) => b.price - a.price);
-      if (sort === "name") filtered.sort((a, b) => a.name.localeCompare(b.name));
-
-      const grid = document.getElementById("productGrid");
-
-      if (!filtered.length) {
-        grid.innerHTML =
-          '<div class="empty-message">No products found. Try another search or category.</div>';
-        return;
-      }
-
-      grid.innerHTML = filtered.map(product => {
-        const image = product.image
-          ? '<img class="product-image" src="' + escapeHTML(product.image) +
-            '" alt="' + escapeHTML(product.name) +
-            '" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';">' +
-            '<div class="image-placeholder" style="display:none"><span>✦</span><small>Add your product image</small></div>'
-          : '<div class="image-placeholder"><span>✦</span><small>Add your product image</small></div>';
-
-        return `
-          <article class="product-card">
-            ${image}
-            <div class="product-info">
-              <div class="product-category">${escapeHTML(product.category)}</div>
-              <h3>${escapeHTML(product.name)}</h3>
-              <p>${escapeHTML(product.description)}</p>
-              <div class="price">${money(product.price)}</div>
-              <button class="add-button" onclick="addToCart(${product.id})">
-                ADD TO CART
-              </button>
-            </div>
-          </article>
-        `;
-      }).join("");
+    if(!payload.title || !Number.isFinite(payload.price) || payload.price<0) throw new Error("Enter a valid title and price.");
+    let result;
+    if(id) {
+      result=await db.from("products").update(payload).eq("id",Number(id));
+    } else {
+      payload.barcode=newBarcode();
+      result=await db.from("products").insert(payload);
     }
-
-    function escapeHTML(value) {
-      return String(value).replace(/[&<>"']/g, char => ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;"
-      })[char]);
+    if(result.error) throw result.error;
+    resetProductForm();
+    await loadProducts();
+    notify(id?"Product updated successfully.":"Product added successfully.");
+  } catch(e) {
+    notify("Could not save product: "+e.message,true);
+  }
+});
+function renderManageProducts() {
+  if(!currentUser) return;
+  $("manageProducts").innerHTML=products.length?products.map(p=>`
+    <div class="cart-item">
+      <strong>${escapeHTML(p.title)}</strong> — PKR ${money(p.price)}
+      <p class="small">Stock: ${Number(p.stock)} | Barcode: ${escapeHTML(p.barcode||"—")}</p>
+      ${p.barcode?`<svg id="barcode-${Number(p.id)}"></svg>`:""}
+      <div class="actions">
+        <button class="secondary" onclick="editProduct(${Number(p.id)})">Edit</button>
+        <button class="danger" onclick="deleteProduct(${Number(p.id)})">Delete</button>
+      </div>
+    </div>`).join(""):"<p>No products added yet.</p>";
+  if(window.JsBarcode) products.forEach(p=>{
+    if(p.barcode && $("barcode-"+p.id)) {
+      try{JsBarcode("#barcode-"+p.id,p.barcode,{format:"CODE128",width:1.5,height:42,displayValue:true,background:"#f7f2e8",lineColor:"#11110f",fontSize:12})}catch(e){}
     }
-
-    function selectCategory(category, button) {
-      selectedCategory = category;
-      document.getElementById("categoryFilter").value = category;
-
-      document.querySelectorAll(".category").forEach(item => {
-        item.classList.remove("active");
-      });
-
-      button.classList.add("active");
-      document.getElementById("shop").scrollIntoView({ behavior: "smooth" });
-      renderProducts();
+  });
+}
+function editProduct(id) {
+  const p=products.find(x=>Number(x.id)===id);
+  if(!p)return;
+  $("productId").value=p.id;
+  $("title").value=p.title||"";
+  $("description").value=p.description||"";
+  $("price").value=p.price;
+  $("category").value=p.category||"";
+  $("stock").value=p.stock??0;
+  $("colors").value=(p.colors||[]).join(", ");
+  $("photo").value="";
+  $("formHeading").textContent="Edit Product";
+  $("productForm").scrollIntoView({behavior:"smooth"});
+}
+async function deleteProduct(id) {
+  if(!currentUser || !confirm("Delete this product?"))return;
+  const {error}=await db.from("products").delete().eq("id",id);
+  if(error)return notify("Delete failed: "+error.message,true);
+  cart=cart.filter(p=>Number(p.id)!==id);
+  await loadProducts();
+  renderCart();
+  notify("Product deleted.");
+}
+async function loadOrders() {
+  if(!currentUser)return;
+  const {data,error}=await db.from("orders").select("*").order("created_at",{ascending:false});
+  if(error){$("ordersList").textContent="Could not load orders: "+error.message;return}
+  $("ordersList").innerHTML=(data||[]).length?(data||[]).map(o=>`
+    <div class="cart-item">
+      <strong>Order #${Number(o.id)}</strong> — ${escapeHTML(o.status)}
+      <p>${escapeHTML(o.customer_name)} | ${escapeHTML(o.phone)}</p>
+      <p>${escapeHTML(o.address)}, ${escapeHTML(o.city||"")}</p>
+      <p>Items: ${escapeHTML(JSON.stringify(o.items))}</p>
+      <strong>Total: PKR ${money(o.total)}</strong>
+      <p class="small">${escapeHTML(o.created_at||"")}</p>
+    </div>`).join(""):"<p>No orders yet.</p>";
+}
+$("checkoutForm").addEventListener("submit",async event=>{
+  event.preventDefault();
+  if(!cart.length)return notify("Your cart is empty.",true);
+  clearNotice();
+  try{
+    const currentItems=cart.map(p=>({product_id:p.id,title:p.title,price:p.price,quantity:p.quantity}));
+    for(const item of cart){
+      const product=products.find(p=>Number(p.id)===Number(item.id));
+      if(!product || Number(product.stock)<item.quantity) throw new Error("Stock changed for "+item.title+". Please refresh and try again.");
     }
-
-    function clearFilters() {
-      selectedCategory = "";
-      document.getElementById("searchInput").value = "";
-      document.getElementById("categoryFilter").value = "";
-      document.getElementById("sortFilter").value = "default";
-
-      document.querySelectorAll(".category").forEach(item => {
-        item.classList.remove("active");
-      });
-
-      renderProducts();
-    }
-
-    function addToCart(id) {
-      const product = products.find(item => item.id === id);
-      if (!product) return;
-
-      const existing = cart.find(item => item.id === id);
-
-      if (existing) {
-        existing.quantity++;
-      } else {
-        cart.push({ ...product, quantity: 1 });
-      }
-
-      renderCart();
-      toggleCart(true);
-    }
-
-    function removeFromCart(id) {
-      cart = cart.filter(item => item.id !== id);
-      renderCart();
-    }
-
-    function renderCart() {
-      const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-      const total = cart.reduce((sum, item) =>
-        sum + item.price * item.quantity, 0);
-
-      document.getElementById("cartCount").textContent = count;
-      document.getElementById("cartTotal").textContent = money(total);
-
-      const container = document.getElementById("cartItems");
-
-      if (!cart.length) {
-        container.innerHTML = '<p>Your cart is empty.</p>';
-        return;
-      }
-
-      container.innerHTML = cart.map(item => `
-        <div class="cart-item">
-          <div>
-            <strong>${escapeHTML(item.name)}</strong><br>
-            ${item.quantity} × ${money(item.price)}
-          </div>
-          <button onclick="removeFromCart(${item.id})">Remove</button>
-        </div>
-      `).join("");
-    }
-
-    function toggleCart(open) {
-      document.getElementById("cartPanel").classList.toggle("open", open);
-    }
-
-    function openWhatsApp(event) {
-      if (event) event.preventDefault();
-
-      const number = STORE.whatsappNumber.replace(/\D/g, "");
-
-      if (!number) {
-        alert("Please set your WhatsApp number in the STORE settings in the code.");
-        return;
-      }
-
-      window.open("https://wa.me/" + number, "_blank");
-    }
-
-    function checkoutWhatsApp() {
-      if (!cart.length) {
-        alert("Your cart is empty. Add a product first.");
-        return;
-      }
-
-      const number = STORE.whatsappNumber.replace(/\D/g, "");
-
-      if (!number) {
-        alert("Please set your WhatsApp number in the STORE settings in the code.");
-        return;
-      }
-
-      const lines = cart.map(item =>
-        item.name + " × " + item.quantity + " — " +
-        money(item.price * item.quantity)
-      );
-
-      const total = cart.reduce((sum, item) =>
-        sum + item.price * item.quantity, 0);
-
-      const message =
-        "Assalam-o-Alaikum! I want to enquire about an order from " +
-        STORE.name + ":\n\n" + lines.join("\n") +
-        "\n\nTotal: " + money(total) +
-        "\nPlease confirm availability, delivery charges and order details.";
-
-      window.open(
-        "https://wa.me/" + number + "?text=" + encodeURIComponent(message),
-        "_blank"
-      );
-    }
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    renderProducts();
+    const total=cart.reduce((n,p)=>n+p.price*p.quantity,0);
+    const payload={
+      customer_name:$("customerName").value.trim(),
+      phone:$("customerPhone").value.trim(),
+      address:$("customerAddress").value.trim(),
+      city:$("customerCity").value.trim(),
+      items:currentItems,total,
+      payment_method:"COD",status:"Pending"
+    };
+    if(!payload.customer_name||!payload.phone||!payload.address||!payload.city)throw new Error("Please complete all required fields.");
+    const {error}=await db.from("orders").insert(payload);
+    if(error)throw error;
+    cart=[];
     renderCart();
-  </script>
+    $("checkoutForm").reset();
+    await loadProducts();
+    notify("Order placed! Your order is pending confirmation. Please keep your phone available.");
+  }catch(e){notify("Order could not be placed: "+e.message,true)}
+});
+init();
+</script>
 </body>
 </html>

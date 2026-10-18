@@ -5,1007 +5,946 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#171714">
-<meta name="description" content="VEYORA — MAYU WORLD. Discover premium fashion, home essentials and everyday products.">
-<title>VEYORA — MAYU WORLD | Premium Collection</title>
+<meta name="description" content="VEYORA — MAYU WORLD. Premium fashion, home essentials and everyday products.">
+<title>VEYORA — MAYU WORLD</title>
 
 <style>
 :root{
   --black:#171714;
-  --black-soft:#24231f;
-  --gold:#c7a45b;
-  --gold-light:#e3cf9b;
-  --cream:#f5f0e6;
-  --cream-dark:#eae1d2;
-  --white:#fff;
+  --black2:#24231f;
+  --gold:#c5a46d;
+  --gold-light:#e6d3a8;
+  --cream:#f8f5ef;
+  --white:#fffefa;
+  --text:#292720;
   --muted:#77736b;
-  --border:#e7dfd1;
-  --shadow:0 12px 35px rgba(40,31,17,.07);
-  --radius:12px;
+  --border:#e9e2d6;
+  --shadow:0 12px 36px rgba(35,29,18,.08);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:100px}
+html{scroll-behavior:smooth}
 body{
-  margin:0;
-  color:var(--black);
-  background:var(--cream);
-  font-family:Arial,Helvetica,sans-serif;
-  -webkit-font-smoothing:antialiased;
+  margin:0;background:var(--cream);color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;line-height:1.6
 }
-button,input,textarea,select{font:inherit}
-button,a{cursor:pointer}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
 a{color:inherit;text-decoration:none}
-img{max-width:100%}
-button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
-  outline:2px solid var(--gold);outline-offset:3px
-}
-[hidden]{display:none!important}
-
-/* Announcement bar */
+img{max-width:100%;display:block}
+.container{width:min(1240px,92%);margin:auto}
 .topbar{
-  background:var(--black);
-  color:var(--gold-light);
-  text-align:center;
-  padding:11px 12px;
-  font-size:10px;
-  letter-spacing:2.5px;
-  line-height:1.6;
+  background:var(--black);color:#e9d9b8;text-align:center;
+  padding:9px 12px;font-size:10px;letter-spacing:3px;
+  text-transform:uppercase
 }
-
-/* Header */
 header{
-  position:sticky;top:0;z-index:30;
-  display:flex;align-items:center;justify-content:space-between;
-  gap:20px;padding:13px 5%;
-  border-bottom:1px solid var(--border);
-  background:rgba(245,240,230,.97);
-  backdrop-filter:blur(14px);
+  position:sticky;top:0;z-index:20;background:rgba(248,245,239,.96);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--border)
 }
-.brand{display:flex;align-items:center;gap:11px;font-weight:bold;letter-spacing:3px;font-size:21px}
-.brand-logo{width:49px;height:49px;object-fit:contain}
-.brand small{display:block;font-size:9px;letter-spacing:3px;margin-top:5px;color:#9b7937}
-nav{display:flex;gap:25px;font-size:11px;letter-spacing:1px;flex-wrap:wrap}
-nav a{padding:8px 0;transition:color .2s}
-nav a:hover{color:#9b7937}
-.header-actions{display:flex;gap:12px;align-items:center;font-size:13px}
-
-/* Buttons */
+.header-inner{
+  min-height:86px;display:flex;align-items:center;
+  justify-content:space-between;gap:20px
+}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.brand img{width:54px;height:54px;object-fit:contain;border-radius:50%}
+.brand-name{font-family:Georgia,serif;font-size:25px;letter-spacing:4px;line-height:1.2}
+.brand-sub{font-size:9px;letter-spacing:3px;color:var(--muted);margin-top:5px}
+nav{display:flex;align-items:center;gap:25px}
+nav a{font-size:11px;letter-spacing:1.4px;text-transform:uppercase}
+nav a:hover{color:#a47f3e}
+.header-actions{display:flex;gap:9px;align-items:center}
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  border:1px solid var(--gold);background:var(--gold);color:var(--black);
-  padding:13px 19px;font-size:10px;letter-spacing:1.4px;font-weight:bold;
-  border-radius:4px;transition:all .25s ease;
+  border:1px solid var(--black);background:var(--black);color:white;
+  padding:12px 19px;font-size:11px;letter-spacing:1.1px;
+  text-transform:uppercase;transition:.25s;display:inline-flex;
+  align-items:center;justify-content:center;gap:8px
 }
-.btn:hover{background:var(--gold-light);border-color:var(--gold-light);transform:translateY(-1px)}
-.btn-dark{background:var(--black);border-color:var(--black);color:white}
-.btn-dark:hover{background:#343128;border-color:#343128}
-.btn-light{background:var(--white);border-color:var(--border);color:var(--black)}
-.btn-light:hover{background:var(--cream);border-color:var(--gold)}
-button:disabled{opacity:.5;cursor:not-allowed;transform:none!important}
-
-/* Main promotional banner */
+.btn:hover{background:var(--gold);border-color:var(--gold);color:var(--black)}
+.btn-gold{background:var(--gold);border-color:var(--gold);color:var(--black)}
+.btn-outline{background:transparent;color:var(--black)}
+.btn-small{padding:8px 12px;font-size:10px}
+.icon-btn{border:1px solid var(--border);background:var(--white);padding:11px 14px}
 .hero{
-  margin:27px auto 25px;width:92%;min-height:375px;
-  padding:55px 7%;display:flex;align-items:center;justify-content:space-between;
-  gap:30px;overflow:hidden;position:relative;
-  background:
-    radial-gradient(ellipse at 85% 20%,rgba(199,164,91,.16),transparent 42%),
-    linear-gradient(115deg,#151512 0%,#222119 65%,#3b3020 100%);
-  border:1px solid #5a4a2d;border-radius:13px;color:white;
-  box-shadow:0 18px 45px rgba(23,23,20,.13);
+  background:radial-gradient(ellipse at 85% 25%,#49402e 0%,transparent 40%),
+  linear-gradient(120deg,#171714 0%,#24231f 60%,#302a20 100%);
+  color:white;overflow:hidden;position:relative
 }
-.hero:before{
-  content:"";position:absolute;inset:12px;
-  border:1px solid rgba(199,164,91,.2);border-radius:8px;pointer-events:none;
+.hero:after{
+  content:"V";position:absolute;right:8%;top:-100px;
+  font:400 520px Georgia,serif;color:rgba(197,164,109,.075);
+  pointer-events:none
 }
-.hero-copy{max-width:600px;position:relative;z-index:2}
-.eyebrow{color:#a98745;font-size:10px;letter-spacing:3.5px;font-weight:bold}
-.hero .eyebrow{color:var(--gold-light)}
+.hero-inner{
+  min-height:460px;padding:75px 0;display:grid;
+  grid-template-columns:1.2fr .8fr;align-items:center;gap:30px;position:relative;z-index:1
+}
+.eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-light)}
 .hero h1{
-  font-family:Georgia,"Times New Roman",serif;
-  font-weight:normal;font-size:clamp(39px,5.4vw,68px);
-  line-height:1.08;letter-spacing:-1px;margin:20px 0 17px;
+  font:400 clamp(40px,6vw,72px)/1.08 Georgia,serif;
+  letter-spacing:1px;margin:20px 0
 }
-.hero p{max-width:440px;line-height:1.9;color:#ded8cc;font-size:13px;margin:0 0 25px}
-.hero-art{
-  width:245px;height:245px;flex-shrink:0;position:relative;
-  border:1px solid var(--gold);border-radius:50%;
-  display:grid;place-items:center;
-  box-shadow:0 0 0 13px rgba(199,164,91,.055),0 0 0 27px rgba(199,164,91,.035);
+.hero h1 span{color:var(--gold-light);font-style:italic}
+.hero p{color:#d0ccc2;max-width:500px;font-size:14px;line-height:1.9}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero-seal{
+  width:min(290px,80%);aspect-ratio:1;border:1px solid rgba(230,211,168,.6);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  margin:auto;position:relative
 }
-.hero-art:before,.hero-art:after{
-  content:"";position:absolute;inset:15px;border:1px solid rgba(199,164,91,.25);border-radius:50%
+.hero-seal:before,.hero-seal:after{
+  content:"";position:absolute;border:1px solid rgba(230,211,168,.28);border-radius:50%
 }
-.hero-art:after{inset:31px}
-.hero-art span{
-  font-family:Georgia,serif;font-size:24px;line-height:1.05;
-  letter-spacing:7px;color:var(--gold-light);text-align:center;z-index:1;
-}
-
-/* Category filters */
-.categories{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;padding:3px 4% 27px}
+.hero-seal:before{inset:15px}.hero-seal:after{inset:28px}
+.seal-text{text-align:center;color:var(--gold-light);z-index:1}
+.seal-text strong{display:block;font:36px Georgia,serif;letter-spacing:8px}
+.seal-text small{font-size:9px;letter-spacing:4px}
+.trust-strip{background:#eee7db;border-bottom:1px solid var(--border)}
+.trust-inner{display:grid;grid-template-columns:repeat(3,1fr);padding:19px 0;gap:12px;text-align:center}
+.trust-item{font-size:10px;letter-spacing:1.3px;text-transform:uppercase}
+.trust-item span{display:block;color:var(--muted);font-size:11px;letter-spacing:0;text-transform:none;margin-top:3px}
+.section{padding:75px 0}
+.section-head{text-align:center;margin-bottom:32px}
+.section-kicker{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#9a7942}
+.section h2{font:400 clamp(29px,4vw,43px) Georgia,serif;margin:10px 0}
+.section-head p{font-size:13px;color:var(--muted);margin:0}
+.shop-toolbar{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:25px;flex-wrap:wrap}
+.category-list{display:flex;gap:8px;flex-wrap:wrap}
 .chip{
-  border:1px solid #dcd1be;background:rgba(255,255,255,.6);
-  padding:11px 17px;font-size:11px;letter-spacing:.3px;
-  border-radius:30px;transition:all .2s;
+  border:1px solid var(--border);background:transparent;padding:9px 14px;
+  font-size:10px;letter-spacing:.6px;transition:.2s
 }
-.chip.active,.chip:hover{background:var(--black);color:white;border-color:var(--black)}
-
-/* Shop */
-.section{padding:35px 5% 65px;scroll-margin-top:90px}
-.section-heading{text-align:center;margin:0 0 29px}
-.section-heading .eyebrow{font-size:10px;letter-spacing:3px}
-.section-heading h2{
-  font-family:Georgia,"Times New Roman",serif;
-  font-weight:normal;font-size:clamp(29px,3.5vw,39px);
-  letter-spacing:.2px;margin:12px 0;
+.chip:hover,.chip.active{background:var(--black);color:white;border-color:var(--black)}
+.sort-select{
+  background:var(--white);border:1px solid var(--border);padding:10px 12px;
+  color:var(--text);max-width:100%
 }
-.section-heading p{color:var(--muted);font-size:12px;line-height:1.8}
-.shop-tools{
-  display:flex;justify-content:space-between;gap:12px;
-  align-items:center;margin-bottom:22px;flex-wrap:wrap;
-  color:var(--muted);font-size:11px;
-}
-.shop-tools select{
-  padding:11px 13px;border:1px solid var(--border);
-  background:white;font-size:11px;border-radius:4px;color:var(--black)
-}
-
-/* Product cards */
-.product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:23px}
+.product-count{font-size:11px;color:var(--muted);margin-bottom:15px}
+.product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
 .product-card{
-  border:1px solid #e9e1d4;background:white;min-width:0;
-  border-radius:9px;overflow:hidden;
-  box-shadow:0 3px 13px rgba(40,31,17,.025);
-  transition:transform .25s,box-shadow .25s,border-color .25s;
+  background:var(--white);border:1px solid #eee7db;position:relative;
+  transition:transform .3s,box-shadow .3s;min-width:0
 }
-.product-card:hover{
-  transform:translateY(-5px);box-shadow:var(--shadow);border-color:#d8c49d
-}
+.product-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
 .product-image{
-  height:265px;background:#eee7da;position:relative;overflow:hidden;
+  aspect-ratio:4/5;background:#f0ece4;overflow:hidden;position:relative
 }
-.product-image img{
-  width:100%;height:100%;object-fit:cover;display:block;
-  transition:transform .45s ease;
+.product-image img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.product-card:hover .product-image img{transform:scale(1.035)}
+.product-image-placeholder{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  color:#a79a81;font:italic 22px Georgia,serif
 }
-.product-card:hover .product-image>img{transform:scale(1.035)}
-.no-image{
-  display:grid;place-items:center;width:100%;height:100%;
-  color:#9b8b70;font-size:12px;letter-spacing:3px;
-  background:linear-gradient(145deg,#f5f0e6,#eae1d2)
+.product-tag{
+  position:absolute;top:12px;left:12px;background:rgba(248,245,239,.94);
+  padding:6px 9px;font-size:9px;letter-spacing:1.2px;text-transform:uppercase
 }
-.product-image .no-image[style*="display:none"]{display:none!important}
-.product-thumbnails{
-  display:flex;gap:7px;padding:10px 12px 0;overflow-x:auto;
-  scrollbar-width:thin;background:white;
+.product-info{padding:16px}
+.product-category{font-size:9px;color:#987844;text-transform:uppercase;letter-spacing:1.4px}
+.product-title{font:400 18px/1.35 Georgia,serif;margin:7px 0}
+.product-description{font-size:11px;color:var(--muted);line-height:1.65;margin:0 0 12px}
+.product-price{font-size:15px;font-weight:700;margin:10px 0}
+.product-stock{font-size:10px;color:var(--muted);margin-bottom:10px}
+.product-select{
+  width:100%;padding:10px;border:1px solid var(--border);
+  background:#fffefa;font-size:11px;margin:4px 0 10px
 }
-.product-thumb{
-  flex:0 0 43px;width:43px;height:43px;overflow:hidden;
-  padding:0;border:1px solid var(--border);border-radius:4px;background:var(--cream);
+.product-info .btn{width:100%}
+.empty-state{
+  padding:50px 20px;text-align:center;color:var(--muted);
+  background:var(--white);border:1px dashed var(--border);grid-column:1/-1
 }
-.product-thumb.active{border:2px solid var(--gold)}
-.product-thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.product-info{padding:17px 15px 18px}
-.product-category{
-  color:#9b7937;font-size:9px;text-transform:uppercase;
-  letter-spacing:1.6px;line-height:1.6;
+.benefits{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.benefit{text-align:center;padding:10px}
+.benefit-symbol{color:#a9864d;font:30px Georgia,serif}
+.benefit h3{font:400 19px Georgia,serif;margin:9px 0}
+.benefit p{font-size:12px;color:var(--muted);margin:0}
+.about-box{
+  background:linear-gradient(120deg,#eee6d8,#faf7f0);
+  padding:48px;text-align:center;border:1px solid #e5d9c5
 }
-.product-info h3{
-  font-family:Georgia,"Times New Roman",serif;
-  font-weight:normal;font-size:17px;line-height:1.4;margin:8px 0;
-  overflow-wrap:anywhere;
-}
-.product-price{font-size:17px;font-weight:bold;margin:11px 0;color:#201f1a}
-.product-info p{
-  font-size:11px;line-height:1.8;color:var(--muted);
-  margin:10px 0 13px;overflow-wrap:anywhere;
-}
-.product-info label{display:block;font-size:10px;font-weight:bold;letter-spacing:.4px;margin-top:13px}
-.product-info select{
-  width:100%;padding:11px;margin:7px 0 4px;
-  border:1px solid var(--border);background:#fffdf9;
-  font-size:11px;border-radius:4px;color:var(--black);
-}
-.product-info .btn{width:100%;margin-top:12px;min-height:42px}
-.empty{
-  padding:45px 20px;text-align:center;color:var(--muted);
-  grid-column:1/-1;background:rgba(255,255,255,.65);
-  border:1px dashed var(--border);border-radius:8px;font-size:13px;
-}
-
-/* Benefits */
-.benefits{
-  background:var(--cream-dark);border-top:1px solid #dfd4c3;
-  border-bottom:1px solid #dfd4c3;
-  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
-  padding:39px 6%;text-align:center;
-}
-.benefits strong{font-size:10px;letter-spacing:1.7px}
-.benefits p{font-size:11px;color:#716a5f;line-height:1.8}
-
-/* About */
-.about{
-  background:#faf7f0;text-align:center;padding:55px 8%;
-  border-bottom:1px solid var(--border);
-}
-.about h2{
-  font-family:Georgia,"Times New Roman",serif;font-weight:normal;font-size:30px
-}
-.about p{max-width:700px;margin:auto;line-height:2;color:#676259;font-size:12px}
-
-/* Footer */
-footer{background:var(--black);color:white;padding:42px 6% 20px}
-.footer-main{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}
-footer h3{color:var(--gold-light);font-size:10px;letter-spacing:2px;line-height:1.8}
-footer p,footer a{color:#d1ccc1;font-size:11px;line-height:2}
-.footer-links{display:flex;flex-direction:column}
-.footer-links a:hover{color:var(--gold-light)}
-.footer-bottom{
-  border-top:1px solid #ffffff20;margin-top:28px;padding-top:19px;
-  display:flex;justify-content:space-between;align-items:center;
-  gap:15px;flex-wrap:wrap;font-size:10px;color:#bcb6a9;
-}
-.admin-link{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:7px 11px;border:1px solid #655638;border-radius:5px;
-  background:#201f1a;color:#c9b98e;font-size:10px;letter-spacing:.4px;
-  text-decoration:none;transition:all .2s;
-}
-.admin-link:hover{background:#332c1e;border-color:var(--gold);color:white}
-.admin-lock{font-size:11px}
-
+.about-box p{max-width:700px;margin:15px auto;color:#666056;font-size:13px;line-height:1.9}
+footer{background:var(--black);color:#e8e2d7;padding:45px 0 20px}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:30px;padding-bottom:32px}
+.footer-brand{font:28px Georgia,serif;letter-spacing:4px}
+footer p,footer a{font-size:12px;color:#bcb6a9}
+footer h3{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light)}
+.footer-links{display:grid;gap:9px}
+.footer-bottom{border-top:1px solid #3a3933;padding-top:18px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.admin-link{font-size:9px;color:#a49a85;border:1px solid #4b463a;padding:5px 10px;letter-spacing:1px}
+.admin-link:hover{color:var(--gold-light);border-color:var(--gold)}
 /* Cart */
+.drawer-backdrop,.modal-backdrop{
+  display:none;position:fixed;inset:0;background:rgba(12,12,10,.58);z-index:50
+}
+.drawer-backdrop.show,.modal-backdrop.show{display:block}
 .cart-drawer{
-  position:fixed;inset:0;background:rgba(0,0,0,.58);z-index:50;
-  display:none;justify-content:flex-end;backdrop-filter:blur(3px);
+  position:fixed;right:0;top:0;height:100dvh;width:min(440px,100%);
+  background:var(--cream);z-index:51;transform:translateX(105%);
+  transition:transform .3s;display:flex;flex-direction:column
 }
-.cart-drawer.open{display:flex}
-.cart-panel{
-  width:min(440px,100%);height:100%;overflow:auto;
-  background:#faf7f0;padding:23px;
-  box-shadow:-12px 0 45px #0002;
-}
-.panel-head{
-  display:flex;justify-content:space-between;align-items:center;
-  border-bottom:1px solid var(--border);padding-bottom:14px;gap:15px;
-}
-.panel-head h2{font-family:Georgia,serif;font-weight:normal}
-.close{border:0;background:transparent;font-size:27px;color:var(--black);padding:4px 9px}
-.cart-item{
-  display:grid;grid-template-columns:68px 1fr;gap:12px;
-  padding:15px 0;border-bottom:1px solid var(--border);
-}
-.cart-item img{width:68px;height:78px;object-fit:cover;background:var(--cream)}
-.cart-item p{font-size:11px;color:var(--muted);margin:5px 0;line-height:1.5}
-.cart-item button{border:0;background:none;text-decoration:underline;font-size:10px;color:#8a6b31;padding:4px 0}
-.cart-total{
-  display:flex;justify-content:space-between;gap:12px;
-  margin:17px 0;font-size:12px;
-}
-.cart-total:last-of-type{font-size:15px;font-weight:bold;border-top:1px solid var(--border);padding-top:14px}
-.field{
-  display:block;width:100%;padding:12px;border:1px solid #ddd4c5;
-  background:white;margin:7px 0 15px;border-radius:4px;
-}
-label{font-size:11px;font-weight:bold}
-.checkout-note{font-size:10px;line-height:1.8;color:var(--muted)}
-.cart-panel h3{font-family:Georgia,serif;font-weight:normal}
-.status{
-  padding:13px;background:#f2ead9;border:1px solid #e5d7bb;
-  border-radius:5px;font-size:11px;line-height:1.8;margin:13px 0;overflow-wrap:anywhere;
-}
-
-/* Admin panel */
-.modal-backdrop{
-  position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.68);
-  display:none;align-items:flex-start;justify-content:center;
-  padding:20px;overflow:auto;backdrop-filter:blur(4px);
-}
-.modal-backdrop.open{display:flex}
+.cart-drawer.show{transform:translateX(0)}
+.drawer-head{padding:22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.drawer-head h2{font:28px Georgia,serif;margin:0}
+.drawer-content{padding:18px 22px;overflow:auto;flex:1}
+.cart-item{display:grid;grid-template-columns:70px 1fr auto;gap:12px;padding:13px 0;border-bottom:1px solid var(--border)}
+.cart-item img{width:70px;height:85px;object-fit:cover;background:#eee7db}
+.cart-item h4{font:16px Georgia,serif;margin:0 0 5px}
+.cart-item p{font-size:11px;color:var(--muted);margin:0 0 8px}
+.qty-controls{display:flex;align-items:center;gap:9px;font-size:12px}
+.qty-controls button{border:1px solid var(--border);background:white;width:25px;height:25px}
+.cart-remove{border:0;background:none;color:#997b51;font-size:10px;margin-top:5px}
+.cart-summary{border-top:1px solid var(--border);padding:18px 22px}
+.summary-line{display:flex;justify-content:space-between;font-size:12px;margin:8px 0}
+.summary-total{font-weight:700;font-size:16px;padding-top:10px;border-top:1px solid var(--border)}
+.checkout-fields{display:grid;gap:10px;margin-top:16px}
+.field{width:100%;padding:12px;border:1px solid var(--border);background:white;outline:none;min-width:0}
+.field:focus{border-color:var(--gold)}
+textarea.field{resize:vertical}
+.notice{font-size:12px;margin:10px 0;color:#6f633e}
+.modal-backdrop{z-index:60;overflow:auto;padding:24px 12px}
 .modal{
-  background:#faf7f0;width:min(850px,100%);padding:25px;
-  margin:auto;border:1px solid #e4d8c4;border-radius:10px;
-  box-shadow:0 25px 80px #0004;
+  width:min(760px,100%);margin:3vh auto;background:var(--cream);
+  border:1px solid var(--gold);box-shadow:0 25px 80px #0004
 }
-.modal .panel-head h2{font-family:Georgia,serif;font-weight:normal}
-.admin-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
-.admin-tabs button{
-  padding:11px 14px;border:1px solid var(--border);
-  background:white;font-size:11px;border-radius:4px;
+.modal-head{padding:18px 22px;background:var(--black);color:white;display:flex;justify-content:space-between;align-items:center}
+.modal-head h2{font:24px Georgia,serif;margin:0}
+.modal-body{padding:22px}
+.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.form-label{font-size:10px;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:5px;color:#766e5e}
+.form-group{min-width:0}
+.form-group.full{grid-column:1/-1}
+.admin-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.admin-tab{border:1px solid var(--border);background:white;padding:9px 13px;font-size:11px}
+.admin-tab.active{background:var(--black);color:white}
+.admin-list{display:grid;gap:10px;margin-top:18px}
+.admin-row{display:flex;justify-content:space-between;align-items:center;gap:12px;background:white;border:1px solid var(--border);padding:12px;flex-wrap:wrap}
+.admin-row strong{font:16px Georgia,serif}
+.admin-row small{display:block;color:var(--muted);font-size:10px}
+.admin-row-actions{display:flex;gap:6px}
+.admin-row-actions button{padding:7px 9px;border:1px solid var(--border);background:#fffefa;font-size:10px}
+.admin-row-actions .delete{color:#a13c32}
+.status-pill{font-size:10px;background:#eee6d8;padding:4px 8px}
+.hidden{display:none!important}
+.toast{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+  z-index:100;background:var(--black);color:white;padding:12px 18px;
+  box-shadow:var(--shadow);font-size:12px;max-width:90%;text-align:center
 }
-.admin-tabs button.active{background:var(--black);color:white;border-color:var(--black)}
-.admin-form{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
-.admin-form .full{grid-column:1/-1}
-.admin-form label{display:block}
-.admin-form input,.admin-form textarea,.admin-form select{
-  width:100%;padding:11px;border:1px solid #ddd4c5;
-  margin:7px 0 15px;background:white;border-radius:4px;
+@media(max-width:900px){
+  .product-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .hero-inner{min-height:400px}
+  nav{gap:14px}
+  .brand-name{font-size:21px}
 }
-.admin-form textarea{min-height:85px;resize:vertical}
-.admin-actions{display:flex;gap:10px;flex-wrap:wrap}
-.admin-list{
-  border:1px solid var(--border);background:white;
-  padding:13px;margin:9px 0;display:flex;justify-content:space-between;
-  gap:12px;align-items:center;border-radius:6px;
-}
-.admin-list small{display:block;color:var(--muted);margin-top:5px;line-height:1.7}
-.variant-row{border:1px solid var(--border);padding:10px;margin:8px 0}
-
-/* Responsive */
-@media(max-width:1000px){
-  .product-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
-  .product-image{height:235px}
-  .hero-art{width:200px;height:200px}
-  header{padding-left:4%;padding-right:4%}
-  nav{gap:16px}
-}
-@media(max-width:700px){
-  header{padding:12px 4%;gap:12px;flex-wrap:wrap}
-  nav{order:3;width:100%;justify-content:center;gap:20px}
-  .brand{font-size:17px;letter-spacing:2px}
-  .brand-logo{width:40px;height:40px}
-  .brand small{font-size:8px}
-  .header-actions .btn{padding:11px 13px}
-  .hero{padding:39px 25px;min-height:330px;width:94%;margin-top:18px}
-  .hero-art{position:absolute;right:-80px;bottom:-50px;opacity:.23}
-  .hero-copy{max-width:100%}
-  .hero h1{font-size:clamp(37px,9vw,52px)}
-  .hero p{font-size:12px;max-width:340px}
-  .section{padding:30px 4% 45px}
-  .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-  .product-image{height:clamp(145px,43vw,220px)}
-  .product-info{padding:12px 10px 13px}
-  .product-info h3{font-size:15px}
-  .product-price{font-size:15px}
-  .product-info p{font-size:10px}
-  .product-thumbnails{padding:8px 9px 0;gap:5px}
-  .product-thumb{flex-basis:35px;width:35px;height:35px}
-  .benefits{grid-template-columns:1fr;gap:8px;padding:27px 6%}
-  .benefits p{margin-top:5px}
-  .footer-main{grid-template-columns:1fr 1fr;gap:20px}
-  .footer-main>div:first-child{grid-column:1/-1}
-  .about{padding:40px 6%}
-  .about h2{font-size:27px}
-  .admin-form{grid-template-columns:1fr}
-  .admin-form .full{grid-column:auto}
-  .modal{padding:16px}
-  .admin-list{align-items:flex-start;flex-direction:column}
-}
-@media(max-width:390px){
-  nav{gap:13px;font-size:10px}
-  .hero{padding:34px 20px}
-  .hero h1{font-size:34px}
-  .product-info h3{font-size:13px}
-  .product-image{height:145px}
-  .chip{padding:9px 12px;font-size:10px}
-  .shop-tools select{max-width:100%}
-}
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important}
+@media(max-width:650px){
+  .header-inner{min-height:72px;flex-wrap:wrap;padding:10px 0;gap:9px}
+  .brand img{width:43px;height:43px}
+  .brand-name{font-size:19px;letter-spacing:3px}
+  .brand-sub{font-size:8px;letter-spacing:2px}
+  nav{order:3;width:100%;justify-content:center;padding:5px 0 2px;gap:26px}
+  nav a{font-size:10px}
+  .header-actions .btn{padding:10px 12px}
+  .hero-inner{grid-template-columns:1fr;padding:58px 0;min-height:0}
+  .hero-copy{text-align:center}
+  .hero p{margin-left:auto;margin-right:auto}
+  .hero-actions{justify-content:center}
+  .hero-seal{width:155px;margin-top:10px}
+  .seal-text strong{font-size:24px;letter-spacing:5px}
+  .hero:after{font-size:300px;right:-20px;top:100px}
+  .trust-inner{grid-template-columns:1fr;padding:13px 0;gap:14px}
+  .trust-item{font-size:10px}
+  .trust-item span{margin-top:0}
+  .section{padding:48px 0}
+  .shop-toolbar{align-items:stretch}
+  .category-list{gap:6px}
+  .chip{padding:8px 10px;font-size:9px}
+  .sort-select{width:100%}
+  .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .product-info{padding:11px}
+  .product-title{font-size:16px}
+  .product-description{font-size:10px}
+  .product-info .btn{padding:10px 6px;font-size:9px}
+  .product-image{aspect-ratio:3/4}
+  .product-tag{top:7px;left:7px;padding:5px 6px;font-size:8px}
+  .benefit-grid{grid-template-columns:1fr;gap:24px}
+  .about-box{padding:30px 18px}
+  .footer-grid{grid-template-columns:1fr;gap:20px}
+  .admin-grid{grid-template-columns:1fr}
+  .form-group.full{grid-column:auto}
+  .modal-body{padding:15px}
 }
 </style>
 </head>
 
 <body>
-<div class="topbar">WELCOME TO VEYORA — MAYU WORLD &nbsp; ✦ &nbsp; FASHION · HOME · LIFESTYLE</div>
+<div class="topbar">WELCOME TO VEYORA — MAYU WORLD · A PREMIUM EVERYDAY COLLECTION</div>
 
-<header id="home">
-  <a class="brand" href="#home" aria-label="VEYORA home">
-    <img class="brand-logo"
-      src="./WhatsApp%20Image%202026-10-12%20at%2011.22.27%20PM%20(1).jpeg"
-      alt="VEYORA Logo"
-      onerror="this.style.display='none'">
-    <span>VEYORA<small>MAYU WORLD</small></span>
-  </a>
-  <nav aria-label="Main navigation">
-    <a href="#home">HOME</a>
-    <a href="#shop">SHOP</a>
-    <a href="#about">ABOUT US</a>
-  </nav>
-  <div class="header-actions">
-    <button class="btn btn-dark" id="cartOpen">CART (<span id="cartCount">0</span>)</button>
+<header>
+  <div class="container header-inner">
+    <a href="#home" class="brand" aria-label="VEYORA Home">
+      <img src="./WhatsApp%20Image%202026-10-12%20at%2011.22.27%20PM%20(1).jpeg" alt="VEYORA Logo" onerror="this.style.display='none'">
+      <div>
+        <div class="brand-name">VEYORA</div>
+        <div class="brand-sub">MAYU WORLD</div>
+      </div>
+    </a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">Our Story</a>
+    </nav>
+    <div class="header-actions">
+      <button class="btn" id="cartOpen">Bag (<span id="cartCount">0</span>)</button>
+    </div>
   </div>
 </header>
 
-<section class="hero" id="saleBanner">
-  <div class="hero-copy">
-    <div class="eyebrow" id="bannerEyebrow">VEYORA EXCLUSIVE COLLECTION</div>
-    <h1 id="bannerTitle">YOUR STYLE.<br>YOUR LIFESTYLE.</h1>
-    <p id="bannerText">Discover fashion, home essentials and everyday favourites — thoughtfully brought together for you.</p>
-    <a href="#shop" class="btn" id="bannerButton">EXPLORE COLLECTION ↗</a>
+<main>
+<section class="hero" id="home">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <div class="eyebrow" id="bannerEyebrow">THE VEYORA COLLECTION</div>
+      <h1 id="bannerTitle">Everyday living,<br><span>elevated.</span></h1>
+      <p id="bannerText">Discover thoughtfully selected fashion, home essentials and everyday favourites — all in one place.</p>
+      <div class="hero-actions">
+        <a href="#shop" class="btn btn-gold" id="bannerButton">Explore Collection ↗</a>
+        <a href="#about" class="btn btn-outline" style="color:white;border-color:#80745d">Discover Veyora</a>
+      </div>
+    </div>
+    <div class="hero-seal">
+      <div class="seal-text"><strong>VEYORA</strong><small>STYLE · HOME · LIVING</small></div>
+    </div>
   </div>
-  <div class="hero-art" aria-hidden="true"><span>V<br>E<br>Y<br>O<br>R<br>A</span></div>
 </section>
 
-<div class="categories" id="categoryFilters">
-  <button class="chip active" data-category="All">All Categories</button>
-  <button class="chip" data-category="Men">Men</button>
-  <button class="chip" data-category="Women">Women</button>
-  <button class="chip" data-category="Bedsheets">Bedsheets</button>
-  <button class="chip" data-category="Shawls">Shawls</button>
-  <button class="chip" data-category="Home & Kitchen">Home & Kitchen</button>
+<div class="trust-strip">
+  <div class="container trust-inner">
+    <div class="trust-item">✧ Curated Collection<span>Fashion and everyday essentials</span></div>
+    <div class="trust-item">✧ Cash on Delivery<span>Pay when your order arrives</span></div>
+    <div class="trust-item">✧ Personal Service<span>Support for your order</span></div>
+  </div>
 </div>
 
 <section class="section" id="shop">
-  <div class="section-heading">
-    <div class="eyebrow">THE VEYORA COLLECTION</div>
-    <h2>Discover Your Favourites</h2>
-    <p>Fashion, home essentials and everyday favourites — all in one place.</p>
-  </div>
-  <div class="shop-tools">
-    <span id="productCount">Explore our collection</span>
-    <select id="sortProducts" aria-label="Sort products">
-      <option value="newest">Newest first</option>
-      <option value="low">Price: Low to High</option>
-      <option value="high">Price: High to Low</option>
-    </select>
-  </div>
-  <div class="product-grid" id="productGrid">
-    <div class="empty">Loading the VEYORA collection...</div>
+  <div class="container">
+    <div class="section-head">
+      <div class="section-kicker">A considered selection</div>
+      <h2>Shop the Collection</h2>
+      <p>Find something special for your style and your home.</p>
+    </div>
+
+    <div class="shop-toolbar">
+      <div class="category-list" id="categoryList">
+        <button class="chip active" data-category="All">All Products</button>
+        <button class="chip" data-category="Men">Men</button>
+        <button class="chip" data-category="Women">Women</button>
+        <button class="chip" data-category="Bedsheets">Bedsheets</button>
+        <button class="chip" data-category="Shawls">Shawls</button>
+        <button class="chip" data-category="Home & Kitchen">Home & Kitchen</button>
+      </div>
+      <select id="sortProducts" class="sort-select" aria-label="Sort products">
+        <option value="newest">Newest first</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+        <option value="az">Name: A to Z</option>
+      </select>
+    </div>
+
+    <div class="product-count" id="productCount">Loading collection…</div>
+    <div class="product-grid" id="productGrid">
+      <div class="empty-state">Preparing the VEYORA collection…</div>
+    </div>
   </div>
 </section>
 
 <section class="benefits">
-  <div><strong>CAREFULLY SELECTED</strong><p>Products for everyday living</p></div>
-  <div><strong>CASH ON DELIVERY</strong><p>We confirm your order before dispatch</p></div>
-  <div><strong>PERSONAL SERVICE</strong><p>Support with your order and delivery details</p></div>
-</section>
-
-<section class="about" id="about">
-  <div class="eyebrow">OUR STORY</div>
-  <h2>Welcome to VEYORA</h2>
-  <p>VEYORA — MAYU WORLD brings fashion, home essentials and everyday products together in one place. Browse our collection, select your favourite design and place your order through our online store. Orders are subject to availability and delivery confirmation.</p>
-</section>
-
-<footer>
-  <div class="footer-main">
-    <div>
-      <h3>VEYORA — MAYU WORLD</h3>
-      <p>Premium products for every life.</p>
-      <p>Fashion, home essentials and everyday favourites.</p>
+  <div class="container section">
+    <div class="section-head">
+      <div class="section-kicker">The Veyora difference</div>
+      <h2>Made for Everyday Moments</h2>
     </div>
-    <div>
-      <h3>QUICK LINKS</h3>
-      <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#shop">Our Products</a>
-        <a href="#about">About Us</a>
-      </div>
-    </div>
-    <div>
-      <h3>SHOP WITH US</h3>
-      <p>Cash on Delivery<br>Order confirmation required</p>
+    <div class="benefit-grid">
+      <div class="benefit"><div class="benefit-symbol">✧</div><h3>Curated with Care</h3><p>Explore selected pieces for fashion, home and daily life.</p></div>
+      <div class="benefit"><div class="benefit-symbol">◇</div><h3>Easy Ordering</h3><p>Choose your product and preferred design before ordering.</p></div>
+      <div class="benefit"><div class="benefit-symbol">♡</div><h3>Here to Help</h3><p>We aim to make your shopping experience simple and clear.</p></div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <span>© <span id="year"></span> VEYORA. All rights reserved.</span>
-    <a href="#" class="admin-link" id="adminOpen"><span class="admin-lock">♙</span> ADMIN LOGIN ↗</a>
+</section>
+
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-box">
+      <div class="section-kicker">Our story</div>
+      <h2>Welcome to VEYORA</h2>
+      <p>VEYORA — MAYU WORLD brings fashion, home essentials and everyday products together in one thoughtfully curated collection. Our goal is to make discovering your next favourite product feel simple, enjoyable and special.</p>
+      <a href="#shop" class="btn">Discover the Collection</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">VEYORA</div>
+        <p> MAYU WORLD — Premium products for everyday life.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <div class="footer-links">
+          <a href="#home">Home</a><a href="#shop">Shop Products</a><a href="#about">About Veyora</a>
+        </div>
+      </div>
+      <div>
+        <h3>Shopping Information</h3>
+        <p>Cash on Delivery available where supported. Delivery charges and availability are confirmed with your order.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span style="font-size:10px;color:#a49d90">© <span id="year"></span> VEYORA — MAYU WORLD. All rights reserved.</span>
+      <button class="admin-link" id="adminOpen">ADMIN ACCESS</button>
+    </div>
   </div>
 </footer>
 
-<!-- CART AND COD CHECKOUT -->
-<div class="cart-drawer" id="cartDrawer">
-  <div class="cart-panel">
-    <div class="panel-head"><h2>Your Cart</h2><button class="close" id="cartClose" aria-label="Close cart">×</button></div>
-    <div id="cartItems"></div>
-    <div class="cart-total"><span>Subtotal</span><span id="cartSubtotal">Rs. 0</span></div>
-    <div class="cart-total"><span>Delivery</span><span id="cartDelivery">Rs. 0</span></div>
-    <div class="cart-total"><span>Total</span><span id="cartTotal">Rs. 0</span></div>
-    <h3>Cash on Delivery</h3>
-    <form id="checkoutForm">
-      <label>Full Name</label><input class="field" name="customer_name" required autocomplete="name">
-      <label>Phone Number</label><input class="field" name="phone" type="tel" required autocomplete="tel">
-      <label>City</label><input class="field" name="city" required autocomplete="address-level2">
-      <label>Complete Address</label><textarea class="field" name="address" required autocomplete="street-address"></textarea>
-      <button class="btn btn-dark" style="width:100%" type="submit">PLACE COD ORDER</button>
-      <p class="checkout-note">Your order is subject to availability and confirmation. Please check your phone number and address before submitting.</p>
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping bag">
+  <div class="drawer-head"><h2>Your Bag</h2><button class="icon-btn" id="cartClose">✕</button></div>
+  <div class="drawer-content" id="cartItems"></div>
+  <div class="cart-summary">
+    <div class="summary-line"><span>Subtotal</span><span id="cartSubtotal">Rs 0</span></div>
+    <div class="summary-line"><span>Delivery</span><span id="cartDelivery">To be confirmed</span></div>
+    <div class="summary-line summary-total"><span>Estimated Total</span><span id="cartTotal">Rs 0</span></div>
+    <form id="checkoutForm" class="checkout-fields">
+      <input class="field" name="customer_name" placeholder="Full name" required maxlength="100">
+      <input class="field" name="phone" placeholder="Phone number" required maxlength="30">
+      <input class="field" name="city" placeholder="City" required maxlength="100">
+      <textarea class="field" name="address" placeholder="Complete delivery address" required maxlength="1000" rows="3"></textarea>
+      <button class="btn btn-gold" type="submit" id="placeOrder">Place COD Order</button>
+      <div id="checkoutMessage" class="notice" role="status"></div>
     </form>
-    <div id="checkoutMessage" class="status" hidden></div>
   </div>
-</div>
+</aside>
 
-<!-- ADMIN LOGIN AND PANEL -->
 <div class="modal-backdrop" id="adminModal">
   <div class="modal">
-    <div class="panel-head">
-      <div><div class="eyebrow">VEYORA MANAGEMENT</div><h2 style="margin:8px 0">Admin Panel</h2></div>
-      <button class="close" id="adminClose" aria-label="Close admin panel">×</button>
-    </div>
+    <div class="modal-head"><h2>VEYORA Admin Studio</h2><button class="icon-btn" id="adminClose">✕</button></div>
+    <div class="modal-body">
+      <form id="loginForm" class="checkout-fields">
+        <p style="font-size:12px;color:var(--muted);margin:0">Sign in with your authorised admin account.</p>
+        <input class="field" type="email" id="adminEmail" placeholder="Admin email" required autocomplete="username">
+        <input class="field" type="password" id="adminPassword" placeholder="Password" required autocomplete="current-password">
+        <button class="btn btn-gold" type="submit">Sign In</button>
+        <div id="loginMessage" class="notice"></div>
+      </form>
 
-    <form id="loginForm">
-      <p>Sign in with your existing Supabase admin account.</p>
-      <label>Email</label><input class="field" type="email" name="email" required autocomplete="username">
-      <label>Password</label><input class="field" type="password" name="password" required autocomplete="current-password">
-      <button class="btn btn-dark" type="submit">LOGIN</button>
-    </form>
+      <div id="adminPanel" class="hidden">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px">
+          <p style="font-size:12px;margin:0;color:var(--muted)">Manage your shop without editing code.</p>
+          <button class="btn btn-outline btn-small" id="adminLogout">Sign Out</button>
+        </div>
+        <div class="admin-tabs">
+          <button class="admin-tab active" data-tab="productsTab">Products</button>
+          <button class="admin-tab" data-tab="ordersTab">Orders</button>
+          <button class="admin-tab" data-tab="settingsTab">Settings</button>
+        </div>
 
-    <div id="adminPanel" hidden>
-      <div class="status" id="adminStatus">You are signed in.</div>
-      <div class="admin-tabs">
-        <button class="active" data-tab="productsTab">Products</button>
-        <button data-tab="ordersTab">Orders</button>
-        <button data-tab="settingsTab">Store Settings</button>
-      </div>
+        <section id="productsTab">
+          <h3 style="font:24px Georgia,serif;margin:0 0 15px">Product Studio</h3>
+          <form id="productForm" class="admin-grid">
+            <input type="hidden" id="productId">
+            <div class="form-group full"><label class="form-label" for="productTitle">Product title</label><input class="field" id="productTitle" required maxlength="200" placeholder="e.g. Premium Boski Suit"></div>
+            <div class="form-group"><label class="form-label" for="productCategory">Category</label><input class="field" id="productCategory" required list="categorySuggestions" placeholder="e.g. Men"><datalist id="categorySuggestions"><option>Men</option><option>Women</option><option>Bedsheets</option><option>Shawls</option><option>Home & Kitchen</option></datalist></div>
+            <div class="form-group"><label class="form-label" for="productPrice">Price (PKR)</label><input class="field" id="productPrice" type="number" min="0" step="1" required placeholder="0"></div>
+            <div class="form-group"><label class="form-label" for="productStock">Total stock</label><input class="field" id="productStock" type="number" min="0" step="1" value="0" required></div>
+            <div class="form-group"><label class="form-label" for="productPhotos">Product photos</label><input class="field" id="productPhotos" type="file" accept="image/*" multiple></div>
+            <div class="form-group full"><label class="form-label" for="productDescription">Description</label><textarea class="field" id="productDescription" rows="3" maxlength="3000" placeholder="Write product details…"></textarea></div>
+            <div class="form-group"><label class="form-label" for="optionName">Variant name</label><input class="field" id="optionName" placeholder="e.g. Design / Colour"></div>
+            <div class="form-group"><label class="form-label" for="productVariants">Variants (one per line)</label><textarea class="field" id="productVariants" rows="4" placeholder="Black | 5&#10;Cream | 3&#10;Blue | 4"></textarea></div>
+            <div class="form-group full" id="existingImages" style="font-size:11px;color:var(--muted)"></div>
+            <div class="form-group full" style="display:flex;gap:9px;flex-wrap:wrap">
+              <button class="btn btn-gold" type="submit" id="saveProduct">Save Product</button>
+              <button class="btn btn-outline" type="button" id="productReset">Clear Form</button>
+            </div>
+          </form>
+          <h3 style="font:22px Georgia,serif;margin:28px 0 10px">Your Products</h3>
+          <div class="admin-list" id="adminProducts">Loading products…</div>
+        </section>
 
-      <section id="productsTab">
-        <h3>Add or Edit Product</h3>
-        <form id="productForm" class="admin-form">
-          <input type="hidden" name="id">
-          <label>Product Title<input name="title" required></label>
-          <label>Category
-            <select name="category">
-              <option>Men</option><option>Women</option><option>Bedsheets</option>
-              <option>Shawls</option><option>Home & Kitchen</option><option>Other</option>
-            </select>
-          </label>
-          <label>Price (PKR)<input name="price" type="number" min="0" step="0.01" required></label>
-          <label>Default Stock<input name="stock" type="number" min="0" step="1" value="0" required></label>
-          <label class="full">Description<textarea name="description"></textarea></label>
-          <label class="full">Product Photos (select multiple)
-            <input name="photos" type="file" accept="image/*" multiple>
-          </label>
-          <p class="checkout-note full">Existing photos are kept when editing. New photos are added to the product gallery. Upload size limits depend on your Supabase Storage settings.</p>
-          <label class="full">Option Name (e.g. Design, Colour, Size)
-            <input name="optionName" value="Design">
-          </label>
-          <label class="full">Designs / Variants — one per line, format: Design Name | Stock
-            <textarea name="variants" placeholder="Black | 5&#10;Blue | 8&#10;Cream | 4"></textarea>
-          </label>
-          <div class="full admin-actions">
-            <button class="btn btn-dark" type="submit">SAVE PRODUCT</button>
-            <button class="btn btn-light" type="button" id="productReset">CLEAR FORM</button>
+        <section id="ordersTab" class="hidden">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+            <h3 style="font:24px Georgia,serif;margin:0">Customer Orders</h3>
+            <button class="btn btn-outline btn-small" id="refreshOrders">Refresh</button>
           </div>
-        </form>
-        <h3>Existing Products</h3>
-        <div id="adminProducts"></div>
-      </section>
+          <div class="admin-list" id="adminOrders">Sign in to view orders.</div>
+        </section>
 
-      <section id="ordersTab" hidden>
-        <h3>Customer Orders</h3>
-        <button class="btn btn-dark" id="refreshOrders">REFRESH ORDERS</button>
-        <div id="adminOrders"></div>
-      </section>
-
-      <section id="settingsTab" hidden>
-        <h3>Store Settings</h3>
-        <form id="settingsForm">
-          <label>Delivery Fee (PKR)</label>
-          <input class="field" name="delivery_fee" type="number" min="0" step="0.01" required>
-          <button class="btn btn-dark" type="submit">SAVE DELIVERY FEE</button>
-        </form>
-        <hr style="border:0;border-top:1px solid #e7dfd1;margin:24px 0">
-        <label>Banner Small Heading</label><input class="field" id="editBannerEyebrow" value="VEYORA EXCLUSIVE COLLECTION">
-        <label>Banner Title</label><input class="field" id="editBannerTitle" value="YOUR STYLE. YOUR LIFESTYLE.">
-        <label>Banner Description</label><textarea class="field" id="editBannerText"></textarea>
-        <label>Banner Button Text</label><input class="field" id="editBannerButton" value="EXPLORE COLLECTION ↗">
-        <button class="btn btn-dark" id="saveBanner" type="button">UPDATE BANNER</button>
-        <p class="checkout-note">Banner text changes here are temporary and reset when this page reloads. Persistent banner editing needs a banner settings table in the database.</p>
-      </section>
-      <button class="btn btn-light" id="adminLogout" style="margin-top:22px">LOG OUT</button>
+        <section id="settingsTab" class="hidden">
+          <h3 style="font:24px Georgia,serif;margin:0 0 12px">Store Settings</h3>
+          <form id="settingsForm" class="checkout-fields">
+            <label class="form-label" for="deliveryFeeInput">Delivery fee (PKR)</label>
+            <input class="field" id="deliveryFeeInput" type="number" min="0" step="1" required value="0">
+            <button class="btn btn-gold" type="submit">Save Delivery Fee</button>
+            <div id="settingsMessage" class="notice"></div>
+          </form>
+          <p style="font-size:11px;color:var(--muted)">The delivery fee is applied to new orders. Banner text can be changed in the website code.</p>
+        </section>
+      </div>
     </div>
-    <div class="status" id="adminMessage" hidden></div>
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
+<div id="toast" class="toast hidden" role="status"></div>
+
+<script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+/* Keep your own Supabase project details here. Never put a service-role key in this file. */
 const SUPABASE_URL = "https://klarsnibooxtzehnzjwa.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_Yplii1XM_u7T4-GwkMVcNg_0zjM_tex";
+const SUPABASE_KEY = "sb_publishable_Yplii1XM_u7T4-GwkMVcNg_0zjM_tex";
 const IMAGE_BUCKET = "Product-images";
-const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+const $ = id => document.getElementById(id);
+const money = n => "Rs " + Number(n || 0).toLocaleString("en-PK");
+const safe = value => String(value ?? "").replace(/[&<>"']/g, ch => ({
+  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+}[ch]));
+const productImages = p => {
+  const images = Array.isArray(p.images) ? p.images : [];
+  return [...new Set([...(p.image_url ? [p.image_url] : []), ...images].filter(Boolean))];
+};
+const variantsOf = p => Array.isArray(p.variants) ? p.variants : [];
+const availableStock = p => Number(p.stock ?? 0);
+const barcode = () => "VYR" + Date.now().toString().slice(-8) + Math.floor(Math.random()*90+10);
 
 let products = [];
 let cart = [];
 let activeCategory = "All";
 let deliveryFee = 0;
-let currentUser = null;
 let editingImages = [];
-let editingVariants = [];
+let editingProduct = null;
+let toastTimer;
 
-const $ = id => document.getElementById(id);
-const money = n => "Rs. " + Number(n || 0).toLocaleString("en-PK",{maximumFractionDigits:2});
-const safe = value => String(value ?? "").replace(/[&<>"']/g, ch => ({
-  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-}[ch]));
-const barcode = () => "VY" + Date.now().toString().slice(-9) + Math.floor(Math.random()*90+10);
-const productImages = p => Array.isArray(p.images) && p.images.length ? p.images : (p.image_url ? [p.image_url] : []);
-const variantsOf = p => Array.isArray(p.variants) && p.variants.length
-  ? p.variants : (Array.isArray(p.colors) ? p.colors.map(name => ({name,stock:p.stock||0,barcode:p.barcode,image:productImages(p)[0]||""})) : []);
-const availableStock = p => variantsOf(p).reduce((sum,v)=>sum+Math.max(0,Number(v.stock||0)),0);
-
-function showStatus(id,message){
-  const el=$(id);el.hidden=false;el.textContent=message;
+function notify(message){
+  $("toast").textContent = message;
+  $("toast").classList.remove("hidden");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => $("toast").classList.add("hidden"), 3000);
 }
-function hideStatus(id){$(id).hidden=true}
-
-function publicImage(url,alt="Product image"){
-  if(!url)return '<div class="no-image">VEYORA</div>';
-  return `<img src="${safe(url)}" alt="${safe(alt)}" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.no-image').style.display='grid"><div class="no-image" style="display:none">Image unavailable</div>`;
+function imageMarkup(url, title){
+  return url
+    ? `<img src="${safe(url)}" alt="${safe(title)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="product-image-placeholder" style="display:none">VEYORA</div>`
+    : `<div class="product-image-placeholder">VEYORA</div>`;
 }
-
-async function loadProducts(){
-  $("productGrid").innerHTML='<div class="empty">Loading the VEYORA collection...</div>';
-  const {data,error}=await db.from("products").select("*").order("created_at",{ascending:false});
-  if(error){
-    $("productGrid").innerHTML='<div class="empty">Could not load products. Please check your Supabase connection and product table permissions.</div>';
-    console.error(error);return;
-  }
-  products=data||[];
-  renderProducts();
+function selectedVariant(productId){
+  const select = document.querySelector(`[data-variant-select="${CSS.escape(String(productId))}"]`);
+  return select ? select.value : "";
 }
-
 function renderProducts(){
-  let list=products.filter(p=>activeCategory==="All"||String(p.category||"").toLowerCase()===activeCategory.toLowerCase());
-  const sort=$("sortProducts").value;
-  if(sort==="low")list.sort((a,b)=>Number(a.price)-Number(b.price));
-  if(sort==="high")list.sort((a,b)=>Number(b.price)-Number(a.price));
-  $("productCount").textContent=list.length+" product"+(list.length===1?"":"s");
+  let list = [...products];
+  if(activeCategory !== "All"){
+    list = list.filter(p => String(p.category || "").toLowerCase().includes(activeCategory.toLowerCase()));
+  }
+  const sort = $("sortProducts").value;
+  if(sort === "low") list.sort((a,b)=>Number(a.price)-Number(b.price));
+  if(sort === "high") list.sort((a,b)=>Number(b.price)-Number(a.price));
+  if(sort === "az") list.sort((a,b)=>String(a.title).localeCompare(String(b.title)));
+  if(sort === "newest") list.sort((a,b)=>new Date(b.created_at||0)-new Date(a.created_at||0));
+
+  $("productCount").textContent = `${list.length} ${list.length === 1 ? "product" : "products"} in the collection`;
   if(!list.length){
-    $("productGrid").innerHTML='<div class="empty">No products in this category yet. Please check back soon.</div>';
+    $("productGrid").innerHTML = `<div class="empty-state"><div style="font:26px Georgia,serif;color:#8d754d;margin-bottom:8px">Your next favourite awaits</div>No products found in this category yet.</div>`;
     return;
   }
-
-  $("productGrid").innerHTML=list.map(p=>{
-    const imgs=productImages(p);
-    const vars=variantsOf(p);
-    const sold=vars.length&&vars.every(v=>Number(v.stock||0)<=0);
-    const mainImage=imgs[0]||"";
-    const thumbs=imgs.length>1?`<div class="product-thumbnails">${imgs.map((url,i)=>`
-      <button class="product-thumb ${i===0?"active":""}" type="button"
-        data-photo-for="${safe(p.id)}" data-photo-index="${i}" aria-label="Show product photo ${i+1}">
-        <img src="${safe(url)}" alt="" loading="lazy">
-      </button>`).join("")}</div>`:"";
-
+  $("productGrid").innerHTML = list.map(p => {
+    const imgs = productImages(p);
+    const variants = variantsOf(p);
+    const stock = availableStock(p);
+    const optionName = p.options?.name || "Design";
+    const variantSelect = variants.length ? `
+      <select class="product-select" data-variant-select="${safe(p.id)}" aria-label="Choose ${safe(optionName)}">
+        <option value="">Choose ${safe(optionName)}</option>
+        ${variants.map((v,i)=>`<option value="${i}" ${Number(v.stock||0)<=0?"disabled":""}>${safe(v.name || v.value || "Option "+(i+1))}${Number(v.stock||0)<=0?" — Sold out":""}</option>`).join("")}
+      </select>` : "";
+    const out = stock <= 0;
     return `<article class="product-card">
-      <div class="product-image" id="product-image-${safe(p.id)}">
-        ${publicImage(mainImage,p.title)}
+      <div class="product-image">
+        ${imageMarkup(imgs[0] || "",p.title)}
+        <span class="product-tag">${out ? "Sold Out" : "VEYORA EDIT"}</span>
       </div>
-      ${thumbs}
       <div class="product-info">
-        <div class="product-category">${safe(p.category||"VEYORA COLLECTION")}</div>
-        <h3>${safe(p.title)}</h3>
+        <div class="product-category">${safe(p.category || "Collection")}</div>
+        <h3 class="product-title">${safe(p.title)}</h3>
+        ${p.description ? `<p class="product-description">${safe(p.description).slice(0,115)}${String(p.description).length>115?"…":""}</p>` : ""}
         <div class="product-price">${money(p.price)}</div>
-        ${p.description?`<p>${safe(p.description)}</p>`:""}
-        ${vars.length?`<label for="variant-${safe(p.id)}">Choose ${safe(Array.isArray(p.options)&&p.options[0]?.name?p.options[0].name:"Design")}</label>
-        <select id="variant-${safe(p.id)}" data-variant-select="${safe(p.id)}">
-          ${vars.map((v,i)=>`<option value="${i}" ${Number(v.stock||0)<=0?"disabled":""}>${safe(v.name||v.value||"Design "+(i+1))}${Number(v.stock||0)<=0?" — Out of stock":""}</option>`).join("")}
-        </select>`:""}
-        <button class="btn btn-dark" data-add="${safe(p.id)}" ${sold?"disabled":""}>${sold?"OUT OF STOCK":"ADD TO CART"}</button>
+        <div class="product-stock">${out ? "Currently unavailable" : stock <= 5 ? `Only ${stock} left` : "Available to order"}</div>
+        ${variantSelect}
+        <button class="btn ${out?"btn-outline":"btn-gold"}" data-add="${safe(p.id)}" ${out?"disabled":""}>${out?"Unavailable":"Add to Bag"}</button>
       </div>
     </article>`;
   }).join("");
 }
-
-/* Category filters */
-$("categoryFilters").addEventListener("click",e=>{
-  const btn=e.target.closest("[data-category]");if(!btn)return;
-  activeCategory=btn.dataset.category;
-  document.querySelectorAll(".chip").forEach(c=>c.classList.toggle("active",c===btn));
+async function loadProducts(){
+  $("productGrid").innerHTML = `<div class="empty-state">Loading the collection…</div>`;
+  const {data,error} = await supabase.from("products").select("*");
+  if(error){
+    console.error(error);
+    $("productGrid").innerHTML = `<div class="empty-state">The collection could not load right now. Please refresh the page or check the Supabase products table and access policies.</div>`;
+    $("productCount").textContent = "Collection unavailable";
+    return;
+  }
+  products = data || [];
+  renderProducts();
+  if(!$("adminPanel").classList.contains("hidden")) renderAdminProducts();
+}
+$("categoryList").addEventListener("click",e=>{
+  const button = e.target.closest("[data-category]");
+  if(!button) return;
+  activeCategory = button.dataset.category;
+  document.querySelectorAll("[data-category]").forEach(el=>el.classList.toggle("active",el===button));
   renderProducts();
 });
 $("sortProducts").addEventListener("change",renderProducts);
 
-/* Product gallery: click thumbnails to change the main image */
-$("productGrid").addEventListener("click",e=>{
-  const thumb=e.target.closest("[data-photo-for]");
-  if(thumb){
-    const p=products.find(x=>String(x.id)===thumb.dataset.photoFor);
-    const url=productImages(p||{})[Number(thumb.dataset.photoIndex)];
-    const area=$("product-image-"+thumb.dataset.photoFor);
-    if(url&&area){
-      area.innerHTML=publicImage(url,p?.title||"Product image");
-      area.querySelector("img")?.addEventListener("error",()=>{}, {once:true});
-      area.querySelectorAll(".no-image").forEach(el=>el.style.display="none");
-      document.querySelectorAll(`[data-photo-for="${thumb.dataset.photoFor}"]`).forEach(b=>b.classList.toggle("active",b===thumb));
-    }
+function cartKey(item){return `${item.id}::${item.variant || ""}`;}
+function addToCart(id){
+  const p = products.find(item=>String(item.id)===String(id));
+  if(!p) return;
+  const variants = variantsOf(p);
+  const chosen = selectedVariant(id);
+  if(variants.length && chosen === ""){
+    notify("Please choose a design or colour first.");
     return;
   }
-
-  const btn=e.target.closest("[data-add]");if(!btn)return;
-  const p=products.find(x=>String(x.id)===btn.dataset.add);if(!p)return;
-  const vars=variantsOf(p);
-  const selector=document.querySelector(`[data-variant-select="${p.id}"]`);
-  const v=vars.length?vars[Number(selector?.value||0)]:{name:"Default",stock:Number(p.stock||0),barcode:p.barcode,image:productImages(p)[0]||""};
-
-  if(Number(v.stock||0)<=0){alert("This design is currently out of stock.");return}
-  const key=String(p.id)+"-"+String(v.barcode||v.name);
-  const existing=cart.find(x=>x.key===key);
+  const variant = variants.length ? variants[Number(chosen)] : null;
+  if(variant && Number(variant.stock||0)<=0){
+    notify("This option is sold out.");
+    return;
+  }
+  const stockLimit = variant ? Number(variant.stock||0) : availableStock(p);
+  const name = variant ? (variant.name || variant.value || "") : "";
+  const key = cartKey({id:p.id,variant:name});
+  const existing = cart.find(i=>i.key===key);
   if(existing){
-    if(existing.quantity>=Number(v.stock||0)){alert("Not enough stock for this design.");return}
-    existing.quantity++;
+    if(existing.qty >= stockLimit){notify("You have reached the available stock.");return;}
+    existing.qty++;
   }else{
-    cart.push({
-      key,productId:p.id,title:p.title,price:Number(p.price),
-      variant:v.name||"Default",barcode:v.barcode||p.barcode||"",
-      image:v.image||productImages(p)[0]||"",quantity:1,
-      maxStock:Number(v.stock||p.stock||0)
-    });
+    cart.push({key,id:p.id,title:p.title,price:Number(p.price||0),image:productImages(p)[0]||"",variant:name,qty:1,stock:stockLimit});
   }
   renderCart();
-  $("cartDrawer").classList.add("open");
+  notify("Added to your bag.");
+}
+$("productGrid").addEventListener("click",e=>{
+  const btn=e.target.closest("[data-add]");
+  if(btn) addToCart(btn.dataset.add);
 });
-
-/* Update main product image when a variant is selected */
-$("productGrid").addEventListener("change",e=>{
-  const selector=e.target.closest("[data-variant-select]");if(!selector)return;
-  const p=products.find(x=>String(x.id)===selector.dataset.variantSelect);if(!p)return;
-  const v=variantsOf(p)[Number(selector.value)];
-  const url=v?.image||productImages(p)[0]||"";
-  const area=$("product-image-"+p.id);
-  if(area)area.innerHTML=publicImage(url,p.title);
-});
-
+function cartTotals(){
+  const subtotal=cart.reduce((sum,i)=>sum+i.price*i.qty,0);
+  return {subtotal,delivery:cart.length?deliveryFee:0,total:subtotal+(cart.length?deliveryFee:0)};
+}
 function renderCart(){
-  $("cartCount").textContent=cart.reduce((n,x)=>n+x.quantity,0);
-  $("cartItems").innerHTML=cart.length?cart.map((x,i)=>`<div class="cart-item">
-    ${publicImage(x.image,x.title)}
-    <div><strong>${safe(x.title)}</strong><p>Design: ${safe(x.variant)}</p><p>${money(x.price)} × ${x.quantity}</p>
-    <button data-remove-cart="${i}">Remove</button></div></div>`).join(""):'<p>Your cart is empty.</p>';
-  const subtotal=cart.reduce((n,x)=>n+x.price*x.quantity,0);
-  $("cartSubtotal").textContent=money(subtotal);
-  $("cartDelivery").textContent=money(cart.length?deliveryFee:0);
-  $("cartTotal").textContent=money(subtotal+(cart.length?deliveryFee:0));
+  $("cartCount").textContent=cart.reduce((sum,i)=>sum+i.qty,0);
+  $("cartItems").innerHTML=cart.length?cart.map(item=>`
+    <div class="cart-item">
+      ${imageMarkup(item.image,item.title)}
+      <div><h4>${safe(item.title)}</h4><p>${item.variant?`Design: ${safe(item.variant)} · `:""}${money(item.price)}</p>
+        <div class="qty-controls">
+          <button data-qty="${safe(item.key)}" data-delta="-1" aria-label="Decrease quantity">−</button>
+          <span>${item.qty}</span>
+          <button data-qty="${safe(item.key)}" data-delta="1" aria-label="Increase quantity">+</button>
+        </div>
+        <button class="cart-remove" data-remove="${safe(item.key)}">REMOVE</button>
+      </div>
+      <strong style="font-size:12px">${money(item.price*item.qty)}</strong>
+    </div>`).join(""):`<div class="empty-state"><div style="font:22px Georgia,serif;margin-bottom:8px">Your bag is waiting</div>Add something you love from our collection.</div>`;
+  const totals=cartTotals();
+  $("cartSubtotal").textContent=money(totals.subtotal);
+  $("cartDelivery").textContent=cart.length?money(totals.delivery):"—";
+  $("cartTotal").textContent=money(totals.total);
+  $("placeOrder").disabled=!cart.length;
 }
 $("cartItems").addEventListener("click",e=>{
-  const b=e.target.closest("[data-remove-cart]");if(!b)return;
-  cart.splice(Number(b.dataset.removeCart),1);renderCart();
+  const remove=e.target.closest("[data-remove]");
+  const qty=e.target.closest("[data-qty]");
+  if(remove){cart=cart.filter(i=>i.key!==remove.dataset.remove);renderCart();return;}
+  if(qty){
+    const item=cart.find(i=>i.key===qty.dataset.qty);
+    if(!item)return;
+    const next=item.qty+Number(qty.dataset.delta);
+    if(next<=0) cart=cart.filter(i=>i.key!==item.key);
+    else if(next>item.stock){notify("Available stock limit reached.");return;}
+    else item.qty=next;
+    renderCart();
+  }
 });
-$("cartOpen").onclick=()=>$("cartDrawer").classList.add("open");
-$("cartClose").onclick=()=>$("cartDrawer").classList.remove("open");
-$("cartDrawer").addEventListener("click",e=>{if(e.target===$("cartDrawer"))$("cartDrawer").classList.remove("open")});
+function openCart(){
+  $("cartDrawer").classList.add("show");
+  $("drawerBackdrop").classList.add("show");
+}
+function closeCart(){
+  $("cartDrawer").classList.remove("show");
+  $("drawerBackdrop").classList.remove("show");
+}
+$("cartOpen").addEventListener("click",openCart);
+$("cartClose").addEventListener("click",closeCart);
+$("drawerBackdrop").addEventListener("click",closeCart);
 
 async function loadSettings(){
-  const {data,error}=await db.from("store_settings").select("delivery_fee").eq("id",true).maybeSingle();
-  if(!error&&data)deliveryFee=Number(data.delivery_fee||0);
+  const {data,error}=await supabase.from("store_settings").select("delivery_fee").limit(1).maybeSingle();
+  if(!error && data) deliveryFee=Number(data.delivery_fee||0);
   renderCart();
 }
-
-/* COD checkout */
 $("checkoutForm").addEventListener("submit",async e=>{
   e.preventDefault();
-  if(!cart.length){alert("Your cart is empty.");return}
-  const form=e.currentTarget;
-  const data=new FormData(form);
-  const customer_name=String(data.get("customer_name")||"").trim();
-  const phone=String(data.get("phone")||"").trim();
-  const city=String(data.get("city")||"").trim();
-  const address=String(data.get("address")||"").trim();
-  if(!customer_name||!phone||!city||!address){alert("Please fill in all customer details.");return}
-
-  for(const item of cart){
-    const p=products.find(x=>String(x.id)===String(item.productId));
-    const v=p?variantsOf(p).find(v=>String(v.barcode||v.name)===String(item.barcode||item.variant)):null;
-    if(!p||(v&&Number(v.stock||0)<item.quantity)){
-      alert("A selected product/design is no longer available in the requested quantity. Please refresh your cart.");
-      return;
+  if(!cart.length){notify("Your bag is empty.");return;}
+  const form=new FormData(e.currentTarget);
+  const name=String(form.get("customer_name")||"").trim();
+  const phone=String(form.get("phone")||"").trim();
+  const city=String(form.get("city")||"").trim();
+  const address=String(form.get("address")||"").trim();
+  if(!name||!phone||!city||!address){$("checkoutMessage").textContent="Please complete all delivery fields.";return;}
+  $("placeOrder").disabled=true;
+  $("checkoutMessage").textContent="Submitting your order…";
+  try{
+    // Re-check current stock before accepting the order.
+    const ids=[...new Set(cart.map(i=>i.id))];
+    const {data:latest,error:stockError}=await supabase.from("products").select("*").in("id",ids);
+    if(stockError) throw stockError;
+    for(const item of cart){
+      const p=(latest||[]).find(x=>String(x.id)===String(item.id));
+      if(!p) throw new Error(`${item.title} is no longer available.`);
+      const v=variantsOf(p).find(x=>String(x.name||x.value||"")===String(item.variant));
+      const stock=item.variant?(v?Number(v.stock||0):0):availableStock(p);
+      if(stock<item.qty) throw new Error(`Stock has changed for ${item.title}. Please update your bag.`);
     }
-  }
-
-  const subtotal=cart.reduce((n,x)=>n+x.price*x.quantity,0);
-  const order={
-    customer_name,phone,city,address,
-    items:cart.map(x=>({
-      product_id:x.productId,title:x.title,variant:x.variant,
-      barcode:x.barcode,image:x.image,price:x.price,quantity:x.quantity
-    })),
-    total:subtotal+deliveryFee,delivery_fee:deliveryFee,
-    payment_method:"COD",status:"Pending"
-  };
-  const btn=form.querySelector('[type="submit"]');
-  btn.disabled=true;btn.textContent="SUBMITTING...";
-  const {data:created,error}=await db.from("orders").insert(order).select("id").maybeSingle();
-  btn.disabled=false;btn.textContent="PLACE COD ORDER";
-  if(error){
-    console.error(error);
-    showStatus("checkoutMessage","Order could not be submitted. Please check your database policies and try again.");
-    return;
-  }
-  cart=[];renderCart();form.reset();
-  showStatus("checkoutMessage","Thank you! Your order has been submitted. Order reference: "+(created?.id??"received")+". The store will confirm availability and delivery details.");
-  await loadProducts();
+    const totals=cartTotals();
+    const payload={
+      customer_name:name,phone,address:`${address}, ${city}`,
+      city,items:cart.map(i=>({product_id:i.id,title:i.title,price:i.price,quantity:i.qty,variant:i.variant||null})),
+      total:totals.total,delivery_fee:totals.delivery,
+      payment_method:"COD",status:"Pending"
+    };
+    const {error}=await supabase.from("orders").insert(payload);
+    if(error) throw error;
+    cart=[];
+    renderCart();
+    e.currentTarget.reset();
+    $("checkoutMessage").textContent="Your order has been received. We will confirm availability and delivery details.";
+    notify("Order placed successfully.");
+  }catch(err){
+    console.error(err);
+    $("checkoutMessage").textContent=err.message||"Order could not be placed. Please try again.";
+  }finally{$("placeOrder").disabled=!cart.length;}
 });
 
-/* Admin access */
-$("adminOpen").onclick=e=>{e.preventDefault();$("adminModal").classList.add("open");checkSession()};
-$("adminClose").onclick=()=>$("adminModal").classList.remove("open");
-$("adminModal").addEventListener("click",e=>{if(e.target===$("adminModal"))$("adminModal").classList.remove("open")});
+function openAdmin(){
+  $("adminModal").classList.add("show");
+  checkAdminSession();
+}
+function closeAdmin(){$("adminModal").classList.remove("show");}
+$("adminOpen").addEventListener("click",openAdmin);
+$("adminClose").addEventListener("click",closeAdmin);
+$("adminModal").addEventListener("click",e=>{if(e.target===$("adminModal"))closeAdmin();});
 
-async function checkSession(){
-  const {data}=await db.auth.getSession();
-  currentUser=data.session?.user||null;
-  $("loginForm").hidden=!!currentUser;
-  $("adminPanel").hidden=!currentUser;
-  if(currentUser){
-    showStatus("adminStatus","Signed in as "+currentUser.email);
-    await loadAdminProducts();await loadAdminSettings();
+async function checkAdminSession(){
+  const {data}=await supabase.auth.getSession();
+  const signedIn=!!data.session;
+  $("loginForm").classList.toggle("hidden",signedIn);
+  $("adminPanel").classList.toggle("hidden",!signedIn);
+  if(signedIn){
+    await loadProducts();
+    await loadOrders();
+    await loadSettings();
+    renderAdminProducts();
   }
 }
 $("loginForm").addEventListener("submit",async e=>{
-  e.preventDefault();hideStatus("adminMessage");
-  const d=new FormData(e.currentTarget);
-  const {data,error}=await db.auth.signInWithPassword({email:d.get("email"),password:d.get("password")});
-  if(error){showStatus("adminMessage","Login failed. Check your email, password and Supabase Auth settings.");return}
-  currentUser=data.user;await checkSession();
+  e.preventDefault();
+  $("loginMessage").textContent="Signing in…";
+  const {error}=await supabase.auth.signInWithPassword({
+    email:$("adminEmail").value.trim(),password:$("adminPassword").value
+  });
+  if(error){$("loginMessage").textContent=error.message;return;}
+  $("loginMessage").textContent="";
+  await checkAdminSession();
+  notify("Admin signed in.");
 });
-$("adminLogout").onclick=async()=>{
-  await db.auth.signOut();currentUser=null;
-  $("adminPanel").hidden=true;$("loginForm").hidden=false;
-  showStatus("adminMessage","You have logged out.");
-};
+$("adminLogout").addEventListener("click",async()=>{
+  await supabase.auth.signOut();
+  $("adminPanel").classList.add("hidden");
+  $("loginForm").classList.remove("hidden");
+  $("loginMessage").textContent="You have signed out.";
+});
+supabase.auth.onAuthStateChange((_event,session)=>{
+  $("loginForm").classList.toggle("hidden",!!session);
+  $("adminPanel").classList.toggle("hidden",!session);
+});
 
-document.querySelectorAll("[data-tab]").forEach(btn=>btn.addEventListener("click",()=>{
-  document.querySelectorAll("[data-tab]").forEach(b=>b.classList.toggle("active",b===btn));
-  ["productsTab","ordersTab","settingsTab"].forEach(id=>$(id).hidden=id!==btn.dataset.tab);
+document.querySelector(".admin-tabs").addEventListener("click",e=>{
+  const btn=e.target.closest("[data-tab]");
+  if(!btn)return;
+  document.querySelectorAll(".admin-tab").forEach(b=>b.classList.toggle("active",b===btn));
+  ["productsTab","ordersTab","settingsTab"].forEach(id=>$(id).classList.toggle("hidden",id!==btn.dataset.tab));
   if(btn.dataset.tab==="ordersTab")loadOrders();
-}));
+  if(btn.dataset.tab==="productsTab")renderAdminProducts();
+});
 
+function renderAdminProducts(){
+  if(!$("adminProducts"))return;
+  if(!products.length){$("adminProducts").innerHTML='<div class="empty-state">No products yet. Add your first product above.</div>';return;}
+  $("adminProducts").innerHTML=products.map(p=>`
+    <div class="admin-row">
+      <div><strong>${safe(p.title)}</strong><small>${safe(p.category||"Uncategorised")} · ${money(p.price)} · Stock: ${availableStock(p)}</small><small>Barcode: ${safe(p.barcode||"Not set")}</small></div>
+      <div class="admin-row-actions"><button data-edit="${safe(p.id)}">Edit</button><button class="delete" data-delete="${safe(p.id)}">Delete</button></div>
+    </div>`).join("");
+}
 function resetProductForm(){
   $("productForm").reset();
-  $("productForm").elements.id.value="";
-  $("productForm").elements.optionName.value="Design";
-  editingImages=[];editingVariants=[];
+  $("productId").value="";
+  $("productStock").value="0";
+  $("existingImages").textContent="";
+  $("saveProduct").textContent="Save Product";
+  editingImages=[];
+  editingProduct=null;
 }
-$("productReset").onclick=resetProductForm;
-
-/* Upload product photos to the existing public Storage bucket */
-async function uploadImages(files){
-  const urls=[];
-  for(const file of files){
-    if(!file.type.startsWith("image/"))throw new Error("Only image files are allowed.");
-    const clean=file.name.replace(/[^a-zA-Z0-9._-]/g,"-");
-    const path=Date.now()+"-"+Math.random().toString(36).slice(2,9)+"-"+clean;
-    const {error}=await db.storage.from(IMAGE_BUCKET).upload(path,file,{upsert:false,contentType:file.type});
-    if(error)throw error;
-    const {data}=db.storage.from(IMAGE_BUCKET).getPublicUrl(path);
-    urls.push(data.publicUrl);
-  }
-  return urls;
-}
-function parseVariants(text,defaultStock){
-  const lines=text.split(/\r?\n/).map(s=>s.trim()).filter(Boolean);
-  return lines.map(line=>{
-    const parts=line.split("|");
-    const name=parts[0].trim();
-    const stock=parts.length>1?Number(parts[1].trim()):Number(defaultStock||0);
-    return {name,stock:Math.max(0,Number.isFinite(stock)?stock:0),barcode:barcode(),image:""};
-  }).filter(v=>v.name);
-}
-
-/* Save product */
-$("productForm").addEventListener("submit",async e=>{
-  e.preventDefault();
-  if(!currentUser){showStatus("adminMessage","Please log in first.");return}
-  const form=e.currentTarget,fd=new FormData(form);
-  const id=String(fd.get("id")||"");
-  const title=String(fd.get("title")||"").trim();
-  const price=Number(fd.get("price"));
-  const stock=Math.max(0,Number(fd.get("stock")||0));
-  if(!title||!Number.isFinite(price)||price<0){showStatus("adminMessage","Enter a product name and valid price.");return}
-
-  const btn=form.querySelector('[type="submit"]');
-  btn.disabled=true;btn.textContent="SAVING...";
-  try{
-    const uploaded=await uploadImages(Array.from(fd.getAll("photos")).filter(f=>f instanceof File&&f.size>0));
-    const images=[...editingImages,...uploaded];
-    let variants=parseVariants(String(fd.get("variants")||""),stock);
-    if(!variants.length)variants=[{name:"Default",stock,barcode:barcode(),image:images[0]||""}];
-
-    /* Preserve existing variant barcodes when the same variant name is edited */
-    const oldProduct=id?products.find(p=>String(p.id)===id):null;
-    const oldVariants=oldProduct?variantsOf(oldProduct):[];
-    variants=variants.map((v,i)=>{
-      const old=oldVariants.find(old=>String(old.name||old.value)===String(v.name));
-      return {...v,barcode:old?.barcode||v.barcode,image:images[i]||images[0]||""};
-    });
-
-    const payload={
-      title,description:String(fd.get("description")||""),
-      price,category:String(fd.get("category")||""),
-      image_url:images[0]||"",images,variants,
-      options:[{name:String(fd.get("optionName")||"Design"),values:variants.map(v=>v.name)}],
-      colors:variants.map(v=>v.name),
-      stock:variants.reduce((n,v)=>n+Number(v.stock||0),0),
-      barcode:oldProduct?.barcode||barcode()
-    };
-
-    let result;
-    if(id)result=await db.from("products").update(payload).eq("id",id).select().single();
-    else result=await db.from("products").insert(payload).select().single();
-    if(result.error)throw result.error;
-
-    showStatus("adminMessage","Product saved successfully.");
-    resetProductForm();await loadProducts();await loadAdminProducts();
-  }catch(err){
-    console.error(err);
-    showStatus("adminMessage","Could not save product: "+(err.message||"Check database and Storage permissions."));
-  }finally{
-    btn.disabled=false;btn.textContent="SAVE PRODUCT";
-  }
-});
-
-async function loadAdminProducts(){
-  if(!currentUser)return;
-  $("adminProducts").innerHTML="<p>Loading...</p>";
-  const {data,error}=await db.from("products").select("*").order("created_at",{ascending:false});
-  if(error){$("adminProducts").textContent="Could not load products. Check admin permissions.";return}
-  $("adminProducts").innerHTML=(data||[]).map(p=>`<div class="admin-list">
-    <div><strong>${safe(p.title)}</strong><small>${money(p.price)} · ${safe(p.category||"")}</small></div>
-    <div class="admin-actions">
-      <button class="btn btn-light" data-edit="${safe(p.id)}">EDIT</button>
-      <button class="btn btn-dark" data-delete="${safe(p.id)}">DELETE</button>
-    </div>
-  </div>`).join("")||"<p>No products added yet.</p>";
-}
-
+$("productReset").addEventListener("click",resetProductForm);
 $("adminProducts").addEventListener("click",async e=>{
   const edit=e.target.closest("[data-edit]");
   const del=e.target.closest("[data-delete]");
   if(edit){
-    const p=products.find(x=>String(x.id)===edit.dataset.edit);
-    if(!p){alert("Refresh products and try again.");return}
-    const f=$("productForm").elements;
-    f.id.value=p.id;f.title.value=p.title||"";f.category.value=p.category||"Other";
-    f.price.value=p.price||0;f.stock.value=p.stock||0;f.description.value=p.description||"";
-    f.optionName.value=p.options?.[0]?.name||"Design";
-    editingImages=productImages(p);editingVariants=variantsOf(p);
-    f.variants.value=editingVariants.map(v=>(v.name||v.value||"Design")+" | "+Number(v.stock||0)).join("\n");
-    $("productsTab").scrollIntoView({behavior:"smooth"});
-    showStatus("adminMessage","Editing "+p.title+". Save the form to update.");
+    const p=products.find(x=>String(x.id)===String(edit.dataset.edit));
+    if(!p)return;
+    editingProduct=p;
+    editingImages=productImages(p);
+    $("productId").value=p.id;
+    $("productTitle").value=p.title||"";
+    $("productCategory").value=p.category||"";
+    $("productPrice").value=p.price??0;
+    $("productStock").value=availableStock(p);
+    $("productDescription").value=p.description||"";
+    $("optionName").value=p.options?.name||"";
+    $("productVariants").value=variantsOf(p).map(v=>`${v.name||v.value||""} | ${v.stock||0}`).join("\n");
+    $("existingImages").textContent=editingImages.length?`${editingImages.length} existing photo(s) will be kept. Upload additional photos to add more.`:"No existing photos.";
+    $("saveProduct").textContent="Update Product";
+    $("productsTab").scrollIntoView({behavior:"smooth",block:"start"});
+    return;
   }
   if(del){
-    const p=products.find(x=>String(x.id)===del.dataset.delete);
-    if(!p||!confirm("Delete "+p.title+"? This cannot be undone."))return;
-    const {error}=await db.from("products").delete().eq("id",p.id);
-    if(error){showStatus("adminMessage","Could not delete product. Check permissions.");return}
-    await loadProducts();await loadAdminProducts();
-    showStatus("adminMessage","Product deleted.");
+    if(!confirm("Delete this product? This cannot be undone."))return;
+    const {error}=await supabase.from("products").delete().eq("id",del.dataset.delete);
+    if(error){notify("Delete failed: "+error.message);return;}
+    notify("Product deleted.");
+    await loadProducts();
+  }
+});
+async function uploadPhotos(files){
+  const urls=[];
+  for(const file of files){
+    if(!file.type.startsWith("image/"))continue;
+    if(file.size>8*1024*1024)throw new Error(`${file.name} is over 8 MB. Please use a smaller image.`);
+    const cleanName=file.name.replace(/[^a-zA-Z0-9._-]/g,"-");
+    const path=`products/${Date.now()}-${Math.random().toString(36).slice(2,8)}-${cleanName}`;
+    const {error}=await supabase.storage.from(IMAGE_BUCKET).upload(path,file,{upsert:false,contentType:file.type});
+    if(error)throw error;
+    const {data}=supabase.storage.from(IMAGE_BUCKET).getPublicUrl(path);
+    if(data?.publicUrl)urls.push(data.publicUrl);
+  }
+  return urls;
+}
+$("productForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const button=$("saveProduct");
+  button.disabled=true;
+  button.textContent="Saving…";
+  try{
+    const files=[...$("productPhotos").files];
+    const uploaded=files.length?await uploadPhotos(files):[];
+    const images=[...editingImages,...uploaded];
+    const lines=$("productVariants").value.split("\n").map(s=>s.trim()).filter(Boolean);
+    const oldVariants=variantsOf(editingProduct||{});
+    const variants=lines.map(line=>{
+      const parts=line.split("|");
+      const name=(parts[0]||"").trim();
+      const stock=Math.max(0,Number((parts[1]||"0").trim())||0);
+      const old=oldVariants.find(v=>String(v.name||v.value||"")===name);
+      return {name,stock,barcode:old?.barcode||barcode()};
+    });
+    const totalStock=$("productStock").value===""?variants.reduce((n,v)=>n+v.stock,0):Math.max(0,Number($("productStock").value)||0);
+    const payload={
+      title:$("productTitle").value.trim(),
+      category:$("productCategory").value.trim(),
+      price:Math.max(0,Number($("productPrice").value)||0),
+      stock:totalStock,
+      description:$("productDescription").value.trim(),
+      image_url:images[0]||null,images,
+      barcode:editingProduct?.barcode||barcode(),
+      colors:variants.map(v=>v.name),
+      options:{name:$("optionName").value.trim()||"Design"},
+      variants
+    };
+    if(!payload.title||!payload.category)throw new Error("Please enter the product title and category.");
+    let result;
+    if($("productId").value){
+      result=await supabase.from("products").update(payload).eq("id",$("productId").value);
+    }else{
+      result=await supabase.from("products").insert(payload);
+    }
+    if(result.error)throw result.error;
+    notify($("productId").value?"Product updated.":"Product added.");
+    resetProductForm();
+    await loadProducts();
+  }catch(err){
+    console.error(err);
+    notify("Could not save product: "+(err.message||"Please check your settings."));
+  }finally{
+    button.disabled=false;
+    button.textContent=$("productId").value?"Update Product":"Save Product";
   }
 });
 
-/* Delivery fee */
-async function loadAdminSettings(){
-  const {data,error}=await db.from("store_settings").select("*").eq("id",true).maybeSingle();
-  if(!error&&data)$("settingsForm").elements.delivery_fee.value=data.delivery_fee||0;
-  else $("settingsForm").elements.delivery_fee.value=deliveryFee;
+async function loadOrders(){
+  if(!$("adminOrders"))return;
+  $("adminOrders").innerHTML="Loading orders…";
+  const {data,error}=await supabase.from("orders").select("*").order("created_at",{ascending:false}).limit(100);
+  if(error){
+    $("adminOrders").innerHTML=`<div class="empty-state">Orders could not load. Check your orders table and admin read policy. ${safe(error.message)}</div>`;
+    return;
+  }
+  if(!data?.length){$("adminOrders").innerHTML='<div class="empty-state">No customer orders yet.</div>';return;}
+  $("adminOrders").innerHTML=data.map(o=>{
+    const items=Array.isArray(o.items)?o.items:[];
+    const summary=items.map(i=>`${i.title||"Product"}${i.variant?` (${i.variant})`:""} × ${i.quantity||i.qty||1}`).join(", ");
+    return `<div class="admin-row" style="align-items:flex-start">
+      <div style="min-width:200px;flex:1"><strong>${safe(o.customer_name||"Customer")}</strong><small>${safe(o.phone||"")} · ${safe(o.city||"")}</small><small>${safe(o.address||"")}</small><small>${safe(summary)}</small><small>${o.created_at?safe(new Date(o.created_at).toLocaleString()):""}</small></div>
+      <div><strong>${money(o.total)}</strong><small>COD · ${safe(o.status||"Pending")}</small></div>
+    </div>`;
+  }).join("");
 }
+$("refreshOrders").addEventListener("click",loadOrders);
+
 $("settingsForm").addEventListener("submit",async e=>{
   e.preventDefault();
-  const fee=Number(new FormData(e.currentTarget).get("delivery_fee"));
-  if(!Number.isFinite(fee)||fee<0){showStatus("adminMessage","Enter a valid delivery fee.");return}
-  const {error}=await db.from("store_settings").upsert({id:true,delivery_fee:fee,updated_at:new Date().toISOString()});
-  if(error){showStatus("adminMessage","Could not save delivery fee. Check store_settings update permissions.");return}
-  deliveryFee=fee;renderCart();showStatus("adminMessage","Delivery fee updated.");
+  const fee=Math.max(0,Number($("deliveryFeeInput").value)||0);
+  $("settingsMessage").textContent="Saving…";
+  const {data:existing,error:readError}=await supabase.from("store_settings").select("id").limit(1).maybeSingle();
+  if(readError){$("settingsMessage").textContent="Could not read settings: "+readError.message;return;}
+  let result;
+  if(existing) result=await supabase.from("store_settings").update({delivery_fee:fee}).eq("id",existing.id);
+  else result=await supabase.from("store_settings").insert({delivery_fee:fee});
+  if(result.error){$("settingsMessage").textContent="Save failed: "+result.error.message;return;}
+  deliveryFee=fee;
+  renderCart();
+  $("settingsMessage").textContent="Delivery fee saved.";
+  notify("Delivery fee updated.");
 });
 
-/* Banner editor — session-only, as in the current setup */
-$("saveBanner").onclick=()=>{
-  $("bannerEyebrow").textContent=$("editBannerEyebrow").value;
-  $("bannerTitle").textContent=$("editBannerTitle").value;
-  $("bannerText").textContent=$("editBannerText").value;
-  $("bannerButton").textContent=$("editBannerButton").value;
-  showStatus("adminMessage","Banner updated for this page session.");
-};
-
-/* Orders */
-async function loadOrders(){
-  if(!currentUser)return;
-  $("adminOrders").innerHTML="<p>Loading orders...</p>";
-  const {data,error}=await db.from("orders").select("*").order("created_at",{ascending:false}).limit(100);
-  if(error){$("adminOrders").textContent="Could not load orders. Check admin SELECT permissions.";return}
-  $("adminOrders").innerHTML=(data||[]).map(o=>`<div class="admin-list" style="display:block">
-    <strong>Order #${safe(o.id)} — ${safe(o.status||"Pending")}</strong>
-    <small>${safe(o.customer_name)} · ${safe(o.phone)} · ${safe(o.city||"")}</small>
-    <small>${safe(o.address)}</small>
-    <p>${(Array.isArray(o.items)?o.items:[]).map(i=>`${safe(i.title)} — ${safe(i.variant||"Default")} × ${safe(i.quantity)}`).join("<br>")}</p>
-    <strong>${money(o.total)} · Delivery ${money(o.delivery_fee)}</strong>
-  </div>`).join("")||"<p>No orders yet.</p>";
-}
-$("refreshOrders").onclick=loadOrders;
-
 $("year").textContent=new Date().getFullYear();
-$("editBannerText").value=$("bannerText").textContent;
-loadSettings();
-loadProducts();
+await loadSettings();
+await loadProducts();
+renderCart();
 </script>
 </body>
 </html>

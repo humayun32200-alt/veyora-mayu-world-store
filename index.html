@@ -129,6 +129,10 @@ nav a:hover{color:#a47f3e}
 }
 .product-image img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .product-card:hover .product-image img{transform:scale(1.035)}
+.product-image-placeholder{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  color:#a79a81;font:italic 22px Georgia,serif
+}
 .product-tag{
   position:absolute;top:12px;left:12px;background:rgba(248,245,239,.94);
   padding:6px 9px;font-size:9px;letter-spacing:1.2px;text-transform:uppercase
@@ -138,6 +142,7 @@ nav a:hover{color:#a47f3e}
 .product-title{font:400 18px/1.35 Georgia,serif;margin:7px 0}
 .product-description{font-size:11px;color:var(--muted);line-height:1.65;margin:0 0 12px}
 .product-price{font-size:15px;font-weight:700;margin:10px 0}
+.product-stock{font-size:10px;color:var(--muted);margin-bottom:10px}
 .product-select{
   width:100%;padding:10px;border:1px solid var(--border);
   background:#fffefa;font-size:11px;margin:4px 0 10px
@@ -167,7 +172,7 @@ footer h3{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(-
 .footer-bottom{border-top:1px solid #3a3933;padding-top:18px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
 .admin-link{font-size:9px;color:#a49a85;border:1px solid #4b463a;padding:5px 10px;letter-spacing:1px}
 .admin-link:hover{color:var(--gold-light);border-color:var(--gold)}
-/* Cart & Modal */
+/* Cart */
 .drawer-backdrop,.modal-backdrop{
   display:none;position:fixed;inset:0;background:rgba(12,12,10,.58);z-index:50
 }
@@ -185,7 +190,9 @@ footer h3{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(-
 .cart-item img{width:70px;height:85px;object-fit:cover;background:#eee7db}
 .cart-item h4{font:16px Georgia,serif;margin:0 0 5px}
 .cart-item p{font-size:11px;color:var(--muted);margin:0 0 8px}
-.cart-remove{border:0;background:none;color:#997b51;font-size:10px;margin-top:5px;cursor:pointer}
+.qty-controls{display:flex;align-items:center;gap:9px;font-size:12px}
+.qty-controls button{border:1px solid var(--border);background:white;width:25px;height:25px}
+.cart-remove{border:0;background:none;color:#997b51;font-size:10px;margin-top:5px}
 .cart-summary{border-top:1px solid var(--border);padding:18px 22px}
 .summary-line{display:flex;justify-content:space-between;font-size:12px;margin:8px 0}
 .summary-total{font-weight:700;font-size:16px;padding-top:10px;border-top:1px solid var(--border)}
@@ -202,12 +209,69 @@ textarea.field{resize:vertical}
 .modal-head{padding:18px 22px;background:var(--black);color:white;display:flex;justify-content:space-between;align-items:center}
 .modal-head h2{font:24px Georgia,serif;margin:0}
 .modal-body{padding:22px}
+.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.form-label{font-size:10px;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:5px;color:#766e5e}
+.form-group{min-width:0}
+.form-group.full{grid-column:1/-1}
+.admin-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.admin-tab{border:1px solid var(--border);background:white;padding:9px 13px;font-size:11px}
+.admin-tab.active{background:var(--black);color:white}
+.admin-list{display:grid;gap:10px;margin-top:18px}
+.admin-row{display:flex;justify-content:space-between;align-items:center;gap:12px;background:white;border:1px solid var(--border);padding:12px;flex-wrap:wrap}
+.admin-row strong{font:16px Georgia,serif}
+.admin-row small{display:block;color:var(--muted);font-size:10px}
+.admin-row-actions{display:flex;gap:6px}
+.admin-row-actions button{padding:7px 9px;border:1px solid var(--border);background:#fffefa;font-size:10px}
+.admin-row-actions .delete{color:#a13c32}
+.status-pill{font-size:10px;background:#eee6d8;padding:4px 8px}
 .hidden{display:none!important}
+.toast{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+  z-index:100;background:var(--black);color:white;padding:12px 18px;
+  box-shadow:var(--shadow);font-size:12px;max-width:90%;text-align:center
+}
 @media(max-width:900px){
   .product-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .hero-inner{min-height:400px}
+  nav{gap:14px}
+  .brand-name{font-size:21px}
 }
 @media(max-width:650px){
+  .header-inner{min-height:72px;flex-wrap:wrap;padding:10px 0;gap:9px}
+  .brand img{width:43px;height:43px}
+  .brand-name{font-size:19px;letter-spacing:3px}
+  .brand-sub{font-size:8px;letter-spacing:2px}
+  nav{order:3;width:100%;justify-content:center;padding:5px 0 2px;gap:26px}
+  nav a{font-size:10px}
+  .header-actions .btn{padding:10px 12px}
+  .hero-inner{grid-template-columns:1fr;padding:58px 0;min-height:0}
+  .hero-copy{text-align:center}
+  .hero p{margin-left:auto;margin-right:auto}
+  .hero-actions{justify-content:center}
+  .hero-seal{width:155px;margin-top:10px}
+  .seal-text strong{font-size:24px;letter-spacing:5px}
+  .hero:after{font-size:300px;right:-20px;top:100px}
+  .trust-inner{grid-template-columns:1fr;padding:13px 0;gap:14px}
+  .trust-item{font-size:10px}
+  .trust-item span{margin-top:0}
+  .section{padding:48px 0}
+  .shop-toolbar{align-items:stretch}
+  .category-list{gap:6px}
+  .chip{padding:8px 10px;font-size:9px}
+  .sort-select{width:100%}
   .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .product-info{padding:11px}
+  .product-title{font-size:16px}
+  .product-description{font-size:10px}
+  .product-info .btn{padding:10px 6px;font-size:9px}
+  .product-image{aspect-ratio:3/4}
+  .product-tag{top:7px;left:7px;padding:5px 6px;font-size:8px}
+  .benefit-grid{grid-template-columns:1fr;gap:24px}
+  .about-box{padding:30px 18px}
+  .footer-grid{grid-template-columns:1fr;gap:20px}
+  .admin-grid{grid-template-columns:1fr}
+  .form-group.full{grid-column:auto}
+  .modal-body{padding:15px}
 }
 </style>
 </head>
@@ -239,11 +303,11 @@ textarea.field{resize:vertical}
 <section class="hero" id="home">
   <div class="container hero-inner">
     <div class="hero-copy">
-      <div class="eyebrow">THE VEYORA COLLECTION</div>
-      <h1>Everyday living,<br><span>elevated.</span></h1>
-      <p>Discover thoughtfully selected fashion, home essentials and everyday favourites — all in one place.</p>
+      <div class="eyebrow" id="bannerEyebrow">THE VEYORA COLLECTION</div>
+      <h1 id="bannerTitle">Everyday living,<br><span>elevated.</span></h1>
+      <p id="bannerText">Discover thoughtfully selected fashion, home essentials and everyday favourites — all in one place.</p>
       <div class="hero-actions">
-        <a href="#shop" class="btn btn-gold">Explore Collection ↗</a>
+        <a href="#shop" class="btn btn-gold" id="bannerButton">Explore Collection ↗</a>
         <a href="#about" class="btn btn-outline" style="color:white;border-color:#80745d">Discover Veyora</a>
       </div>
     </div>
@@ -287,7 +351,9 @@ textarea.field{resize:vertical}
     </div>
 
     <div class="product-count" id="productCount">Loading collection…</div>
-    <div class="product-grid" id="productGrid"></div>
+    <div class="product-grid" id="productGrid">
+      <div class="empty-state">Preparing the VEYORA collection…</div>
+    </div>
   </div>
 </section>
 
@@ -310,7 +376,7 @@ textarea.field{resize:vertical}
     <div class="about-box">
       <div class="section-kicker">Our story</div>
       <h2>Welcome to VEYORA</h2>
-      <p>VEYORA — MAYU WORLD brings fashion, home essentials and everyday products together in one thoughtfully curated collection.</p>
+      <p>VEYORA — MAYU WORLD brings fashion, home essentials and everyday products together in one thoughtfully curated collection. Our goal is to make discovering your next favourite product feel simple, enjoyable and special.</p>
       <a href="#shop" class="btn">Discover the Collection</a>
     </div>
   </div>
@@ -332,7 +398,7 @@ textarea.field{resize:vertical}
       </div>
       <div>
         <h3>Shopping Information</h3>
-        <p>Cash on Delivery available where supported.</p>
+        <p>Cash on Delivery available where supported. Delivery charges and availability are confirmed with your order.</p>
       </div>
     </div>
     <div class="footer-bottom">
@@ -342,7 +408,6 @@ textarea.field{resize:vertical}
   </div>
 </footer>
 
-<!-- Cart Drawer -->
 <div class="drawer-backdrop" id="drawerBackdrop"></div>
 <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping bag">
   <div class="drawer-head"><h2>Your Bag</h2><button class="icon-btn" id="cartClose">✕</button></div>
@@ -362,99 +427,523 @@ textarea.field{resize:vertical}
   </div>
 </aside>
 
-<!-- Admin Modal -->
 <div class="modal-backdrop" id="adminModal">
   <div class="modal">
     <div class="modal-head"><h2>VEYORA Admin Studio</h2><button class="icon-btn" id="adminClose">✕</button></div>
     <div class="modal-body">
-      <p style="font-size:12px; color:var(--muted)">Admin portal is active. You can add products with variants directly in JavaScript data.</p>
+      <form id="loginForm" class="checkout-fields">
+        <p style="font-size:12px;color:var(--muted);margin:0">Sign in with your authorised admin account.</p>
+        <input class="field" type="email" id="adminEmail" placeholder="Admin email" required autocomplete="username">
+        <input class="field" type="password" id="adminPassword" placeholder="Password" required autocomplete="current-password">
+        <button class="btn btn-gold" type="submit">Sign In</button>
+        <div id="loginMessage" class="notice"></div>
+      </form>
+
+      <div id="adminPanel" class="hidden">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px">
+          <p style="font-size:12px;margin:0;color:var(--muted)">Manage your shop without editing code.</p>
+          <button class="btn btn-outline btn-small" id="adminLogout">Sign Out</button>
+        </div>
+        <div class="admin-tabs">
+          <button class="admin-tab active" data-tab="productsTab">Products</button>
+          <button class="admin-tab" data-tab="ordersTab">Orders</button>
+          <button class="admin-tab" data-tab="settingsTab">Settings</button>
+        </div>
+
+        <section id="productsTab">
+          <h3 style="font:24px Georgia,serif;margin:0 0 15px">Product Studio</h3>
+          <form id="productForm" class="admin-grid">
+            <input type="hidden" id="productId">
+            <div class="form-group full"><label class="form-label" for="productTitle">Product title</label><input class="field" id="productTitle" required maxlength="200" placeholder="e.g. Premium Boski Suit"></div>
+            <div class="form-group"><label class="form-label" for="productCategory">Category</label><input class="field" id="productCategory" required list="categorySuggestions" placeholder="e.g. Men"><datalist id="categorySuggestions"><option>Men</option><option>Women</option><option>Bedsheets</option><option>Shawls</option><option>Home & Kitchen</option></datalist></div>
+            <div class="form-group"><label class="form-label" for="productPrice">Price (PKR)</label><input class="field" id="productPrice" type="number" min="0" step="1" required placeholder="0"></div>
+            <div class="form-group"><label class="form-label" for="productStock">Total stock</label><input class="field" id="productStock" type="number" min="0" step="1" value="0" required></div>
+            <div class="form-group"><label class="form-label" for="productPhotos">Product photos</label><input class="field" id="productPhotos" type="file" accept="image/*" multiple></div>
+            <div class="form-group full"><label class="form-label" for="productDescription">Description</label><textarea class="field" id="productDescription" rows="3" maxlength="3000" placeholder="Write product details…"></textarea></div>
+            <div class="form-group"><label class="form-label" for="optionName">Variant name</label><input class="field" id="optionName" placeholder="e.g. Design / Colour"></div>
+            <div class="form-group"><label class="form-label" for="productVariants">Variants (one per line)</label><textarea class="field" id="productVariants" rows="4" placeholder="Black | 5&#10;Cream | 3&#10;Blue | 4"></textarea></div>
+            <div class="form-group full" id="existingImages" style="font-size:11px;color:var(--muted)"></div>
+            <div class="form-group full" style="display:flex;gap:9px;flex-wrap:wrap">
+              <button class="btn btn-gold" type="submit" id="saveProduct">Save Product</button>
+              <button class="btn btn-outline" type="button" id="productReset">Clear Form</button>
+            </div>
+          </form>
+          <h3 style="font:22px Georgia,serif;margin:28px 0 10px">Your Products</h3>
+          <div class="admin-list" id="adminProducts">Loading products…</div>
+        </section>
+
+        <section id="ordersTab" class="hidden">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+            <h3 style="font:24px Georgia,serif;margin:0">Customer Orders</h3>
+            <button class="btn btn-outline btn-small" id="refreshOrders">Refresh</button>
+          </div>
+          <div class="admin-list" id="adminOrders">Sign in to view orders.</div>
+        </section>
+
+        <section id="settingsTab" class="hidden">
+          <h3 style="font:24px Georgia,serif;margin:0 0 12px">Store Settings</h3>
+          <form id="settingsForm" class="checkout-fields">
+            <label class="form-label" for="deliveryFeeInput">Delivery fee (PKR)</label>
+            <input class="field" id="deliveryFeeInput" type="number" min="0" step="1" required value="0">
+            <button class="btn btn-gold" type="submit">Save Delivery Fee</button>
+            <div id="settingsMessage" class="notice"></div>
+          </form>
+          <p style="font-size:11px;color:var(--muted)">The delivery fee is applied to new orders. Banner text can be changed in the website code.</p>
+        </section>
+      </div>
     </div>
   </div>
 </div>
 
-<script>
-// Year update
-document.getElementById('year').textContent = new Date().getFullYear();
+<div id="toast" class="toast hidden" role="status"></div>
 
-// Products Data with Design Variants & Individual Images
-let products = [
-  {
-    id: 1,
-    title: "Veyora Luxury Shawl",
-    category: "Shawls",
-    price: 3200,
-    description: "Premium winter shawl with intricate patterns.",
-    variants: [
-      { name: "Design 1 (Royal Maroon)", image: "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=500" },
-      { name: "Design 2 (Classic Navy)", image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=500" }
-    ]
-  },
-  {
-    id: 2,
-    title: "Designer Bedsheet Set",
-    category: "Bedsheets",
-    price: 4500,
-    description: "Soft cotton bedsheet with pillow covers.",
-    variants: [
-      { name: "Design 1 (Gold Floral)", image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=500" },
-      { name: "Design 2 (Minimalist Cream)", image: "https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=500" }
-    ]
-  },
-  {
-    id: 3,
-    title: "Men's Premium Kurta",
-    category: "Men",
-    price: 2800,
-    description: "Elegant festive wear for men.",
-    variants: [
-      { name: "Design 1 (Charcoal Black)", image: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=500" },
-      { name: "Design 2 (Off White)", image: "https://images.unsplash.com/photo-1621072156002-e2fccdc0b176?w=500" }
-    ]
-  }
-];
+<script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
+/* Keep your own Supabase project details here. Never put a service-role key in this file. */
+const SUPABASE_URL = "https://klarsnibooxtzehnzjwa.supabase.co";
+const SUPABASE_KEY = "sb_publishable_Yplii1XM_u7T4-GwkMVcNg_0zjM_tex";
+const IMAGE_BUCKET = "Product-images";
+const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+const $ = id => document.getElementById(id);
+const money = n => "Rs " + Number(n || 0).toLocaleString("en-PK");
+const safe = value => String(value ?? "").replace(/[&<>"']/g, ch => ({
+  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+}[ch]));
+const productImages = p => {
+  const images = Array.isArray(p.images) ? p.images : [];
+  return [...new Set([...(p.image_url ? [p.image_url] : []), ...images].filter(Boolean))];
+};
+const variantsOf = p => Array.isArray(p.variants) ? p.variants : [];
+const availableStock = p => Number(p.stock ?? 0);
+const barcode = () => "VYR" + Date.now().toString().slice(-8) + Math.floor(Math.random()*90+10);
+
+let products = [];
 let cart = [];
 let activeCategory = "All";
+let deliveryFee = 0;
+let editingImages = [];
+let editingProduct = null;
+let toastTimer;
 
-// Render Products with Variant Selectors
-function renderProducts() {
-  const grid = document.getElementById('productGrid');
-  const countEl = document.getElementById('productCount');
-  
-  let filtered = activeCategory === "All" ? products : products.filter(p => p.category === activeCategory);
-  
-  countEl.textContent = `Showing ${filtered.length} products`;
-  
-  if(filtered.length === 0) {
-    grid.innerHTML = `<div class="empty-state">No products found in this category.</div>`;
+function notify(message){
+  $("toast").textContent = message;
+  $("toast").classList.remove("hidden");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => $("toast").classList.add("hidden"), 3000);
+}
+function imageMarkup(url, title){
+  return url
+    ? `<img src="${safe(url)}" alt="${safe(title)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="product-image-placeholder" style="display:none">VEYORA</div>`
+    : `<div class="product-image-placeholder">VEYORA</div>`;
+}
+function selectedVariant(productId){
+  const select = document.querySelector(`[data-variant-select="${CSS.escape(String(productId))}"]`);
+  return select ? select.value : "";
+}
+function renderProducts(){
+  let list = [...products];
+  if(activeCategory !== "All"){
+    list = list.filter(p => String(p.category || "").toLowerCase().includes(activeCategory.toLowerCase()));
+  }
+  const sort = $("sortProducts").value;
+  if(sort === "low") list.sort((a,b)=>Number(a.price)-Number(b.price));
+  if(sort === "high") list.sort((a,b)=>Number(b.price)-Number(a.price));
+  if(sort === "az") list.sort((a,b)=>String(a.title).localeCompare(String(b.title)));
+  if(sort === "newest") list.sort((a,b)=>new Date(b.created_at||0)-new Date(a.created_at||0));
+
+  $("productCount").textContent = `${list.length} ${list.length === 1 ? "product" : "products"} in the collection`;
+  if(!list.length){
+    $("productGrid").innerHTML = `<div class="empty-state"><div style="font:26px Georgia,serif;color:#8d754d;margin-bottom:8px">Your next favourite awaits</div>No products found in this category yet.</div>`;
     return;
   }
-
-  grid.innerHTML = filtered.map(p => {
-    let defaultImg = p.variants[0].image;
-    let variantOptions = p.variants.map((v, idx) => `<option value="${v.image}" data-name="${v.name}">${v.name}</option>`).join('');
-
-    return `
-      <div class="product-card" data-id="${p.id}">
-        <div class="product-image">
-          <img id="p-img-${p.id}" src="${defaultImg}" alt="${p.title}" onerror="this.src='https://via.placeholder.com/400x500?text=Veyora'">
-        </div>
-        <div class="product-info">
-          <div class="product-category">${p.category}</div>
-          <h3 class="product-title">${p.title}</h3>
-          <p class="product-description">${p.description}</p>
-          <div class="product-price">Rs ${p.price}</div>
-          
-          <label style="font-size:10px;text-transform:uppercase;color:var(--muted);display:block;margin-top:6px;">Select Design:</label>
-          <select class="product-select" id="p-select-${p.id}" onchange="changeVariant(${p.id})">
-            ${variantOptions}
-          </select>
-
-          <button class="btn btn-small" onclick="addToCart(${p.id})">Add to Bag</button>
-        </div>
+  $("productGrid").innerHTML = list.map(p => {
+    const imgs = productImages(p);
+    const variants = variantsOf(p);
+    const stock = availableStock(p);
+    const optionName = p.options?.name || "Design";
+    const variantSelect = variants.length ? `
+      <select class="product-select" data-variant-select="${safe(p.id)}" aria-label="Choose ${safe(optionName)}">
+        <option value="">Choose ${safe(optionName)}</option>
+        ${variants.map((v,i)=>`<option value="${i}" ${Number(v.stock||0)<=0?"disabled":""}>${safe(v.name || v.value || "Option "+(i+1))}${Number(v.stock||0)<=0?" — Sold out":""}</option>`).join("")}
+      </select>` : "";
+    const out = stock <= 0;
+    return `<article class="product-card">
+      <div class="product-image">
+        ${imageMarkup(imgs[0] || "",p.title)}
+        <span class="product-tag">${out ? "Sold Out" : "VEYORA EDIT"}</span>
       </div>
-    `;
-  }).join('');
+      <div class="product-info">
+        <div class="product-category">${safe(p.category || "Collection")}</div>
+        <h3 class="product-title">${safe(p.title)}</h3>
+        ${p.description ? `<p class="product-description">${safe(p.description).slice(0,115)}${String(p.description).length>115?"…":""}</p>` : ""}
+        <div class="product-price">${money(p.price)}</div>
+        <div class="product-stock">${out ? "Currently unavailable" : stock <= 5 ? `Only ${stock} left` : "Available to order"}</div>
+        ${variantSelect}
+        <button class="btn ${out?"btn-outline":"btn-gold"}" data-add="${safe(p.id)}" ${out?"disabled":""}>${out?"Unavailable":"Add to Bag"}</button>
+      </div>
+    </article>`;
+  }).join("");
 }
+async function loadProducts(){
+  $("productGrid").innerHTML = `<div class="empty-state">Loading the collection…</div>`;
+  const {data,error} = await supabase.from("products").select("*");
+  if(error){
+    console.error(error);
+    $("productGrid").innerHTML = `<div class="empty-state">The collection could not load right now. Please refresh the page or check the Supabase products table and access policies.</div>`;
+    $("productCount").textContent = "Collection unavailable";
+    return;
+  }
+  products = data || [];
+  renderProducts();
+  if(!$("adminPanel").classList.contains("hidden")) renderAdminProducts();
+}
+$("categoryList").addEventListener("click",e=>{
+  const button = e.target.closest("[data-category]");
+  if(!button) return;
+  activeCategory = button.dataset.category;
+  document.querySelectorAll("[data-category]").forEach(el=>el.classList.toggle("active",el===button));
+  renderProducts();
+});
+$("sortProducts").addEventListener("change",renderProducts);
 
-// Change product image when variant dropdown ch
+function cartKey(item){return `${item.id}::${item.variant || ""}`;}
+function addToCart(id){
+  const p = products.find(item=>String(item.id)===String(id));
+  if(!p) return;
+  const variants = variantsOf(p);
+  const chosen = selectedVariant(id);
+  if(variants.length && chosen === ""){
+    notify("Please choose a design or colour first.");
+    return;
+  }
+  const variant = variants.length ? variants[Number(chosen)] : null;
+  if(variant && Number(variant.stock||0)<=0){
+    notify("This option is sold out.");
+    return;
+  }
+  const stockLimit = variant ? Number(variant.stock||0) : availableStock(p);
+  const name = variant ? (variant.name || variant.value || "") : "";
+  const key = cartKey({id:p.id,variant:name});
+  const existing = cart.find(i=>i.key===key);
+  if(existing){
+    if(existing.qty >= stockLimit){notify("You have reached the available stock.");return;}
+    existing.qty++;
+  }else{
+    cart.push({key,id:p.id,title:p.title,price:Number(p.price||0),image:productImages(p)[0]||"",variant:name,qty:1,stock:stockLimit});
+  }
+  renderCart();
+  notify("Added to your bag.");
+}
+$("productGrid").addEventListener("click",e=>{
+  const btn=e.target.closest("[data-add]");
+  if(btn) addToCart(btn.dataset.add);
+});
+function cartTotals(){
+  const subtotal=cart.reduce((sum,i)=>sum+i.price*i.qty,0);
+  return {subtotal,delivery:cart.length?deliveryFee:0,total:subtotal+(cart.length?deliveryFee:0)};
+}
+function renderCart(){
+  $("cartCount").textContent=cart.reduce((sum,i)=>sum+i.qty,0);
+  $("cartItems").innerHTML=cart.length?cart.map(item=>`
+    <div class="cart-item">
+      ${imageMarkup(item.image,item.title)}
+      <div><h4>${safe(item.title)}</h4><p>${item.variant?`Design: ${safe(item.variant)} · `:""}${money(item.price)}</p>
+        <div class="qty-controls">
+          <button data-qty="${safe(item.key)}" data-delta="-1" aria-label="Decrease quantity">−</button>
+          <span>${item.qty}</span>
+          <button data-qty="${safe(item.key)}" data-delta="1" aria-label="Increase quantity">+</button>
+        </div>
+        <button class="cart-remove" data-remove="${safe(item.key)}">REMOVE</button>
+      </div>
+      <strong style="font-size:12px">${money(item.price*item.qty)}</strong>
+    </div>`).join(""):`<div class="empty-state"><div style="font:22px Georgia,serif;margin-bottom:8px">Your bag is waiting</div>Add something you love from our collection.</div>`;
+  const totals=cartTotals();
+  $("cartSubtotal").textContent=money(totals.subtotal);
+  $("cartDelivery").textContent=cart.length?money(totals.delivery):"—";
+  $("cartTotal").textContent=money(totals.total);
+  $("placeOrder").disabled=!cart.length;
+}
+$("cartItems").addEventListener("click",e=>{
+  const remove=e.target.closest("[data-remove]");
+  const qty=e.target.closest("[data-qty]");
+  if(remove){cart=cart.filter(i=>i.key!==remove.dataset.remove);renderCart();return;}
+  if(qty){
+    const item=cart.find(i=>i.key===qty.dataset.qty);
+    if(!item)return;
+    const next=item.qty+Number(qty.dataset.delta);
+    if(next<=0) cart=cart.filter(i=>i.key!==item.key);
+    else if(next>item.stock){notify("Available stock limit reached.");return;}
+    else item.qty=next;
+    renderCart();
+  }
+});
+function openCart(){
+  $("cartDrawer").classList.add("show");
+  $("drawerBackdrop").classList.add("show");
+}
+function closeCart(){
+  $("cartDrawer").classList.remove("show");
+  $("drawerBackdrop").classList.remove("show");
+}
+$("cartOpen").addEventListener("click",openCart);
+$("cartClose").addEventListener("click",closeCart);
+$("drawerBackdrop").addEventListener("click",closeCart);
+
+async function loadSettings(){
+  const {data,error}=await supabase.from("store_settings").select("delivery_fee").limit(1).maybeSingle();
+  if(!error && data) deliveryFee=Number(data.delivery_fee||0);
+  renderCart();
+}
+$("checkoutForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  if(!cart.length){notify("Your bag is empty.");return;}
+  const form=new FormData(e.currentTarget);
+  const name=String(form.get("customer_name")||"").trim();
+  const phone=String(form.get("phone")||"").trim();
+  const city=String(form.get("city")||"").trim();
+  const address=String(form.get("address")||"").trim();
+  if(!name||!phone||!city||!address){$("checkoutMessage").textContent="Please complete all delivery fields.";return;}
+  $("placeOrder").disabled=true;
+  $("checkoutMessage").textContent="Submitting your order…";
+  try{
+    // Re-check current stock before accepting the order.
+    const ids=[...new Set(cart.map(i=>i.id))];
+    const {data:latest,error:stockError}=await supabase.from("products").select("*").in("id",ids);
+    if(stockError) throw stockError;
+    for(const item of cart){
+      const p=(latest||[]).find(x=>String(x.id)===String(item.id));
+      if(!p) throw new Error(`${item.title} is no longer available.`);
+      const v=variantsOf(p).find(x=>String(x.name||x.value||"")===String(item.variant));
+      const stock=item.variant?(v?Number(v.stock||0):0):availableStock(p);
+      if(stock<item.qty) throw new Error(`Stock has changed for ${item.title}. Please update your bag.`);
+    }
+    const totals=cartTotals();
+    const payload={
+      customer_name:name,phone,address:`${address}, ${city}`,
+      city,items:cart.map(i=>({product_id:i.id,title:i.title,price:i.price,quantity:i.qty,variant:i.variant||null})),
+      total:totals.total,delivery_fee:totals.delivery,
+      payment_method:"COD",status:"Pending"
+    };
+    const {error}=await supabase.from("orders").insert(payload);
+    if(error) throw error;
+    cart=[];
+    renderCart();
+    e.currentTarget.reset();
+    $("checkoutMessage").textContent="Your order has been received. We will confirm availability and delivery details.";
+    notify("Order placed successfully.");
+  }catch(err){
+    console.error(err);
+    $("checkoutMessage").textContent=err.message||"Order could not be placed. Please try again.";
+  }finally{$("placeOrder").disabled=!cart.length;}
+});
+
+function openAdmin(){
+  $("adminModal").classList.add("show");
+  checkAdminSession();
+}
+function closeAdmin(){$("adminModal").classList.remove("show");}
+$("adminOpen").addEventListener("click",openAdmin);
+$("adminClose").addEventListener("click",closeAdmin);
+$("adminModal").addEventListener("click",e=>{if(e.target===$("adminModal"))closeAdmin();});
+
+async function checkAdminSession(){
+  const {data}=await supabase.auth.getSession();
+  const signedIn=!!data.session;
+  $("loginForm").classList.toggle("hidden",signedIn);
+  $("adminPanel").classList.toggle("hidden",!signedIn);
+  if(signedIn){
+    await loadProducts();
+    await loadOrders();
+    await loadSettings();
+    renderAdminProducts();
+  }
+}
+$("loginForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  $("loginMessage").textContent="Signing in…";
+  const {error}=await supabase.auth.signInWithPassword({
+    email:$("adminEmail").value.trim(),password:$("adminPassword").value
+  });
+  if(error){$("loginMessage").textContent=error.message;return;}
+  $("loginMessage").textContent="";
+  await checkAdminSession();
+  notify("Admin signed in.");
+});
+$("adminLogout").addEventListener("click",async()=>{
+  await supabase.auth.signOut();
+  $("adminPanel").classList.add("hidden");
+  $("loginForm").classList.remove("hidden");
+  $("loginMessage").textContent="You have signed out.";
+});
+supabase.auth.onAuthStateChange((_event,session)=>{
+  $("loginForm").classList.toggle("hidden",!!session);
+  $("adminPanel").classList.toggle("hidden",!session);
+});
+
+document.querySelector(".admin-tabs").addEventListener("click",e=>{
+  const btn=e.target.closest("[data-tab]");
+  if(!btn)return;
+  document.querySelectorAll(".admin-tab").forEach(b=>b.classList.toggle("active",b===btn));
+  ["productsTab","ordersTab","settingsTab"].forEach(id=>$(id).classList.toggle("hidden",id!==btn.dataset.tab));
+  if(btn.dataset.tab==="ordersTab")loadOrders();
+  if(btn.dataset.tab==="productsTab")renderAdminProducts();
+});
+
+function renderAdminProducts(){
+  if(!$("adminProducts"))return;
+  if(!products.length){$("adminProducts").innerHTML='<div class="empty-state">No products yet. Add your first product above.</div>';return;}
+  $("adminProducts").innerHTML=products.map(p=>`
+    <div class="admin-row">
+      <div><strong>${safe(p.title)}</strong><small>${safe(p.category||"Uncategorised")} · ${money(p.price)} · Stock: ${availableStock(p)}</small><small>Barcode: ${safe(p.barcode||"Not set")}</small></div>
+      <div class="admin-row-actions"><button data-edit="${safe(p.id)}">Edit</button><button class="delete" data-delete="${safe(p.id)}">Delete</button></div>
+    </div>`).join("");
+}
+function resetProductForm(){
+  $("productForm").reset();
+  $("productId").value="";
+  $("productStock").value="0";
+  $("existingImages").textContent="";
+  $("saveProduct").textContent="Save Product";
+  editingImages=[];
+  editingProduct=null;
+}
+$("productReset").addEventListener("click",resetProductForm);
+$("adminProducts").addEventListener("click",async e=>{
+  const edit=e.target.closest("[data-edit]");
+  const del=e.target.closest("[data-delete]");
+  if(edit){
+    const p=products.find(x=>String(x.id)===String(edit.dataset.edit));
+    if(!p)return;
+    editingProduct=p;
+    editingImages=productImages(p);
+    $("productId").value=p.id;
+    $("productTitle").value=p.title||"";
+    $("productCategory").value=p.category||"";
+    $("productPrice").value=p.price??0;
+    $("productStock").value=availableStock(p);
+    $("productDescription").value=p.description||"";
+    $("optionName").value=p.options?.name||"";
+    $("productVariants").value=variantsOf(p).map(v=>`${v.name||v.value||""} | ${v.stock||0}`).join("\n");
+    $("existingImages").textContent=editingImages.length?`${editingImages.length} existing photo(s) will be kept. Upload additional photos to add more.`:"No existing photos.";
+    $("saveProduct").textContent="Update Product";
+    $("productsTab").scrollIntoView({behavior:"smooth",block:"start"});
+    return;
+  }
+  if(del){
+    if(!confirm("Delete this product? This cannot be undone."))return;
+    const {error}=await supabase.from("products").delete().eq("id",del.dataset.delete);
+    if(error){notify("Delete failed: "+error.message);return;}
+    notify("Product deleted.");
+    await loadProducts();
+  }
+});
+async function uploadPhotos(files){
+  const urls=[];
+  for(const file of files){
+    if(!file.type.startsWith("image/"))continue;
+    if(file.size>8*1024*1024)throw new Error(`${file.name} is over 8 MB. Please use a smaller image.`);
+    const cleanName=file.name.replace(/[^a-zA-Z0-9._-]/g,"-");
+    const path=`products/${Date.now()}-${Math.random().toString(36).slice(2,8)}-${cleanName}`;
+    const {error}=await supabase.storage.from(IMAGE_BUCKET).upload(path,file,{upsert:false,contentType:file.type});
+    if(error)throw error;
+    const {data}=supabase.storage.from(IMAGE_BUCKET).getPublicUrl(path);
+    if(data?.publicUrl)urls.push(data.publicUrl);
+  }
+  return urls;
+}
+$("productForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const button=$("saveProduct");
+  button.disabled=true;
+  button.textContent="Saving…";
+  try{
+    const files=[...$("productPhotos").files];
+    const uploaded=files.length?await uploadPhotos(files):[];
+    const images=[...editingImages,...uploaded];
+    const lines=$("productVariants").value.split("\n").map(s=>s.trim()).filter(Boolean);
+    const oldVariants=variantsOf(editingProduct||{});
+    const variants=lines.map(line=>{
+      const parts=line.split("|");
+      const name=(parts[0]||"").trim();
+      const stock=Math.max(0,Number((parts[1]||"0").trim())||0);
+      const old=oldVariants.find(v=>String(v.name||v.value||"")===name);
+      return {name,stock,barcode:old?.barcode||barcode()};
+    });
+    const totalStock=$("productStock").value===""?variants.reduce((n,v)=>n+v.stock,0):Math.max(0,Number($("productStock").value)||0);
+    const payload={
+      title:$("productTitle").value.trim(),
+      category:$("productCategory").value.trim(),
+      price:Math.max(0,Number($("productPrice").value)||0),
+      stock:totalStock,
+      description:$("productDescription").value.trim(),
+      image_url:images[0]||null,images,
+      barcode:editingProduct?.barcode||barcode(),
+      colors:variants.map(v=>v.name),
+      options:{name:$("optionName").value.trim()||"Design"},
+      variants
+    };
+    if(!payload.title||!payload.category)throw new Error("Please enter the product title and category.");
+    let result;
+    if($("productId").value){
+      result=await supabase.from("products").update(payload).eq("id",$("productId").value);
+    }else{
+      result=await supabase.from("products").insert(payload);
+    }
+    if(result.error)throw result.error;
+    notify($("productId").value?"Product updated.":"Product added.");
+    resetProductForm();
+    await loadProducts();
+  }catch(err){
+    console.error(err);
+    notify("Could not save product: "+(err.message||"Please check your settings."));
+  }finally{
+    button.disabled=false;
+    button.textContent=$("productId").value?"Update Product":"Save Product";
+  }
+});
+
+async function loadOrders(){
+  if(!$("adminOrders"))return;
+  $("adminOrders").innerHTML="Loading orders…";
+  const {data,error}=await supabase.from("orders").select("*").order("created_at",{ascending:false}).limit(100);
+  if(error){
+    $("adminOrders").innerHTML=`<div class="empty-state">Orders could not load. Check your orders table and admin read policy. ${safe(error.message)}</div>`;
+    return;
+  }
+  if(!data?.length){$("adminOrders").innerHTML='<div class="empty-state">No customer orders yet.</div>';return;}
+  $("adminOrders").innerHTML=data.map(o=>{
+    const items=Array.isArray(o.items)?o.items:[];
+    const summary=items.map(i=>`${i.title||"Product"}${i.variant?` (${i.variant})`:""} × ${i.quantity||i.qty||1}`).join(", ");
+    return `<div class="admin-row" style="align-items:flex-start">
+      <div style="min-width:200px;flex:1"><strong>${safe(o.customer_name||"Customer")}</strong><small>${safe(o.phone||"")} · ${safe(o.city||"")}</small><small>${safe(o.address||"")}</small><small>${safe(summary)}</small><small>${o.created_at?safe(new Date(o.created_at).toLocaleString()):""}</small></div>
+      <div><strong>${money(o.total)}</strong><small>COD · ${safe(o.status||"Pending")}</small></div>
+    </div>`;
+  }).join("");
+}
+$("refreshOrders").addEventListener("click",loadOrders);
+
+$("settingsForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const fee=Math.max(0,Number($("deliveryFeeInput").value)||0);
+  $("settingsMessage").textContent="Saving…";
+  const {data:existing,error:readError}=await supabase.from("store_settings").select("id").limit(1).maybeSingle();
+  if(readError){$("settingsMessage").textContent="Could not read settings: "+readError.message;return;}
+  let result;
+  if(existing) result=await supabase.from("store_settings").update({delivery_fee:fee}).eq("id",existing.id);
+  else result=await supabase.from("store_settings").insert({delivery_fee:fee});
+  if(result.error){$("settingsMessage").textContent="Save failed: "+result.error.message;return;}
+  deliveryFee=fee;
+  renderCart();
+  $("settingsMessage").textContent="Delivery fee saved.";
+  notify("Delivery fee updated.");
+});
+
+$("year").textContent=new Date().getFullYear();
+await loadSettings();
+await loadProducts();
+renderCart();
+</script>
+</body>
+</html>

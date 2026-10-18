@@ -4,18 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101010">
-  <meta name="description" content="Discover fashion, home essentials and everyday products at VEYORA — MAYU WORLD.">
+  <meta name="theme-color" content="#11110f">
+  <meta name="description" content="VEYORA — MAYU WORLD. Fashion, home essentials and everyday products.">
   <title>VEYORA — MAYU WORLD</title>
 
   <style>
     :root {
-      --black: #101010;
-      --panel: #191919;
-      --gold: #c9a45c;
-      --cream: #f5f0e6;
-      --muted: #b7b1a6;
-      --border: #34312b;
+      --black: #11110f;
+      --gold: #c7a45b;
+      --cream: #f7f3ea;
+      --white: #ffffff;
+      --muted: #77736b;
+      --border: #e6dece;
     }
 
     * { box-sizing: border-box; }
@@ -24,335 +24,443 @@
 
     body {
       margin: 0;
-      background: var(--black);
-      color: var(--cream);
+      background: var(--cream);
+      color: var(--black);
       font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
     }
 
     a { color: inherit; text-decoration: none; }
-    button, input, select, textarea { font: inherit; }
-    button, .button { cursor: pointer; }
+    button, input, select { font: inherit; }
+    button { cursor: pointer; }
 
     .announcement {
       background: var(--gold);
-      color: #15120c;
+      color: #17140d;
+      padding: 10px;
       text-align: center;
-      padding: 8px 12px;
-      font-size: 12px;
-      letter-spacing: 1px;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 2px;
     }
 
     header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(16,16,16,.97);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav {
-      max-width: 1200px;
-      margin: auto;
-      padding: 17px 22px;
+      background: var(--black);
+      color: white;
+      padding: 15px 5%;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-bottom: 1px solid #4b402a;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      height: 64px;
+      width: auto;
+      max-width: 140px;
+      object-fit: contain;
+    }
+
+    .brand-text {
+      font-family: Georgia, serif;
+      font-size: 19px;
+      letter-spacing: 3px;
+      font-weight: bold;
+    }
+
+    .brand-text small {
+      display: block;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 9px;
+      letter-spacing: 3px;
+      margin-top: 5px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
       gap: 20px;
     }
 
-    .wordmark {
-      color: var(--gold);
-      font-size: 25px;
-      font-weight: 800;
-      letter-spacing: 4px;
+    nav a {
+      font-size: 13px;
+      color: #f2eee6;
     }
 
-    .wordmark small {
-      display: block;
-      color: var(--cream);
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 5px;
-      text-align: center;
-    }
+    nav a:hover { color: var(--gold); }
 
-    nav { display: flex; flex-wrap: wrap; gap: 20px; }
-    nav a { font-size: 13px; }
-    nav a:hover, .text-link:hover { color: var(--gold); }
-
-    .cart-count {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      min-width: 23px;
-      height: 23px;
-      border-radius: 50%;
+    .cart-button {
+      border: 0;
+      padding: 11px 15px;
       background: var(--gold);
-      color: #111;
-      font-size: 12px;
-      margin-left: 5px;
+      color: var(--black);
+      font-weight: bold;
     }
 
     .hero {
-      min-height: 430px;
-      padding: 90px 22px;
-      display: grid;
-      place-items: center;
-      text-align: center;
+      min-height: 420px;
+      padding: 65px 7%;
+      display: flex;
+      align-items: center;
+      color: white;
       background:
-        radial-gradient(ellipse at 50% 20%, #4a3920 0%, #211c14 35%, #101010 75%);
-      border-bottom: 1px solid var(--border);
+        linear-gradient(90deg, rgba(0,0,0,.92), rgba(0,0,0,.45)),
+        radial-gradient(ellipse at 75% 35%, #79613a, #28231a 48%, #11110f);
     }
+
+    .hero-content { max-width: 650px; }
 
     .eyebrow {
       color: var(--gold);
-      text-transform: uppercase;
+      font-size: 11px;
       letter-spacing: 4px;
-      font-size: 12px;
+      font-weight: bold;
     }
 
-    h1 {
+    .hero h1 {
       font-family: Georgia, serif;
-      font-size: clamp(38px, 7vw, 70px);
-      line-height: 1.12;
-      font-weight: 400;
-      margin: 15px 0;
+      font-size: clamp(38px, 6vw, 66px);
+      line-height: 1.1;
+      font-weight: normal;
+      margin: 20px 0;
     }
-
-    h1 span { color: var(--gold); }
 
     .hero p {
-      max-width: 580px;
-      color: var(--muted);
-      margin: 0 auto 26px;
+      max-width: 510px;
+      color: #e1ddd4;
+      line-height: 1.8;
+      font-size: 14px;
     }
 
-    .button {
+    .gold-button {
       display: inline-block;
-      padding: 12px 21px;
-      border: 1px solid var(--gold);
+      border: 0;
+      margin-top: 15px;
+      padding: 14px 24px;
       background: var(--gold);
-      color: #17130c;
-      font-weight: 700;
-      font-size: 13px;
-      border-radius: 2px;
+      color: #17140d;
+      font-weight: bold;
     }
 
-    .button:hover { background: var(--cream); border-color: var(--cream); }
-    .button-outline { background: transparent; color: var(--gold); }
-    .button-outline:hover { color: #111; }
+    .section { padding: 52px 5%; }
 
-    .section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 65px 22px;
+    .section-heading {
+      text-align: center;
+      margin-bottom: 28px;
     }
 
-    .section-heading { margin-bottom: 28px; }
+    .section-heading span {
+      color: #927137;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
 
     .section-heading h2 {
       font-family: Georgia, serif;
-      font-size: clamp(28px, 4vw, 40px);
-      font-weight: 400;
-      margin: 5px 0;
+      font-weight: normal;
+      font-size: 33px;
+      margin: 10px 0;
     }
 
-    .section-heading p { color: var(--muted); margin: 5px 0; }
+    .section-heading p {
+      color: var(--muted);
+      font-size: 13px;
+    }
 
-    .category-grid {
+    .categories {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 12px;
     }
 
     .category {
-      min-height: 125px;
-      padding: 20px 12px;
-      border: 1px solid var(--border);
-      background: linear-gradient(145deg, #242019, #151515);
-      color: var(--cream);
-      text-align: left;
+      background: var(--black);
+      color: white;
+      border: 1px solid #4d4029;
+      padding: 22px 10px;
+      text-align: center;
+      transition: .2s;
     }
 
     .category:hover, .category.active {
+      background: #382d1b;
       border-color: var(--gold);
-      color: var(--gold);
     }
 
-    .category span {
+    .category-icon {
       display: block;
-      font-size: 11px;
-      color: var(--muted);
-      margin-bottom: 8px;
+      color: var(--gold);
+      font-size: 26px;
+      margin-bottom: 10px;
     }
 
-    .category strong { font-size: 14px; }
+    .category strong { font-size: 12px; }
 
     .toolbar {
       display: flex;
+      align-items: center;
+      justify-content: space-between;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 25px;
+      margin: 24px 0;
     }
 
-    .field {
-      width: 100%;
-      background: #191919;
-      color: var(--cream);
-      border: 1px solid var(--border);
+    .toolbar input, .toolbar select {
+      background: white;
+      border: 1px solid #d9d0bf;
       padding: 12px;
-      border-radius: 2px;
-      min-width: 0;
+      min-width: 170px;
+      max-width: 100%;
     }
 
-    .toolbar .field { flex: 1; min-width: 180px; }
+    .toolbar input { flex: 1; }
 
-    .product-grid {
+    .products {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
     }
 
     .product-card {
+      background: white;
       border: 1px solid var(--border);
-      background: var(--panel);
       min-width: 0;
     }
 
     .product-image {
-      aspect-ratio: 4 / 3;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      background: #222019;
-      color: var(--muted);
-    }
-
-    .product-image img {
       width: 100%;
-      height: 100%;
+      height: 245px;
       object-fit: cover;
+      display: block;
+      background: #e9e1d1;
     }
 
-    .product-info { padding: 17px; }
-    .product-info h3 { margin: 0 0 7px; font-size: 17px; }
-    .product-info p { color: var(--muted); font-size: 13px; }
-    .product-category { color: var(--gold); font-size: 11px; }
-
-    .product-actions {
+    .image-placeholder {
+      height: 245px;
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 15px;
-    }
-
-    .product-actions button { flex: 1; }
-
-    .empty-state {
-      padding: 38px 20px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: linear-gradient(135deg, #e9e0d0, #cbb993);
+      color: #665333;
       text-align: center;
-      border: 1px dashed var(--border);
+      padding: 12px;
+    }
+
+    .image-placeholder span { font-size: 38px; }
+    .image-placeholder small { margin-top: 10px; }
+
+    .product-info { padding: 15px; }
+
+    .product-category {
+      color: #927137;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .product-info h3 {
+      font-size: 15px;
+      margin: 9px 0;
+      overflow-wrap: anywhere;
+    }
+
+    .product-info p {
       color: var(--muted);
-      grid-column: 1 / -1;
+      font-size: 12px;
+      line-height: 1.6;
     }
 
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 35px;
-      align-items: start;
+    .price {
+      font-size: 17px;
+      font-weight: bold;
+      margin: 12px 0;
     }
 
-    .info-panel {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      padding: 25px;
-    }
-
-    .info-panel h3 { color: var(--gold); margin-top: 0; }
-
-    .blog-list { display: grid; gap: 12px; }
-
-    .blog-item {
-      padding: 17px;
-      border: 1px solid var(--border);
-      background: var(--panel);
-    }
-
-    .blog-item h3 { margin: 0 0 5px; font-size: 16px; }
-    .blog-item p { color: var(--muted); font-size: 13px; margin: 0; }
-
-    footer {
-      border-top: 1px solid var(--border);
-      background: #0b0b0b;
-      padding: 35px 22px;
-    }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 22px;
-    }
-
-    .footer-links { display: flex; flex-wrap: wrap; gap: 16px; }
-    .footer-links a { color: var(--muted); font-size: 12px; }
-    .muted { color: var(--muted); font-size: 13px; }
-
-    .cart-line {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .cart-line button {
-      background: none;
-      color: var(--gold);
-      border: none;
-    }
-
-    dialog {
-      width: min(540px, calc(100% - 24px));
-      max-height: 85vh;
-      overflow: auto;
+    .add-button {
+      width: 100%;
+      padding: 12px 8px;
+      border: 0;
       background: var(--black);
-      color: var(--cream);
-      border: 1px solid var(--gold);
-      padding: 24px;
-    }
-
-    dialog::backdrop { background: rgba(0,0,0,.8); }
-    dialog h2 { font-family: Georgia, serif; font-weight: 400; }
-    .form-stack { display: grid; gap: 12px; }
-    .close-row { display: flex; justify-content: flex-end; }
-    .close-row button { background: none; border: 0; color: var(--gold); }
-
-    .notice {
-      border-left: 2px solid var(--gold);
-      padding: 10px 14px;
-      background: #1a1813;
-      color: var(--muted);
+      color: white;
       font-size: 12px;
     }
 
-    @media (max-width: 800px) {
-      .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .split { grid-template-columns: 1fr; }
-      .nav { align-items: flex-start; flex-direction: column; }
-      nav { gap: 13px; }
+    .add-button:hover { background: #49381d; }
+
+    .empty-message {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 35px;
+      background: white;
+      color: var(--muted);
     }
 
-    @media (max-width: 480px) {
-      .product-grid { grid-template-columns: 1fr; }
-      .hero { min-height: 360px; padding: 65px 18px; }
-      .section { padding: 45px 16px; }
-      .wordmark { font-size: 22px; }
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 30px 5%;
+      background: #eee7d8;
+      text-align: center;
+    }
+
+    .benefit strong { display: block; margin-bottom: 8px; }
+    .benefit p { color: var(--muted); font-size: 12px; }
+
+    .about {
+      padding: 55px 8%;
+      text-align: center;
+      background: #eae2d2;
+    }
+
+    .about p {
+      max-width: 720px;
+      margin: 15px auto;
+      color: #5f5a50;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    footer {
+      background: var(--black);
+      color: white;
+      padding: 38px 5% 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 28px;
+    }
+
+    footer h3 {
+      color: var(--gold);
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    footer p, footer a {
+      color: #d1ccc2;
+      font-size: 12px;
+      line-height: 2;
+    }
+
+    footer a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      border-top: 1px solid #39352c;
+      margin-top: 25px;
+      padding-top: 18px;
+      text-align: center;
+      color: #b9b3a7;
+      font-size: 11px;
+    }
+
+    .cart-panel {
+      position: fixed;
+      top: 0;
+      right: -450px;
+      width: min(420px, 100%);
+      height: 100vh;
+      overflow-y: auto;
+      background: white;
+      z-index: 100;
+      padding: 22px;
+      box-shadow: -5px 0 30px #0002;
+      transition: right .25s;
+    }
+
+    .cart-panel.open { right: 0; }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 12px;
+    }
+
+    .close-button {
+      background: none;
+      border: 0;
+      font-size: 26px;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 13px;
+    }
+
+    .cart-item button {
+      background: none;
+      border: 0;
+      color: #a33;
+      padding: 5px;
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      padding: 18px 0;
+      font-weight: bold;
+    }
+
+    .whatsapp-button {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      border: 0;
+      background: #218c52;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .notice {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .products { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .categories { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 650px) {
+      header { padding: 12px 4%; }
+      .brand-logo { height: 48px; max-width: 95px; }
+      .brand-text { font-size: 15px; letter-spacing: 2px; }
+      .brand-text small { font-size: 8px; letter-spacing: 2px; }
+      nav { gap: 12px; }
+      nav a { font-size: 12px; }
+      .hero { min-height: 360px; padding: 48px 6%; }
+      .section { padding: 38px 4%; }
+      .products { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .product-image, .image-placeholder { height: 175px; }
+      .product-info { padding: 10px; }
+      .product-info h3 { font-size: 13px; }
+      .product-info p { font-size: 11px; }
+      .categories { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .benefits { grid-template-columns: 1fr; gap: 8px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 12px; }
+      .section-heading h2 { font-size: 28px; }
     }
   </style>
 </head>
@@ -363,314 +471,311 @@
   </div>
 
   <header>
-    <div class="nav">
-      <a class="wordmark" href="#home">
-        <img src="veyora-logo.jpeg" alt="VEYORA — MAYU WORLD Logo" style="height:60px;width:auto;object-fit:contain;">        <small>MAYU WORLD</small>
-      </a>
+    <a class="brand" href="#home" aria-label="VEYORA home">
+      <img
+        class="brand-logo"
+        src="./Veyora%20logo.jpeg"
+        alt="VEYORA Markhor Logo"
+        onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block';"
+      >
+      <span id="logoFallback" style="display:none;color:#c7a45b;font-weight:bold;">VEYORA</span>
+      <span class="brand-text">
+        VEYORA
+        <small>MAYU WORLD</small>
+      </span>
+    </a>
 
-      <nav aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#categories">Categories</a>
-        <a href="#products">Products</a>
-        <a href="#blog">Blog</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="#cart" id="openCart">
-          Cart <span class="cart-count" id="cartCount">0</span>
-        </a>
-      </nav>
-    </div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#categories">Categories</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">About Us</a>
+    </nav>
+
+    <button class="cart-button" onclick="toggleCart(true)">
+      Cart (<span id="cartCount">0</span>)
+    </button>
   </header>
 
   <main>
     <section class="hero" id="home">
-      <div>
-        <div class="eyebrow">Style • Comfort • Everyday Living</div>
-        <h1>Discover Your<br><span>Everyday Luxury</span></h1>
+      <div class="hero-content">
+        <div class="eyebrow">WELCOME TO VEYORA</div>
+        <h1>Elegance for<br>Everyday Living.</h1>
         <p>
-          Explore fashion and home essentials in one place.
-          Your collection, your style, your Veyora.
+          Discover fashion, home essentials and everyday products
+          selected for your lifestyle. Explore the world of VEYORA.
         </p>
-        <a class="button" href="#products">EXPLORE COLLECTION</a>
+        <a class="gold-button" href="#shop">EXPLORE COLLECTION</a>
       </div>
     </section>
 
     <section class="section" id="categories">
       <div class="section-heading">
-        <div class="eyebrow">Explore</div>
-        <h2>Shop by Category</h2>
-        <p>Choose a category to explore its products.</p>
+        <span>EXPLORE VEYORA</span>
+        <h2>Shop By Category</h2>
+        <p>Find something special for every part of your life.</p>
       </div>
 
-      <div class="category-grid" id="categoryGrid"></div>
+      <div class="categories">
+        <button class="category" onclick="selectCategory('Men’s Unstitched Suits',this)">
+          <span class="category-icon">✦</span>
+          <strong>Men's Suits</strong>
+        </button>
+        <button class="category" onclick="selectCategory('Women’s Premium Suits',this)">
+          <span class="category-icon">✧</span>
+          <strong>Women's Suits</strong>
+        </button>
+        <button class="category" onclick="selectCategory('Bedsheets',this)">
+          <span class="category-icon">⌂</span>
+          <strong>Bedsheets</strong>
+        </button>
+        <button class="category" onclick="selectCategory('Shawls',this)">
+          <span class="category-icon">◇</span>
+          <strong>Shawls</strong>
+        </button>
+        <button class="category" onclick="selectCategory('Home Accessories',this)">
+          <span class="category-icon">❖</span>
+          <strong>Home Accessories</strong>
+        </button>
+      </div>
     </section>
 
-    <section class="section" id="products">
+    <section class="section" id="shop">
       <div class="section-heading">
-        <div class="eyebrow">Our Collection</div>
-        <h2>Products</h2>
-        <p>Product names, photos and details will be added by you.</p>
+        <span>THE VEYORA COLLECTION</span>
+        <h2>Our Products</h2>
+        <p>Product details and prices can be edited in the website code.</p>
       </div>
 
       <div class="toolbar">
-        <input class="field" id="searchInput" type="search"
-          placeholder="Search products..." aria-label="Search products">
+        <input id="searchInput" type="search" placeholder="Search products..." oninput="renderProducts()">
 
-        <select class="field" id="categoryFilter" aria-label="Filter category">
-          <option value="">All categories</option>
+        <select id="categoryFilter" onchange="renderProducts()">
+          <option value="">All Categories</option>
+          <option>Men’s Unstitched Suits</option>
+          <option>Women’s Premium Suits</option>
+          <option>Bedsheets</option>
+          <option>Shawls</option>
+          <option>Home Accessories</option>
         </select>
 
-        <select class="field" id="sortSelect" aria-label="Sort products">
-          <option value="default">Default order</option>
-          <option value="az">Name: A to Z</option>
-          <option value="za">Name: Z to A</option>
+        <select id="sortFilter" onchange="renderProducts()">
+          <option value="default">Sort: Default</option>
+          <option value="low">Price: Low to High</option>
+          <option value="high">Price: High to Low</option>
+          <option value="name">Name: A to Z</option>
         </select>
+
+        <button class="gold-button" onclick="clearFilters()">Show All</button>
       </div>
 
-      <div class="product-grid" id="productGrid"></div>
+      <div class="products" id="productGrid"></div>
     </section>
 
-    <section class="section" id="blog">
+    <section class="benefits">
+      <div class="benefit">
+        <strong>✦ Carefully Selected</strong>
+        <p>Products for fashion and everyday living.</p>
+      </div>
+      <div class="benefit">
+        <strong>✧ Convenient Shopping</strong>
+        <p>Browse your collection in one place.</p>
+      </div>
+      <div class="benefit">
+        <strong>◇ Contact Us</strong>
+        <p>Ask questions before placing an order.</p>
+      </div>
+    </section>
+
+    <section class="about" id="about">
       <div class="section-heading">
-        <div class="eyebrow">The Veyora Journal</div>
-        <h2>Blog & Updates</h2>
-        <p>Space for your future articles, fashion tips and product guides.</p>
+        <span>OUR STORY</span>
+        <h2>About VEYORA</h2>
       </div>
-
-      <div class="blog-list" id="blogList"></div>
-    </section>
-
-    <section class="section" id="about">
-      <div class="split">
-        <div>
-          <div class="eyebrow">Our Story</div>
-          <h2>About Veyora</h2>
-          <p class="muted">
-            VEYORA — MAYU WORLD is your online space for fashion
-            and everyday essentials. Add your own brand story here
-            whenever you are ready.
-          </p>
-        </div>
-
-        <div class="info-panel">
-          <h3>Shopping Information</h3>
-          <p class="muted">
-            Delivery, cash on delivery, shipping fees and return
-            conditions should be confirmed here before launch.
-          </p>
-          <a class="text-link" href="#policies">Read store policies →</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="section-heading">
-        <div class="eyebrow">Get in Touch</div>
-        <h2>Contact Us</h2>
-        <p>Questions about products or an order? Contact the store.</p>
-      </div>
-
-      <div class="info-panel">
-        <p class="muted">
-          Add your official email, business hours and social media
-          links here when you are ready.
-        </p>
-        <a class="button button-outline" id="contactWhatsApp" href="#"
-          target="_blank" rel="noopener">CONTACT ON WHATSAPP</a>
-      </div>
-    </section>
-
-    <section class="section" id="policies">
-      <div class="section-heading">
-        <div class="eyebrow">Store Information</div>
-        <h2>Policies</h2>
-      </div>
-
-      <div class="split">
-        <div class="info-panel">
-          <h3>Shipping & Delivery</h3>
-          <p class="muted">
-            Add your confirmed delivery areas, delivery estimates and
-            shipping charges before accepting real orders.
-          </p>
-        </div>
-        <div class="info-panel">
-          <h3>Returns & Refunds</h3>
-          <p class="muted">
-            Add your real return, exchange and refund rules here.
-            Do not publish unconfirmed policy promises.
-          </p>
-        </div>
-        <div class="info-panel">
-          <h3>Privacy Policy</h3>
-          <p class="muted">
-            Explain how customer information is collected, used and
-            protected before launching the store.
-          </p>
-        </div>
-        <div class="info-panel">
-          <h3>Terms & Conditions</h3>
-          <p class="muted">
-            Add your store terms, order confirmation process and
-            applicable conditions before launch.
-          </p>
-        </div>
-      </div>
+      <p>
+        Welcome to VEYORA — MAYU WORLD. Our goal is to bring fashion,
+        home essentials and useful everyday products together in one
+        convenient shopping destination.
+      </p>
+      <p>
+        Explore our collections, find products you love, and contact
+        us if you need help with your order.
+      </p>
+      <a class="gold-button" href="#shop">DISCOVER OUR PRODUCTS</a>
     </section>
   </main>
 
   <footer>
-    <div class="footer-inner">
+    <div class="footer-grid">
       <div>
-        <a class="wordmark" href="#home">VEYORA
-          <small>MAYU WORLD</small>
-        </a>
-        <p class="muted">Fashion and everyday essentials.</p>
+        <h3>VEYORA — MAYU WORLD</h3>
+        <p>Your destination for fashion, home essentials and everyday living.</p>
       </div>
-      <div class="footer-links">
-        <a href="#about">About Us</a>
-        <a href="#contact">Contact</a>
-        <a href="#policies">Store Policies</a>
-        <a href="#blog">Blog</a>
+
+      <div>
+        <h3>QUICK LINKS</h3>
+        <p><a href="#home">Home</a></p>
+        <p><a href="#categories">Categories</a></p>
+        <p><a href="#shop">Shop Products</a></p>
+        <p><a href="#about">About Us</a></p>
       </div>
-      <p class="muted">© <span id="year"></span> VEYORA — MAYU WORLD</p>
+
+      <div>
+        <h3>CONTACT</h3>
+        <p>For product enquiries and orders, contact us on WhatsApp.</p>
+        <p><a id="footerWhatsApp" href="#" onclick="openWhatsApp(event)">WhatsApp Us</a></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="year"></span> VEYORA — MAYU WORLD. All rights reserved.
     </div>
   </footer>
 
-  <dialog id="cartDialog">
-    <div class="close-row">
-      <button type="button" data-close="cartDialog">CLOSE ✕</button>
+  <aside class="cart-panel" id="cartPanel" aria-label="Shopping cart">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button class="close-button" onclick="toggleCart(false)" aria-label="Close cart">×</button>
     </div>
-    <h2>Your Shopping Cart</h2>
-    <div id="cartItems"></div>
-    <p id="cartTotal"></p>
-    <p class="notice">
-      Prices are entered by you in the product data. Confirm all
-      prices, availability and delivery charges before accepting orders.
-    </p>
-    <button class="button" id="checkoutButton" type="button">
-      ORDER ON WHATSAPP
-    </button>
-  </dialog>
 
-  <dialog id="orderDialog">
-    <div class="close-row">
-      <button type="button" data-close="orderDialog">CLOSE ✕</button>
+    <div id="cartItems"></div>
+
+    <div class="cart-total">
+      <span>Total</span>
+      <span id="cartTotal">Rs 0</span>
     </div>
-    <h2>Order Details</h2>
-    <form id="orderForm" class="form-stack">
-      <input class="field" name="customerName" placeholder="Your full name" required>
-      <input class="field" name="phone" type="tel" placeholder="Phone / WhatsApp number" required>
-      <input class="field" name="city" placeholder="City" required>
-      <textarea class="field" name="address" placeholder="Complete delivery address" rows="3" required></textarea>
-      <textarea class="field" name="notes" placeholder="Order notes (optional)" rows="2"></textarea>
-      <button class="button" type="submit">PREPARE WHATSAPP ORDER</button>
-    </form>
-    <p class="muted">
-      This opens WhatsApp to send your order. It does not save orders
-      to a database or automatically confirm them.
+
+    <p class="notice">
+      Delivery charges, availability and final order details should be
+      confirmed with the store before purchase.
     </p>
-  </dialog>
+
+    <button class="whatsapp-button" onclick="checkoutWhatsApp()">
+      ORDER VIA WHATSAPP
+    </button>
+  </aside>
 
   <script>
-    /*
-      YOUR STORE SETTINGS
-
-      Add your own product details in the products array below.
-      Leave it empty until you are ready to add products.
-      Prices are not invented or pre-filled.
-    */
-
+    // STORE SETTINGS: Change the WhatsApp number here if required.
     const STORE = {
-      whatsappNumber: "", // Enter your number with country code, digits only.
-      currency: "PKR"
+      name: "VEYORA — MAYU WORLD",
+      whatsappNumber: "923713763119"
     };
 
-    const categories = [
-      "Men's Unstitched Suits",
-      "Women's Premium Suits",
-      "Bedsheets",
-      "Shawls",
-      "Home Accessories"
-    ];
-
-    /*
-      PRODUCT TEMPLATE
-
-      Copy this object for each product you want to add:
-
-      {
-        id: "your-unique-id",
-        title: "Your product name",
-        category: "Bedsheets",
-        price: 0,
-        image: "https://your-image-url.jpg",
-        description: "Your product description",
-        colours: ["Your colour"],
-        stock: 1
-      }
-
-      Replace every example value with your own information.
-      Use a number for price. Set price to your chosen amount.
-      Image should be a publicly accessible image URL.
-    */
+    // ADD YOUR PRODUCTS HERE.
+    // Replace example products, prices, descriptions and image paths
+    // with your own product details.
+    // Image files should be uploaded to the GitHub repository root.
 
     const products = [
-      // Add your own products here.
+      {
+        id: 1,
+        name: "Your Men's Suit",
+        category: "Men’s Unstitched Suits",
+        price: 0,
+        description: "Add your product description here.",
+        image: ""
+      },
+      {
+        id: 2,
+        name: "Your Women's Suit",
+        category: "Women’s Premium Suits",
+        price: 0,
+        description: "Add your product description here.",
+        image: ""
+      },
+      {
+        id: 3,
+        name: "Your Bedsheet",
+        category: "Bedsheets",
+        price: 0,
+        description: "Add your product description here.",
+        image: ""
+      },
+      {
+        id: 4,
+        name: "Your Shawl",
+        category: "Shawls",
+        price: 0,
+        description: "Add your product description here.",
+        image: ""
+      },
+      {
+        id: 5,
+        name: "Your Home Accessory",
+        category: "Home Accessories",
+        price: 0,
+        description: "Add your product description here.",
+        image: ""
+      }
     ];
 
-    /*
-      BLOG TEMPLATE
+    let cart = [];
+    let selectedCategory = "";
 
-      Add your own articles here when you are ready.
-      Example:
-      { title: "Your article title",
-        category: "Fashion",
-        description: "Your article introduction." }
-    */
+    const money = amount =>
+      "Rs " + Number(amount).toLocaleString("en-PK");
 
-    const blogPosts = [
-      // Add your own blog articles here.
-    ];
+    function renderProducts() {
+      const search = document.getElementById("searchInput").value
+        .trim().toLowerCase();
 
-    const cart = [];
+      const category = selectedCategory ||
+        document.getElementById("categoryFilter").value;
 
-    const $ = (id) => document.getElementById(id);
+      const sort = document.getElementById("sortFilter").value;
 
-    function money(amount) {
-      return new Intl.NumberFormat("en-PK", {
-        style: "currency",
-        currency: STORE.currency,
-        maximumFractionDigits: 0
-      }).format(amount);
-    }
+      let filtered = products.filter(product => {
+        const matchesSearch =
+          (product.name + " " + product.category + " " +
+          product.description).toLowerCase().includes(search);
 
-    function renderCategories() {
-      $("categoryGrid").innerHTML = categories.map((category, index) => `
-        <button class="category" type="button"
-          data-category="${escapeHTML(category)}">
-          <span>0${index + 1} / CATEGORY</span>
-          <strong>${escapeHTML(category)}</strong>
-        </button>
-      `).join("");
+        const matchesCategory = !category ||
+          product.category === category;
 
-      $("categoryFilter").innerHTML =
-        '<option value="">All categories</option>' +
-        categories.map(category =>
-          `<option value="${escapeHTML(category)}">${escapeHTML(category)}</option>`
-        ).join("");
-
-      document.querySelectorAll("[data-category]").forEach(button => {
-        button.addEventListener("click", () => {
-          $("categoryFilter").value = button.dataset.category;
-          renderProducts();
-          $("products").scrollIntoView({ behavior: "smooth" });
-        });
+        return matchesSearch && matchesCategory;
       });
+
+      if (sort === "low") filtered.sort((a, b) => a.price - b.price);
+      if (sort === "high") filtered.sort((a, b) => b.price - a.price);
+      if (sort === "name") filtered.sort((a, b) => a.name.localeCompare(b.name));
+
+      const grid = document.getElementById("productGrid");
+
+      if (!filtered.length) {
+        grid.innerHTML =
+          '<div class="empty-message">No products found. Try another search or category.</div>';
+        return;
+      }
+
+      grid.innerHTML = filtered.map(product => {
+        const image = product.image
+          ? '<img class="product-image" src="' + escapeHTML(product.image) +
+            '" alt="' + escapeHTML(product.name) +
+            '" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';">' +
+            '<div class="image-placeholder" style="display:none"><span>✦</span><small>Add your product image</small></div>'
+          : '<div class="image-placeholder"><span>✦</span><small>Add your product image</small></div>';
+
+        return `
+          <article class="product-card">
+            ${image}
+            <div class="product-info">
+              <div class="product-category">${escapeHTML(product.category)}</div>
+              <h3>${escapeHTML(product.name)}</h3>
+              <p>${escapeHTML(product.description)}</p>
+              <div class="price">${money(product.price)}</div>
+              <button class="add-button" onclick="addToCart(${product.id})">
+                ADD TO CART
+              </button>
+            </div>
+          </article>
+        `;
+      }).join("");
     }
 
     function escapeHTML(value) {
-      return String(value ?? "").replace(/[&<>"']/g, char => ({
+      return String(value).replace(/[&<>"']/g, char => ({
         "&": "&amp;",
         "<": "&lt;",
         ">": "&gt;",
@@ -679,234 +784,133 @@
       })[char]);
     }
 
-    function renderProducts() {
-      const query = $("searchInput").value.trim().toLowerCase();
-      const selectedCategory = $("categoryFilter").value;
-      const sort = $("sortSelect").value;
+    function selectCategory(category, button) {
+      selectedCategory = category;
+      document.getElementById("categoryFilter").value = category;
 
-      let visible = products.filter(product => {
-        const matchesText =
-          (product.title || "").toLowerCase().includes(query) ||
-          (product.description || "").toLowerCase().includes(query) ||
-          (product.category || "").toLowerCase().includes(query);
-
-        const matchesCategory =
-          !selectedCategory || product.category === selectedCategory;
-
-        return matchesText && matchesCategory;
+      document.querySelectorAll(".category").forEach(item => {
+        item.classList.remove("active");
       });
 
-      if (sort === "az") visible.sort((a, b) => a.title.localeCompare(b.title));
-      if (sort === "za") visible.sort((a, b) => b.title.localeCompare(a.title));
+      button.classList.add("active");
+      document.getElementById("shop").scrollIntoView({ behavior: "smooth" });
+      renderProducts();
+    }
 
-      if (!visible.length) {
-        $("productGrid").innerHTML = `
-          <div class="empty-state">
-            <h3>No products added yet</h3>
-            <p>Add your own product details in the products array in this file.</p>
-          </div>`;
-        return;
-      }
+    function clearFilters() {
+      selectedCategory = "";
+      document.getElementById("searchInput").value = "";
+      document.getElementById("categoryFilter").value = "";
+      document.getElementById("sortFilter").value = "default";
 
-      $("productGrid").innerHTML = visible.map(product => `
-        <article class="product-card">
-          <div class="product-image">
-            ${product.image
-              ? `<img src="${escapeHTML(product.image)}"
-                  alt="${escapeHTML(product.title)}" loading="lazy">`
-              : `<span>YOUR PRODUCT PHOTO</span>`}
-          </div>
-          <div class="product-info">
-            <div class="product-category">${escapeHTML(product.category)}</div>
-            <h3>${escapeHTML(product.title)}</h3>
-            <p>${escapeHTML(product.description || "")}</p>
-            ${Array.isArray(product.colours) && product.colours.length
-              ? `<p>Colours: ${product.colours.map(escapeHTML).join(", ")}</p>`
-              : ""}
-            <p>${product.price !== undefined && product.price !== null && product.price !== ""
-              ? money(Number(product.price))
-              : "Price to be added"}</p>
-            <div class="product-actions">
-              <button class="button" type="button"
-                data-add="${escapeHTML(product.id)}">ADD TO CART</button>
-            </div>
-          </div>
-        </article>
-      `).join("");
-
-      document.querySelectorAll("[data-add]").forEach(button => {
-        button.addEventListener("click", () => addToCart(button.dataset.add));
+      document.querySelectorAll(".category").forEach(item => {
+        item.classList.remove("active");
       });
+
+      renderProducts();
     }
 
     function addToCart(id) {
-      const product = products.find(item => String(item.id) === String(id));
+      const product = products.find(item => item.id === id);
       if (!product) return;
 
-      const existing = cart.find(item => String(item.id) === String(id));
-      const stock = Number(product.stock);
+      const existing = cart.find(item => item.id === id);
 
       if (existing) {
-        if (Number.isFinite(stock) && existing.quantity >= stock) {
-          alert("The available stock limit has been reached.");
-          return;
-        }
         existing.quantity++;
       } else {
-        if (Number.isFinite(stock) && stock < 1) {
-          alert("This product is currently out of stock.");
-          return;
-        }
         cart.push({ ...product, quantity: 1 });
       }
 
       renderCart();
-      alert("Product added to cart.");
+      toggleCart(true);
+    }
+
+    function removeFromCart(id) {
+      cart = cart.filter(item => item.id !== id);
+      renderCart();
     }
 
     function renderCart() {
-      $("cartCount").textContent =
-        cart.reduce((total, item) => total + item.quantity, 0);
+      const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+      const total = cart.reduce((sum, item) =>
+        sum + item.price * item.quantity, 0);
+
+      document.getElementById("cartCount").textContent = count;
+      document.getElementById("cartTotal").textContent = money(total);
+
+      const container = document.getElementById("cartItems");
 
       if (!cart.length) {
-        $("cartItems").innerHTML = '<p class="muted">Your cart is empty.</p>';
-        $("cartTotal").textContent = "";
-        $("checkoutButton").disabled = true;
+        container.innerHTML = '<p>Your cart is empty.</p>';
         return;
       }
 
-      $("checkoutButton").disabled = false;
-
-      $("cartItems").innerHTML = cart.map(item => `
-        <div class="cart-line">
+      container.innerHTML = cart.map(item => `
+        <div class="cart-item">
           <div>
-            <strong>${escapeHTML(item.title)}</strong>
-            <div class="muted">Quantity: ${item.quantity}</div>
-            <div class="muted">${item.price !== undefined && item.price !== null && item.price !== ""
-              ? money(Number(item.price) * item.quantity)
-              : "Price to be confirmed"}</div>
+            <strong>${escapeHTML(item.name)}</strong><br>
+            ${item.quantity} × ${money(item.price)}
           </div>
-          <button type="button" data-remove="${escapeHTML(item.id)}">REMOVE</button>
+          <button onclick="removeFromCart(${item.id})">Remove</button>
         </div>
       `).join("");
+    }
 
-      const allPriced = cart.every(item =>
-        item.price !== undefined && item.price !== null &&
-        item.price !== "" && Number.isFinite(Number(item.price))
+    function toggleCart(open) {
+      document.getElementById("cartPanel").classList.toggle("open", open);
+    }
+
+    function openWhatsApp(event) {
+      if (event) event.preventDefault();
+
+      const number = STORE.whatsappNumber.replace(/\D/g, "");
+
+      if (!number) {
+        alert("Please set your WhatsApp number in the STORE settings in the code.");
+        return;
+      }
+
+      window.open("https://wa.me/" + number, "_blank");
+    }
+
+    function checkoutWhatsApp() {
+      if (!cart.length) {
+        alert("Your cart is empty. Add a product first.");
+        return;
+      }
+
+      const number = STORE.whatsappNumber.replace(/\D/g, "");
+
+      if (!number) {
+        alert("Please set your WhatsApp number in the STORE settings in the code.");
+        return;
+      }
+
+      const lines = cart.map(item =>
+        item.name + " × " + item.quantity + " — " +
+        money(item.price * item.quantity)
       );
 
-      $("cartTotal").textContent = allPriced
-        ? "Subtotal: " + money(cart.reduce((sum, item) =>
-            sum + Number(item.price) * item.quantity, 0))
-        : "Subtotal: confirm product prices";
+      const total = cart.reduce((sum, item) =>
+        sum + item.price * item.quantity, 0);
 
-      document.querySelectorAll("[data-remove]").forEach(button => {
-        button.addEventListener("click", () => {
-          const index = cart.findIndex(item =>
-            String(item.id) === String(button.dataset.remove)
-          );
-          if (index >= 0) cart.splice(index, 1);
-          renderCart();
-        });
-      });
+      const message =
+        "Assalam-o-Alaikum! I want to enquire about an order from " +
+        STORE.name + ":\n\n" + lines.join("\n") +
+        "\n\nTotal: " + money(total) +
+        "\nPlease confirm availability, delivery charges and order details.";
+
+      window.open(
+        "https://wa.me/" + number + "?text=" + encodeURIComponent(message),
+        "_blank"
+      );
     }
 
-    function openWhatsApp(message) {
-      if (!/^\d{10,15}$/.test(STORE.whatsappNumber)) {
-        alert("First enter your WhatsApp number in the STORE settings in the code.");
-        return;
-      }
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-      const url = "https://wa.me/" + STORE.whatsappNumber +
-        "?text=" + encodeURIComponent(message);
-
-      window.open(url, "_blank", "noopener,noreferrer");
-    }
-
-    function renderBlog() {
-      if (!blogPosts.length) {
-        $("blogList").innerHTML = `
-          <div class="empty-state">
-            Your blog articles will appear here when you add them to the blogPosts array.
-          </div>`;
-        return;
-      }
-
-      $("blogList").innerHTML = blogPosts.map(post => `
-        <article class="blog-item">
-          <div class="product-category">${escapeHTML(post.category || "BLOG")}</div>
-          <h3>${escapeHTML(post.title)}</h3>
-          <p>${escapeHTML(post.description || "")}</p>
-        </article>
-      `).join("");
-    }
-
-    $("openCart").addEventListener("click", event => {
-      event.preventDefault();
-      $("cartDialog").showModal();
-    });
-
-    $("checkoutButton").addEventListener("click", () => {
-      if (!cart.length) return;
-      $("cartDialog").close();
-      $("orderDialog").showModal();
-    });
-
-    document.querySelectorAll("[data-close]").forEach(button => {
-      button.addEventListener("click", () => {
-        $(button.dataset.close).close();
-      });
-    });
-
-    $("orderForm").addEventListener("submit", event => {
-      event.preventDefault();
-
-      if (!cart.length) {
-        alert("Your cart is empty.");
-        return;
-      }
-
-      const form = new FormData(event.currentTarget);
-      const items = cart.map(item =>
-        `${item.title} x ${item.quantity}` +
-        (item.price !== undefined && item.price !== null && item.price !== ""
-          ? ` — ${money(Number(item.price) * item.quantity)}`
-          : " — price to be confirmed")
-      ).join("\n");
-
-      const message = [
-        "VEYORA — MAYU WORLD ORDER",
-        "",
-        "Customer: " + form.get("customerName"),
-        "Phone: " + form.get("phone"),
-        "City: " + form.get("city"),
-        "Address: " + form.get("address"),
-        "Notes: " + (form.get("notes") || "None"),
-        "",
-        "Products:",
-        items,
-        "",
-        "Please confirm availability, prices and delivery charges."
-      ].join("\n");
-
-      openWhatsApp(message);
-    });
-
-    $("contactWhatsApp").addEventListener("click", event => {
-      event.preventDefault();
-      openWhatsApp("Hello VEYORA — MAYU WORLD, I have a question.");
-    });
-
-    $("searchInput").addEventListener("input", renderProducts);
-    $("categoryFilter").addEventListener("change", renderProducts);
-    $("sortSelect").addEventListener("change", renderProducts);
-
-    $("year").textContent = new Date().getFullYear();
-
-    renderCategories();
     renderProducts();
     renderCart();
-    renderBlog();
   </script>
 </body>
 </html>

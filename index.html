@@ -6,942 +6,134 @@
 <meta name="theme-color" content="#171714">
 <meta name="description" content="VEYORA — MAYU WORLD. Premium fashion, home essentials and everyday products.">
 <title>VEYORA — MAYU WORLD</title>
-
 <style>
-:root{
-  --black:#171714;
-  --black2:#24231f;
-  --gold:#c5a46d;
-  --gold-light:#e6d3a8;
-  --cream:#f8f5ef;
-  --white:#fffefa;
-  --text:#292720;
-  --muted:#77736b;
-  --border:#e9e2d6;
-  --shadow:0 12px 36px rgba(35,29,18,.08);
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;background:var(--cream);color:var(--text);
-  font-family:Arial,Helvetica,sans-serif;line-height:1.6
-}
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-.container{width:min(1240px,92%);margin:auto}
-.topbar{
-  background:var(--black);color:#e9d9b8;text-align:center;
-  padding:9px 12px;font-size:10px;letter-spacing:3px;
-  text-transform:uppercase
-}
-header{
-  position:sticky;top:0;z-index:20;background:rgba(248,245,239,.96);
-  backdrop-filter:blur(14px);border-bottom:1px solid var(--border)
-}
-.header-inner{
-  min-height:86px;display:flex;align-items:center;
-  justify-content:space-between;gap:20px
-}
-.brand{display:flex;align-items:center;gap:12px;min-width:0}
-.brand img{width:54px;height:54px;object-fit:contain;border-radius:50%}
-.brand-name{font-family:Georgia,serif;font-size:25px;letter-spacing:4px;line-height:1.2}
-.brand-sub{font-size:9px;letter-spacing:3px;color:var(--muted);margin-top:5px}
-nav{display:flex;align-items:center;gap:25px}
-nav a{font-size:11px;letter-spacing:1.4px;text-transform:uppercase}
-nav a:hover{color:#a47f3e}
-.header-actions{display:flex;gap:9px;align-items:center}
-.btn{
-  border:1px solid var(--black);background:var(--black);color:white;
-  padding:12px 19px;font-size:11px;letter-spacing:1.1px;
-  text-transform:uppercase;transition:.25s;display:inline-flex;
-  align-items:center;justify-content:center;gap:8px
-}
-.btn:hover{background:var(--gold);border-color:var(--gold);color:var(--black)}
-.btn-gold{background:var(--gold);border-color:var(--gold);color:var(--black)}
-.btn-outline{background:transparent;color:var(--black)}
-.btn-small{padding:8px 12px;font-size:10px}
-.icon-btn{border:1px solid var(--border);background:var(--white);padding:11px 14px}
-.hero{
-  background:radial-gradient(ellipse at 85% 25%,#49402e 0%,transparent 40%),
-  linear-gradient(120deg,#171714 0%,#24231f 60%,#302a20 100%);
-  color:white;overflow:hidden;position:relative
-}
-.hero:after{
-  content:"V";position:absolute;right:8%;top:-100px;
-  font:400 520px Georgia,serif;color:rgba(197,164,109,.075);
-  pointer-events:none
-}
-.hero-inner{
-  min-height:460px;padding:75px 0;display:grid;
-  grid-template-columns:1.2fr .8fr;align-items:center;gap:30px;position:relative;z-index:1
-}
-.eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-light)}
-.hero h1{
-  font:400 clamp(40px,6vw,72px)/1.08 Georgia,serif;
-  letter-spacing:1px;margin:20px 0
-}
-.hero h1 span{color:var(--gold-light);font-style:italic}
-.hero p{color:#d0ccc2;max-width:500px;font-size:14px;line-height:1.9}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.hero-seal{
-  width:min(290px,80%);aspect-ratio:1;border:1px solid rgba(230,211,168,.6);
-  border-radius:50%;display:flex;align-items:center;justify-content:center;
-  margin:auto;position:relative
-}
-.hero-seal:before,.hero-seal:after{
-  content:"";position:absolute;border:1px solid rgba(230,211,168,.28);border-radius:50%
-}
-.hero-seal:before{inset:15px}.hero-seal:after{inset:28px}
-.seal-text{text-align:center;color:var(--gold-light);z-index:1}
-.seal-text strong{display:block;font:36px Georgia,serif;letter-spacing:8px}
-.seal-text small{font-size:9px;letter-spacing:4px}
-.trust-strip{background:#eee7db;border-bottom:1px solid var(--border)}
-.trust-inner{display:grid;grid-template-columns:repeat(3,1fr);padding:19px 0;gap:12px;text-align:center}
-.trust-item{font-size:10px;letter-spacing:1.3px;text-transform:uppercase}
-.trust-item span{display:block;color:var(--muted);font-size:11px;letter-spacing:0;text-transform:none;margin-top:3px}
-.section{padding:75px 0}
-.section-head{text-align:center;margin-bottom:32px}
-.section-kicker{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#9a7942}
-.section h2{font:400 clamp(29px,4vw,43px) Georgia,serif;margin:10px 0}
-.section-head p{font-size:13px;color:var(--muted);margin:0}
-.shop-toolbar{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:25px;flex-wrap:wrap}
-.category-list{display:flex;gap:8px;flex-wrap:wrap}
-.chip{
-  border:1px solid var(--border);background:transparent;padding:9px 14px;
-  font-size:10px;letter-spacing:.6px;transition:.2s
-}
-.chip:hover,.chip.active{background:var(--black);color:white;border-color:var(--black)}
-.sort-select{
-  background:var(--white);border:1px solid var(--border);padding:10px 12px;
-  color:var(--text);max-width:100%
-}
-.product-count{font-size:11px;color:var(--muted);margin-bottom:15px}
-.product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
-.product-card{
-  background:var(--white);border:1px solid #eee7db;position:relative;
-  transition:transform .3s,box-shadow .3s;min-width:0
-}
-.product-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-.product-image{
-  aspect-ratio:4/5;background:#f0ece4;overflow:hidden;position:relative
-}
-.product-image img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.product-card:hover .product-image img{transform:scale(1.035)}
-.product-image-placeholder{
-  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
-  color:#a79a81;font:italic 22px Georgia,serif
-}
-.product-tag{
-  position:absolute;top:12px;left:12px;background:rgba(248,245,239,.94);
-  padding:6px 9px;font-size:9px;letter-spacing:1.2px;text-transform:uppercase
-}
-.product-info{padding:16px}
-.product-category{font-size:9px;color:#987844;text-transform:uppercase;letter-spacing:1.4px}
-.product-title{font:400 18px/1.35 Georgia,serif;margin:7px 0}
-.product-description{font-size:11px;color:var(--muted);line-height:1.65;margin:0 0 12px}
-.product-price{font-size:15px;font-weight:700;margin:10px 0}
-.product-stock{font-size:10px;color:var(--muted);margin-bottom:10px}
-.product-select{
-  width:100%;padding:10px;border:1px solid var(--border);
-  background:#fffefa;font-size:11px;margin:4px 0 10px
-}
-.product-info .btn{width:100%}
-.empty-state{
-  padding:50px 20px;text-align:center;color:var(--muted);
-  background:var(--white);border:1px dashed var(--border);grid-column:1/-1
-}
-.benefits{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
-.benefit{text-align:center;padding:10px}
-.benefit-symbol{color:#a9864d;font:30px Georgia,serif}
-.benefit h3{font:400 19px Georgia,serif;margin:9px 0}
-.benefit p{font-size:12px;color:var(--muted);margin:0}
-.about-box{
-  background:linear-gradient(120deg,#eee6d8,#faf7f0);
-  padding:48px;text-align:center;border:1px solid #e5d9c5
-}
-.about-box p{max-width:700px;margin:15px auto;color:#666056;font-size:13px;line-height:1.9}
-footer{background:var(--black);color:#e8e2d7;padding:45px 0 20px}
-.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:30px;padding-bottom:32px}
-.footer-brand{font:28px Georgia,serif;letter-spacing:4px}
-footer p,footer a{font-size:12px;color:#bcb6a9}
-footer h3{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light)}
-.footer-links{display:grid;gap:9px}
-.footer-bottom{border-top:1px solid #3a3933;padding-top:18px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
-.admin-link{font-size:9px;color:#a49a85;border:1px solid #4b463a;padding:5px 10px;letter-spacing:1px}
-.admin-link:hover{color:var(--gold-light);border-color:var(--gold)}
-/* Cart */
-.drawer-backdrop,.modal-backdrop{
-  display:none;position:fixed;inset:0;background:rgba(12,12,10,.58);z-index:50
-}
-.drawer-backdrop.show,.modal-backdrop.show{display:block}
-.cart-drawer{
-  position:fixed;right:0;top:0;height:100dvh;width:min(440px,100%);
-  background:var(--cream);z-index:51;transform:translateX(105%);
-  transition:transform .3s;display:flex;flex-direction:column
-}
-.cart-drawer.show{transform:translateX(0)}
-.drawer-head{padding:22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
-.drawer-head h2{font:28px Georgia,serif;margin:0}
-.drawer-content{padding:18px 22px;overflow:auto;flex:1}
-.cart-item{display:grid;grid-template-columns:70px 1fr auto;gap:12px;padding:13px 0;border-bottom:1px solid var(--border)}
-.cart-item img{width:70px;height:85px;object-fit:cover;background:#eee7db}
-.cart-item h4{font:16px Georgia,serif;margin:0 0 5px}
-.cart-item p{font-size:11px;color:var(--muted);margin:0 0 8px}
-.qty-controls{display:flex;align-items:center;gap:9px;font-size:12px}
-.qty-controls button{border:1px solid var(--border);background:white;width:25px;height:25px}
-.cart-remove{border:0;background:none;color:#997b51;font-size:10px;margin-top:5px}
-.cart-summary{border-top:1px solid var(--border);padding:18px 22px}
-.summary-line{display:flex;justify-content:space-between;font-size:12px;margin:8px 0}
-.summary-total{font-weight:700;font-size:16px;padding-top:10px;border-top:1px solid var(--border)}
-.checkout-fields{display:grid;gap:10px;margin-top:16px}
-.field{width:100%;padding:12px;border:1px solid var(--border);background:white;outline:none;min-width:0}
-.field:focus{border-color:var(--gold)}
-textarea.field{resize:vertical}
-.notice{font-size:12px;margin:10px 0;color:#6f633e}
-.modal-backdrop{z-index:60;overflow:auto;padding:24px 12px}
-.modal{
-  width:min(760px,100%);margin:3vh auto;background:var(--cream);
-  border:1px solid var(--gold);box-shadow:0 25px 80px #0004
-}
-.modal-head{padding:18px 22px;background:var(--black);color:white;display:flex;justify-content:space-between;align-items:center}
-.modal-head h2{font:24px Georgia,serif;margin:0}
-.modal-body{padding:22px}
-.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-.form-label{font-size:10px;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:5px;color:#766e5e}
-.form-group{min-width:0}
-.form-group.full{grid-column:1/-1}
-.admin-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
-.admin-tab{border:1px solid var(--border);background:white;padding:9px 13px;font-size:11px}
-.admin-tab.active{background:var(--black);color:white}
-.admin-list{display:grid;gap:10px;margin-top:18px}
-.admin-row{display:flex;justify-content:space-between;align-items:center;gap:12px;background:white;border:1px solid var(--border);padding:12px;flex-wrap:wrap}
-.admin-row strong{font:16px Georgia,serif}
-.admin-row small{display:block;color:var(--muted);font-size:10px}
-.admin-row-actions{display:flex;gap:6px}
-.admin-row-actions button{padding:7px 9px;border:1px solid var(--border);background:#fffefa;font-size:10px}
-.admin-row-actions .delete{color:#a13c32}
-.status-pill{font-size:10px;background:#eee6d8;padding:4px 8px}
-.hidden{display:none!important}
-.toast{
-  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
-  z-index:100;background:var(--black);color:white;padding:12px 18px;
-  box-shadow:var(--shadow);font-size:12px;max-width:90%;text-align:center
-}
-@media(max-width:900px){
-  .product-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-  .hero-inner{min-height:400px}
-  nav{gap:14px}
-  .brand-name{font-size:21px}
-}
-@media(max-width:650px){
-  .header-inner{min-height:72px;flex-wrap:wrap;padding:10px 0;gap:9px}
-  .brand img{width:43px;height:43px}
-  .brand-name{font-size:19px;letter-spacing:3px}
-  .brand-sub{font-size:8px;letter-spacing:2px}
-  nav{order:3;width:100%;justify-content:center;padding:5px 0 2px;gap:26px}
-  nav a{font-size:10px}
-  .header-actions .btn{padding:10px 12px}
-  .hero-inner{grid-template-columns:1fr;padding:58px 0;min-height:0}
-  .hero-copy{text-align:center}
-  .hero p{margin-left:auto;margin-right:auto}
-  .hero-actions{justify-content:center}
-  .hero-seal{width:155px;margin-top:10px}
-  .seal-text strong{font-size:24px;letter-spacing:5px}
-  .hero:after{font-size:300px;right:-20px;top:100px}
-  .trust-inner{grid-template-columns:1fr;padding:13px 0;gap:14px}
-  .trust-item{font-size:10px}
-  .trust-item span{margin-top:0}
-  .section{padding:48px 0}
-  .shop-toolbar{align-items:stretch}
-  .category-list{gap:6px}
-  .chip{padding:8px 10px;font-size:9px}
-  .sort-select{width:100%}
-  .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-  .product-info{padding:11px}
-  .product-title{font-size:16px}
-  .product-description{font-size:10px}
-  .product-info .btn{padding:10px 6px;font-size:9px}
-  .product-image{aspect-ratio:3/4}
-  .product-tag{top:7px;left:7px;padding:5px 6px;font-size:8px}
-  .benefit-grid{grid-template-columns:1fr;gap:24px}
-  .about-box{padding:30px 18px}
-  .footer-grid{grid-template-columns:1fr;gap:20px}
-  .admin-grid{grid-template-columns:1fr}
-  .form-group.full{grid-column:auto}
-  .modal-body{padding:15px}
-}
+:root{--black:#171714;--black2:#24231f;--gold:#c5a46d;--gold-light:#e6d3a8;--cream:#f8f5ef;--white:#fffefa;--text:#292720;--muted:#77736b;--border:#e9e2d6;--shadow:0 12px 36px rgba(35,29,18,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.6}button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}.container{width:min(1240px,92%);margin:auto}
+.topbar{background:var(--black);color:#e9d9b8;text-align:center;padding:9px 12px;font-size:10px;letter-spacing:3px;text-transform:uppercase}
+header{position:sticky;top:0;z-index:20;background:rgba(248,245,239,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}.header-inner{min-height:86px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:12px;min-width:0}.brand img{width:54px;height:54px;object-fit:contain;border-radius:50%}.brand-name{font-family:Georgia,serif;font-size:25px;letter-spacing:4px;line-height:1.2}.brand-sub{font-size:9px;letter-spacing:3px;color:var(--muted);margin-top:5px}nav{display:flex;align-items:center;gap:25px}nav a{font-size:11px;letter-spacing:1.4px;text-transform:uppercase}nav a:hover{color:#a47f3e}.header-actions{display:flex;gap:9px;align-items:center}
+.btn{border:1px solid var(--black);background:var(--black);color:white;padding:12px 19px;font-size:11px;letter-spacing:1.1px;text-transform:uppercase;transition:.25s;display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn:hover{background:var(--gold);border-color:var(--gold);color:var(--black)}.btn-gold{background:var(--gold);border-color:var(--gold);color:var(--black)}.btn-outline{background:transparent;color:var(--black)}.btn-small{padding:8px 12px;font-size:10px}.icon-btn{border:1px solid var(--border);background:var(--white);padding:11px 14px}
+.hero{background:radial-gradient(ellipse at 85% 25%,#49402e 0%,transparent 40%),linear-gradient(120deg,#171714 0%,#24231f 60%,#302a20 100%);color:white;overflow:hidden;position:relative}.hero:after{content:"V";position:absolute;right:8%;top:-100px;font:400 520px Georgia,serif;color:rgba(197,164,109,.075);pointer-events:none}.hero-inner{min-height:460px;padding:75px 0;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:30px;position:relative;z-index:1}.eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-light)}.hero h1{font:400 clamp(40px,6vw,72px)/1.08 Georgia,serif;letter-spacing:1px;margin:20px 0}.hero h1 span{color:var(--gold-light);font-style:italic}.hero p{color:#d0ccc2;max-width:500px;font-size:14px;line-height:1.9}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.hero-seal{width:min(290px,80%);aspect-ratio:1;border:1px solid rgba(230,211,168,.6);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:auto;position:relative}.hero-seal:before,.hero-seal:after{content:"";position:absolute;border:1px solid rgba(230,211,168,.28);border-radius:50%}.hero-seal:before{inset:15px}.hero-seal:after{inset:28px}.seal-text{text-align:center;color:var(--gold-light);z-index:1}.seal-text strong{display:block;font:36px Georgia,serif;letter-spacing:8px}.seal-text small{font-size:9px;letter-spacing:4px}
+.trust-strip{background:#eee7db;border-bottom:1px solid var(--border)}.trust-inner{display:grid;grid-template-columns:repeat(3,1fr);padding:19px 0;gap:12px;text-align:center}.trust-item{font-size:10px;letter-spacing:1.3px;text-transform:uppercase}.trust-item span{display:block;color:var(--muted);font-size:11px;letter-spacing:0;text-transform:none;margin-top:3px}.section{padding:75px 0}.section-head{text-align:center;margin-bottom:32px}.section-kicker{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#9a7942}.section h2{font:400 clamp(29px,4vw,43px) Georgia,serif;margin:10px 0}.section-head p{font-size:13px;color:var(--muted);margin:0}.shop-toolbar{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:25px;flex-wrap:wrap}.category-list{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid var(--border);background:transparent;padding:9px 14px;font-size:10px;letter-spacing:.6px;transition:.2s}.chip:hover,.chip.active{background:var(--black);color:white;border-color:var(--black)}.sort-select{background:var(--white);border:1px solid var(--border);padding:10px 12px;color:var(--text);max-width:100%}.product-count{font-size:11px;color:var(--muted);margin-bottom:15px}.product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}.product-card{background:var(--white);border:1px solid #eee7db;position:relative;transition:transform .3s,box-shadow .3s;min-width:0}.product-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.product-image{aspect-ratio:4/5;background:#f0ece4;overflow:hidden;position:relative}.product-image img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.product-card:hover .product-image img{transform:scale(1.035)}.product-image-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#a79a81;font:italic 22px Georgia,serif}.product-tag{position:absolute;top:12px;left:12px;background:rgba(248,245,239,.94);padding:6px 9px;font-size:9px;letter-spacing:1.2px;text-transform:uppercase}.sale-badge{position:absolute;top:12px;right:12px;background:#9f382b;color:white;padding:5px 8px;font-size:9px;letter-spacing:1px}.product-info{padding:16px}.product-category{font-size:9px;color:#987844;text-transform:uppercase;letter-spacing:1.4px}.product-title{font:400 18px/1.35 Georgia,serif;margin:7px 0}.product-description{font-size:11px;color:var(--muted);line-height:1.65;margin:0 0 12px}.product-price{font-size:15px;font-weight:700;margin:10px 0}.old-price{text-decoration:line-through;color:#888;font-size:12px;font-weight:400;margin-left:7px}.sale-details{font-size:10px;color:#a13c32;margin-top:-6px;margin-bottom:9px}.product-stock{font-size:10px;color:var(--muted);margin-bottom:10px}.product-select{width:100%;padding:10px;border:1px solid var(--border);background:#fffefa;font-size:11px;margin:4px 0 10px}.product-info .btn{width:100%}.empty-state{padding:50px 20px;text-align:center;color:var(--muted);background:var(--white);border:1px dashed var(--border);grid-column:1/-1}.benefits{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}.benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}.benefit{text-align:center;padding:10px}.benefit-symbol{color:#a9864d;font:30px Georgia,serif}.benefit h3{font:400 19px Georgia,serif;margin:9px 0}.benefit p{font-size:12px;color:var(--muted);margin:0}.about-box{background:linear-gradient(120deg,#eee6d8,#faf7f0);padding:48px;text-align:center;border:1px solid #e5d9c5}.about-box p{max-width:700px;margin:15px auto;color:#666056;font-size:13px;line-height:1.9}
+footer{background:var(--black);color:#e8e2d7;padding:45px 0 20px}.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:30px;padding-bottom:32px}.footer-brand{font:28px Georgia,serif;letter-spacing:4px}footer p,footer a{font-size:12px;color:#bcb6a9}footer h3{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light)}.footer-links{display:grid;gap:9px}.footer-bottom{border-top:1px solid #3a3933;padding-top:18px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.admin-link{font-size:9px;color:#a49a85;border:1px solid #4b463a;padding:5px 10px;letter-spacing:1px}.admin-link:hover{color:var(--gold-light);border-color:var(--gold)}
+.drawer-backdrop,.modal-backdrop{display:none;position:fixed;inset:0;background:rgba(12,12,10,.58);z-index:50}.drawer-backdrop.show,.modal-backdrop.show{display:block}.cart-drawer{position:fixed;right:0;top:0;height:100dvh;width:min(440px,100%);background:var(--cream);z-index:51;transform:translateX(105%);transition:transform .3s;display:flex;flex-direction:column}.cart-drawer.show{transform:translateX(0)}.drawer-head{padding:22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}.drawer-head h2{font:28px Georgia,serif;margin:0}.drawer-content{padding:18px 22px;overflow:auto;flex:1}.cart-item{display:grid;grid-template-columns:70px 1fr auto;gap:12px;padding:13px 0;border-bottom:1px solid var(--border)}.cart-item img{width:70px;height:85px;object-fit:cover;background:#eee7db}.cart-item h4{font:16px Georgia,serif;margin:0 0 5px}.cart-item p{font-size:11px;color:var(--muted);margin:0 0 8px}.qty-controls{display:flex;align-items:center;gap:9px;font-size:12px}.qty-controls button{border:1px solid var(--border);background:white;width:25px;height:25px}.cart-remove{border:0;background:none;color:#997b51;font-size:10px;margin-top:5px}.cart-summary{border-top:1px solid var(--border);padding:18px 22px}.summary-line{display:flex;justify-content:space-between;font-size:12px;margin:8px 0}.summary-total{font-weight:700;font-size:16px;padding-top:10px;border-top:1px solid var(--border)}.checkout-fields{display:grid;gap:10px;margin-top:16px}.field{width:100%;padding:12px;border:1px solid var(--border);background:white;outline:none;min-width:0}.field:focus{border-color:var(--gold)}textarea.field{resize:vertical}.notice{font-size:12px;margin:10px 0;color:#6f633e}
+.modal-backdrop{z-index:60;overflow:auto;padding:24px 12px}.modal{width:min(900px,100%);margin:3vh auto;background:var(--cream);border:1px solid var(--gold);box-shadow:0 25px 80px #0004}.modal-head{padding:18px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px}.modal-head h2{font:26px Georgia,serif;margin:0}.modal-body{padding:22px}.hidden{display:none!important}.admin-tabs{display:flex;gap:8px;border-bottom:1px solid var(--border);margin-bottom:20px;overflow:auto}.admin-tab{border:0;background:transparent;padding:12px 15px;font-size:11px;white-space:nowrap}.admin-tab.active{border-bottom:2px solid var(--gold);font-weight:bold}.admin-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.form-group{min-width:0}.form-group.full{grid-column:1/-1}.form-label{display:block;font-size:11px;margin-bottom:6px;color:#655f54}.admin-list{display:grid;gap:10px;margin-top:14px}.admin-item{background:white;border:1px solid var(--border);padding:12px;display:grid;grid-template-columns:64px minmax(0,1fr) auto;align-items:center;gap:12px}.admin-item img{width:64px;height:75px;object-fit:cover;background:#eee7db}.admin-item h4{font:17px Georgia,serif;margin:0 0 5px}.admin-item p{font-size:11px;color:var(--muted);margin:3px 0}.admin-item-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}.admin-item-actions button{font-size:10px;padding:7px 9px}.variant-builder{border:1px solid var(--border);background:#fffefa;padding:14px;grid-column:1/-1}.variant-builder-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.variant-values{display:grid;gap:10px;margin-top:12px}.variant-value{display:grid;grid-template-columns:minmax(120px,1fr) minmax(90px,.55fr) minmax(130px,1fr) auto;gap:8px;align-items:center;border:1px solid var(--border);padding:9px;background:#faf7f1}.variant-value input{min-width:0;width:100%;padding:9px;border:1px solid var(--border);background:white;font-size:12px}.variant-value .file-input{font-size:10px;padding:6px}.variant-value img{width:50px;height:55px;object-fit:cover;border:1px solid var(--border)}.variant-value button{border:1px solid var(--border);background:white;padding:8px;color:#a13c32}.mini-help{font-size:11px;color:var(--muted);margin:7px 0 0}.gallery-dots{display:flex;gap:5px;position:absolute;bottom:8px;left:0;right:0;justify-content:center}.gallery-dots button{width:7px;height:7px;border:0;border-radius:50%;background:#fff9;box-shadow:0 0 0 1px #3335;padding:0}.gallery-dots button.active{background:var(--gold)}
+@media(max-width:900px){.product-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.hero-inner{min-height:400px}nav{gap:14px}.brand-name{font-size:21px}}
+@media(max-width:650px){.header-inner{min-height:72px;flex-wrap:wrap;padding:10px 0;gap:9px}.brand img{width:43px;height:43px}.brand-name{font-size:19px;letter-spacing:3px}.brand-sub{font-size:8px;letter-spacing:2px}nav{order:3;width:100%;justify-content:center;padding:5px 0 2px;gap:26px}nav a{font-size:10px}.header-actions .btn{padding:10px 12px}.hero-inner{grid-template-columns:1fr;padding:58px 0;min-height:0}.hero-copy{text-align:center}.hero p{margin-left:auto;margin-right:auto}.hero-actions{justify-content:center}.hero-seal{width:155px;margin-top:10px}.seal-text strong{font-size:24px;letter-spacing:5px}.hero:after{font-size:300px;right:-20px;top:100px}.trust-inner{grid-template-columns:1fr;padding:13px 0;gap:14px}.trust-item{font-size:10px}.trust-item span{margin-top:0}.section{padding:48px 0}.shop-toolbar{align-items:stretch}.category-list{gap:6px}.chip{padding:8px 10px;font-size:9px}.sort-select{width:100%}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.product-info{padding:11px}.product-title{font-size:16px}.product-description{font-size:10px}.product-info .btn{padding:10px 6px;font-size:9px}.product-image{aspect-ratio:3/4}.product-tag{top:7px;left:7px;padding:5px 6px;font-size:8px}.benefit-grid{grid-template-columns:1fr;gap:24px}.about-box{padding:30px 18px}.footer-grid{grid-template-columns:1fr;gap:20px}.admin-grid{grid-template-columns:1fr}.form-group.full{grid-column:auto}.modal-body{padding:15px}.variant-builder{grid-column:auto}.variant-value{grid-template-columns:1fr 1fr}.variant-value .variant-photo-wrap{grid-column:1/-1;display:flex;align-items:center;gap:8px}.variant-value button{justify-self:start}}
 </style>
 </head>
-
 <body>
 <div class="topbar">WELCOME TO VEYORA — MAYU WORLD · A PREMIUM EVERYDAY COLLECTION</div>
-
-<header>
-  <div class="container header-inner">
-    <a href="#home" class="brand" aria-label="VEYORA Home">
-      <img src="./WhatsApp%20Image%202026-10-12%20at%2011.22.27%20PM%20(1).jpeg" alt="VEYORA Logo" onerror="this.style.display='none'">
-      <div>
-        <div class="brand-name">VEYORA</div>
-        <div class="brand-sub">MAYU WORLD</div>
-      </div>
-    </a>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#shop">Shop</a>
-      <a href="#about">Our Story</a>
-    </nav>
-    <div class="header-actions">
-      <button class="btn" id="cartOpen">Bag (<span id="cartCount">0</span>)</button>
-    </div>
-  </div>
-</header>
-
+<header><div class="container header-inner">
+<a href="#home" class="brand" aria-label="VEYORA Home"><img src="./WhatsApp%20Image%202026-10-12%20at%2011.22.27%20PM%20(1).jpeg" alt="VEYORA Logo" onerror="this.style.display='none'"><div><div class="brand-name">VEYORA</div><div class="brand-sub">MAYU WORLD</div></div></a>
+<nav><a href="#home">Home</a><a href="#shop">Shop</a><a href="#about">Our Story</a></nav>
+<div class="header-actions"><button class="btn" id="cartOpen">Bag (<span id="cartCount">0</span>)</button></div>
+</div></header>
 <main>
-<section class="hero" id="home">
-  <div class="container hero-inner">
-    <div class="hero-copy">
-      <div class="eyebrow" id="bannerEyebrow">THE VEYORA COLLECTION</div>
-      <h1 id="bannerTitle">Everyday living,<br><span>elevated.</span></h1>
-      <p id="bannerText">Discover thoughtfully selected fashion, home essentials and everyday favourites — all in one place.</p>
-      <div class="hero-actions">
-        <a href="#shop" class="btn btn-gold" id="bannerButton">Explore Collection ↗</a>
-        <a href="#about" class="btn btn-outline" style="color:white;border-color:#80745d">Discover Veyora</a>
-      </div>
-    </div>
-    <div class="hero-seal">
-      <div class="seal-text"><strong>VEYORA</strong><small>STYLE · HOME · LIVING</small></div>
-    </div>
-  </div>
-</section>
-
-<div class="trust-strip">
-  <div class="container trust-inner">
-    <div class="trust-item">✧ Curated Collection<span>Fashion and everyday essentials</span></div>
-    <div class="trust-item">✧ Cash on Delivery<span>Pay when your order arrives</span></div>
-    <div class="trust-item">✧ Personal Service<span>Support for your order</span></div>
-  </div>
-</div>
-
-<section class="section" id="shop">
-  <div class="container">
-    <div class="section-head">
-      <div class="section-kicker">A considered selection</div>
-      <h2>Shop the Collection</h2>
-      <p>Find something special for your style and your home.</p>
-    </div>
-
-    <div class="shop-toolbar">
-      <div class="category-list" id="categoryList">
-        <button class="chip active" data-category="All">All Products</button>
-        <button class="chip" data-category="Men">Men</button>
-        <button class="chip" data-category="Women">Women</button>
-        <button class="chip" data-category="Bedsheets">Bedsheets</button>
-        <button class="chip" data-category="Shawls">Shawls</button>
-        <button class="chip" data-category="Home & Kitchen">Home & Kitchen</button>
-      </div>
-      <select id="sortProducts" class="sort-select" aria-label="Sort products">
-        <option value="newest">Newest first</option>
-        <option value="low">Price: Low to High</option>
-        <option value="high">Price: High to Low</option>
-        <option value="az">Name: A to Z</option>
-      </select>
-    </div>
-
-    <div class="product-count" id="productCount">Loading collection…</div>
-    <div class="product-grid" id="productGrid">
-      <div class="empty-state">Preparing the VEYORA collection…</div>
-    </div>
-  </div>
-</section>
-
-<section class="benefits">
-  <div class="container section">
-    <div class="section-head">
-      <div class="section-kicker">The Veyora difference</div>
-      <h2>Made for Everyday Moments</h2>
-    </div>
-    <div class="benefit-grid">
-      <div class="benefit"><div class="benefit-symbol">✧</div><h3>Curated with Care</h3><p>Explore selected pieces for fashion, home and daily life.</p></div>
-      <div class="benefit"><div class="benefit-symbol">◇</div><h3>Easy Ordering</h3><p>Choose your product and preferred design before ordering.</p></div>
-      <div class="benefit"><div class="benefit-symbol">♡</div><h3>Here to Help</h3><p>We aim to make your shopping experience simple and clear.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="about">
-  <div class="container">
-    <div class="about-box">
-      <div class="section-kicker">Our story</div>
-      <h2>Welcome to VEYORA</h2>
-      <p>VEYORA — MAYU WORLD brings fashion, home essentials and everyday products together in one thoughtfully curated collection. Our goal is to make discovering your next favourite product feel simple, enjoyable and special.</p>
-      <a href="#shop" class="btn">Discover the Collection</a>
-    </div>
-  </div>
-</section>
+<section class="hero" id="home"><div class="container hero-inner"><div class="hero-copy"><div class="eyebrow">THE VEYORA COLLECTION</div><h1>Everyday living,<br><span>elevated.</span></h1><p>Discover thoughtfully selected fashion, home essentials and everyday favourites — all in one place.</p><div class="hero-actions"><a href="#shop" class="btn btn-gold">Explore Collection ↗</a><a href="#about" class="btn btn-outline" style="color:white;border-color:#80745d">Discover Veyora</a></div></div><div class="hero-seal"><div class="seal-text"><strong>VEYORA</strong><small>STYLE · HOME · LIVING</small></div></div></div></section>
+<div class="trust-strip"><div class="container trust-inner"><div class="trust-item">✧ Curated Collection<span>Fashion and everyday essentials</span></div><div class="trust-item">✧ Cash on Delivery<span>Pay when your order arrives</span></div><div class="trust-item">✧ Personal Service<span>Support for your order</span></div></div></div>
+<section class="section" id="shop"><div class="container"><div class="section-head"><div class="section-kicker">A considered selection</div><h2>Shop the Collection</h2><p>Find something special for your style and your home.</p></div><div class="shop-toolbar"><div class="category-list" id="categoryList"><button class="chip active" data-category="All">All Products</button><button class="chip" data-category="Men">Men</button><button class="chip" data-category="Women">Women</button><button class="chip" data-category="Bedsheets">Bedsheets</button><button class="chip" data-category="Shawls">Shawls</button><button class="chip" data-category="Home & Kitchen">Home & Kitchen</button></div><select id="sortProducts" class="sort-select" aria-label="Sort products"><option value="newest">Newest first</option><option value="low">Price: Low to High</option><option value="high">Price: High to Low</option><option value="az">Name: A to Z</option></select></div><div class="product-count" id="productCount">Loading collection…</div><div class="product-grid" id="productGrid"><div class="empty-state">Preparing the VEYORA collection…</div></div></div></section>
+<section class="benefits"><div class="container section"><div class="section-head"><div class="section-kicker">The Veyora difference</div><h2>Made for Everyday Moments</h2></div><div class="benefit-grid"><div class="benefit"><div class="benefit-symbol">✧</div><h3>Curated with Care</h3><p>Explore selected pieces for fashion, home and daily life.</p></div><div class="benefit"><div class="benefit-symbol">◇</div><h3>Easy Ordering</h3><p>Choose your product and preferred design before ordering.</p></div><div class="benefit"><div class="benefit-symbol">♡</div><h3>Here to Help</h3><p>We aim to make your shopping experience simple and clear.</p></div></div></div></section>
+<section class="section" id="about"><div class="container"><div class="about-box"><div class="section-kicker">Our story</div><h2>Welcome to VEYORA</h2><p>VEYORA — MAYU WORLD brings fashion, home essentials and everyday products together in one thoughtfully curated collection. Our goal is to make discovering your next favourite product feel simple, enjoyable and special.</p><a href="#shop" class="btn">Discover the Collection</a></div></div></section>
 </main>
-
-<footer id="contact">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">VEYORA</div>
-        <p> MAYU WORLD — Premium products for everyday life.</p>
-      </div>
-      <div>
-        <h3>Explore</h3>
-        <div class="footer-links">
-          <a href="#home">Home</a><a href="#shop">Shop Products</a><a href="#about">About Veyora</a>
-        </div>
-      </div>
-      <div>
-        <h3>Shopping Information</h3>
-        <p>Cash on Delivery available where supported. Delivery charges and availability are confirmed with your order.</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span style="font-size:10px;color:#a49d90">© <span id="year"></span> VEYORA — MAYU WORLD. All rights reserved.</span>
-      <button class="admin-link" id="adminOpen">ADMIN ACCESS</button>
-    </div>
-  </div>
-</footer>
-
+<footer id="contact"><div class="container"><div class="footer-grid"><div><div class="footer-brand">VEYORA</div><p>MAYU WORLD — Premium products for everyday life.</p></div><div><h3>Explore</h3><div class="footer-links"><a href="#home">Home</a><a href="#shop">Shop Products</a><a href="#about">About Veyora</a></div></div><div><h3>Shopping Information</h3><p>Cash on Delivery available where supported. Delivery charges are calculated at checkout.</p></div></div><div class="footer-bottom"><span style="font-size:10px;color:#a49d90">© <span id="year"></span> VEYORA — MAYU WORLD. All rights reserved.</span><button class="admin-link" id="adminOpen">ADMIN ACCESS</button></div></div></footer>
 <div class="drawer-backdrop" id="drawerBackdrop"></div>
-<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping bag">
-  <div class="drawer-head"><h2>Your Bag</h2><button class="icon-btn" id="cartClose">✕</button></div>
-  <div class="drawer-content" id="cartItems"></div>
-  <div class="cart-summary">
-    <div class="summary-line"><span>Subtotal</span><span id="cartSubtotal">Rs 0</span></div>
-    <div class="summary-line"><span>Delivery</span><span id="cartDelivery">To be confirmed</span></div>
-    <div class="summary-line summary-total"><span>Estimated Total</span><span id="cartTotal">Rs 0</span></div>
-    <form id="checkoutForm" class="checkout-fields">
-      <input class="field" name="customer_name" placeholder="Full name" required maxlength="100">
-      <input class="field" name="phone" placeholder="Phone number" required maxlength="30">
-      <input class="field" name="city" placeholder="City" required maxlength="100">
-      <textarea class="field" name="address" placeholder="Complete delivery address" required maxlength="1000" rows="3"></textarea>
-      <button class="btn btn-gold" type="submit" id="placeOrder">Place COD Order</button>
-      <div id="checkoutMessage" class="notice" role="status"></div>
-    </form>
-  </div>
-</aside>
-
-<div class="modal-backdrop" id="adminModal">
-  <div class="modal">
-    <div class="modal-head"><h2>VEYORA Admin Studio</h2><button class="icon-btn" id="adminClose">✕</button></div>
-    <div class="modal-body">
-      <form id="loginForm" class="checkout-fields">
-        <p style="font-size:12px;color:var(--muted);margin:0">Sign in with your authorised admin account.</p>
-        <input class="field" type="email" id="adminEmail" placeholder="Admin email" required autocomplete="username">
-        <input class="field" type="password" id="adminPassword" placeholder="Password" required autocomplete="current-password">
-        <button class="btn btn-gold" type="submit">Sign In</button>
-        <div id="loginMessage" class="notice"></div>
-      </form>
-
-      <div id="adminPanel" class="hidden">
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px">
-          <p style="font-size:12px;margin:0;color:var(--muted)">Manage your shop without editing code.</p>
-          <button class="btn btn-outline btn-small" id="adminLogout">Sign Out</button>
-        </div>
-        <div class="admin-tabs">
-          <button class="admin-tab active" data-tab="productsTab">Products</button>
-          <button class="admin-tab" data-tab="ordersTab">Orders</button>
-          <button class="admin-tab" data-tab="settingsTab">Settings</button>
-        </div>
-
-        <section id="productsTab">
-          <h3 style="font:24px Georgia,serif;margin:0 0 15px">Product Studio</h3>
-          <form id="productForm" class="admin-grid">
-            <input type="hidden" id="productId">
-            <div class="form-group full"><label class="form-label" for="productTitle">Product title</label><input class="field" id="productTitle" required maxlength="200" placeholder="e.g. Premium Boski Suit"></div>
-            <div class="form-group"><label class="form-label" for="productCategory">Category</label><input class="field" id="productCategory" required list="categorySuggestions" placeholder="e.g. Men"><datalist id="categorySuggestions"><option>Men</option><option>Women</option><option>Bedsheets</option><option>Shawls</option><option>Home & Kitchen</option></datalist></div>
-            <div class="form-group"><label class="form-label" for="productPrice">Price (PKR)</label><input class="field" id="productPrice" type="number" min="0" step="1" required placeholder="0"></div>
-            <div class="form-group"><label class="form-label" for="productStock">Total stock</label><input class="field" id="productStock" type="number" min="0" step="1" value="0" required></div>
-            <div class="form-group"><label class="form-label" for="productPhotos">Product photos</label><input class="field" id="productPhotos" type="file" accept="image/*" multiple></div>
-            <div class="form-group full"><label class="form-label" for="productDescription">Description</label><textarea class="field" id="productDescription" rows="3" maxlength="3000" placeholder="Write product details…"></textarea></div>
-            <div class="form-group"><label class="form-label" for="optionName">Variant name</label><input class="field" id="optionName" placeholder="e.g. Design / Colour"></div>
-            <div class="form-group"><label class="form-label" for="productVariants">Variants (one per line)</label><textarea class="field" id="productVariants" rows="4" placeholder="Black | 5&#10;Cream | 3&#10;Blue | 4"></textarea></div>
-            <div class="form-group full" id="existingImages" style="font-size:11px;color:var(--muted)"></div>
-            <div class="form-group full" style="display:flex;gap:9px;flex-wrap:wrap">
-              <button class="btn btn-gold" type="submit" id="saveProduct">Save Product</button>
-              <button class="btn btn-outline" type="button" id="productReset">Clear Form</button>
-            </div>
-          </form>
-          <h3 style="font:22px Georgia,serif;margin:28px 0 10px">Your Products</h3>
-          <div class="admin-list" id="adminProducts">Loading products…</div>
-        </section>
-
-        <section id="ordersTab" class="hidden">
-          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
-            <h3 style="font:24px Georgia,serif;margin:0">Customer Orders</h3>
-            <button class="btn btn-outline btn-small" id="refreshOrders">Refresh</button>
-          </div>
-          <div class="admin-list" id="adminOrders">Sign in to view orders.</div>
-        </section>
-
-        <section id="settingsTab" class="hidden">
-          <h3 style="font:24px Georgia,serif;margin:0 0 12px">Store Settings</h3>
-          <form id="settingsForm" class="checkout-fields">
-            <label class="form-label" for="deliveryFeeInput">Delivery fee (PKR)</label>
-            <input class="field" id="deliveryFeeInput" type="number" min="0" step="1" required value="0">
-            <button class="btn btn-gold" type="submit">Save Delivery Fee</button>
-            <div id="settingsMessage" class="notice"></div>
-          </form>
-          <p style="font-size:11px;color:var(--muted)">The delivery fee is applied to new orders. Banner text can be changed in the website code.</p>
-        </section>
-      </div>
-    </div>
-  </div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping bag"><div class="drawer-head"><h2>Your Bag</h2><button class="icon-btn" id="cartClose">✕</button></div><div class="drawer-content" id="cartItems"></div><div class="cart-summary"><div class="summary-line"><span>Subtotal</span><span id="cartSubtotal">Rs 0</span></div><div class="summary-line"><span>Delivery</span><span id="cartDelivery">—</span></div><div class="summary-line summary-total"><span>Estimated Total</span><span id="cartTotal">Rs 0</span></div><form id="checkoutForm" class="checkout-fields"><input class="field" name="customer_name" placeholder="Full name" required maxlength="100"><input class="field" name="phone" placeholder="Phone number" required maxlength="30"><input class="field" name="city" placeholder="City" required maxlength="100"><textarea class="field" name="address" placeholder="Complete delivery address" required maxlength="1000" rows="3"></textarea><button class="btn btn-gold" type="submit" id="placeOrder">Place COD Order</button><div id="checkoutMessage" class="notice" role="status"></div></form></div></aside>
+<div class="modal-backdrop" id="adminModal"><div class="modal"><div class="modal-head"><h2>VEYORA Admin Studio</h2><button class="icon-btn" id="adminClose">✕</button></div><div class="modal-body">
+<form id="loginForm" class="checkout-fields"><p style="font-size:12px;color:var(--muted);margin:0">Sign in with your authorised admin account.</p><input class="field" type="email" id="adminEmail" placeholder="Admin email" required autocomplete="username"><input class="field" type="password" id="adminPassword" placeholder="Password" required autocomplete="current-password"><button class="btn btn-gold" type="submit">Sign In</button><div id="loginMessage" class="notice"></div></form>
+<div id="adminPanel" class="hidden"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px"><p style="font-size:12px;margin:0;color:var(--muted)">Manage products and orders without editing code.</p><button class="btn btn-outline btn-small" id="adminLogout">Sign Out</button></div>
+<div class="admin-tabs"><button class="admin-tab active" data-tab="productsTab">Products</button><button class="admin-tab" data-tab="ordersTab">Orders</button><button class="admin-tab" data-tab="settingsTab">Settings</button></div>
+<section id="productsTab">
+<h3 style="font:24px Georgia,serif;margin:0 0 15px">Add / Edit Product</h3>
+<form id="productForm" class="admin-grid">
+<input type="hidden" id="productId">
+<div class="form-group"><label class="form-label" for="productTitle">Product title</label><input class="field" id="productTitle" required maxlength="180" placeholder="e.g. Premium Boski Suit"></div>
+<div class="form-group"><label class="form-label" for="productCategory">Category</label><input class="field" id="productCategory" required maxlength="100" placeholder="e.g. Men, Women, Bedsheets"></div>
+<div class="form-group"><label class="form-label" for="productPrice">Selling price (PKR)</label><input class="field" id="productPrice" type="number" min="0" step="1" required placeholder="e.g. 1950"></div>
+<div class="form-group"><label class="form-label" for="productComparePrice">Retail / Compare-at price (optional)</label><input class="field" id="productComparePrice" type="number" min="0" step="1" placeholder="e.g. 2500"></div>
+<div class="form-group"><label class="form-label" for="productStock">Total stock (used if no variants)</label><input class="field" id="productStock" type="number" min="0" step="1" value="0" required></div>
+<div class="form-group full"><label class="form-label" for="productPhotos">Product gallery photos</label><input class="field" id="productPhotos" type="file" accept="image/*" multiple><div class="mini-help">Upload the main photos here. You can also attach a specific photo to each variant below.</div></div>
+<div class="form-group full"><label class="form-label" for="productDescription">Description</label><textarea class="field" id="productDescription" rows="3" maxlength="3000" placeholder="Write product details…"></textarea></div>
+<div class="variant-builder">
+<div class="variant-builder-head"><div><strong style="font-family:Georgia,serif;font-size:19px">Variants</strong><div class="mini-help">Write any option name, then add values. Example: Design → Design 1, Design 2.</div></div><button type="button" class="btn btn-outline btn-small" id="addOption">+ Add custom option</button></div>
+<div id="optionsContainer"></div>
+<div class="mini-help">All variants use the product selling price and the same delivery rule. Each value can have its own photo, stock and unique barcode/SKU.</div>
 </div>
-
+<div class="form-group full" id="existingImages" style="font-size:11px;color:var(--muted)"></div>
+<div class="form-group full" style="display:flex;gap:9px;flex-wrap:wrap"><button class="btn btn-gold" type="submit" id="saveProduct">Save Product</button><button class="btn btn-outline" type="button" id="productReset">Clear Form</button></div>
+</form>
+<h3 style="font:22px Georgia,serif;margin:28px 0 10px">Your Products</h3><div class="admin-list" id="adminProducts">Loading products…</div>
+</section>
+<section id="ordersTab" class="hidden"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><h3 style="font:24px Georgia,serif;margin:0">Customer Orders</h3><button class="btn btn-outline btn-small" id="refreshOrders">Refresh</button></div><div class="admin-list" id="adminOrders">Sign in to view orders.</div></section>
+<section id="settingsTab" class="hidden"><h3 style="font:24px Georgia,serif;margin:0 0 12px">Shipping Rule</h3><div class="notice">Delivery is automatic: Rs 200 for the first unit of each distinct product, then Rs 50 for every additional unit of that same product. Different variants of the same product count together. This rule is used at checkout.</div><p class="mini-help">The old fixed delivery fee setting is no longer used for new order calculations.</p></section>
+</div></div></div></div>
 <div id="toast" class="toast hidden" role="status"></div>
-
 <script type="module">
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
-
-/* Keep your own Supabase project details here. Never put a service-role key in this file. */
-const SUPABASE_URL = "https://klarsnibooxtzehnzjwa.supabase.co";
-const SUPABASE_KEY = "sb_publishable_Yplii1XM_u7T4-GwkMVcNg_0zjM_tex";
-const IMAGE_BUCKET = "Product-images";
-const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-
-const $ = id => document.getElementById(id);
-const money = n => "Rs " + Number(n || 0).toLocaleString("en-PK");
-const safe = value => String(value ?? "").replace(/[&<>"']/g, ch => ({
-  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-}[ch]));
-const productImages = p => {
-  const images = Array.isArray(p.images) ? p.images : [];
-  return [...new Set([...(p.image_url ? [p.image_url] : []), ...images].filter(Boolean))];
-};
-const variantsOf = p => Array.isArray(p.variants) ? p.variants : [];
-const availableStock = p => Number(p.stock ?? 0);
-const barcode = () => "VYR" + Date.now().toString().slice(-8) + Math.floor(Math.random()*90+10);
-
-let products = [];
-let cart = [];
-let activeCategory = "All";
-let deliveryFee = 0;
-let editingImages = [];
-let editingProduct = null;
-let toastTimer;
-
-function notify(message){
-  $("toast").textContent = message;
-  $("toast").classList.remove("hidden");
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => $("toast").classList.add("hidden"), 3000);
-}
-function imageMarkup(url, title){
-  return url
-    ? `<img src="${safe(url)}" alt="${safe(title)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="product-image-placeholder" style="display:none">VEYORA</div>`
-    : `<div class="product-image-placeholder">VEYORA</div>`;
-}
-function selectedVariant(productId){
-  const select = document.querySelector(`[data-variant-select="${CSS.escape(String(productId))}"]`);
-  return select ? select.value : "";
-}
+const SUPABASE_URL="https://klarsnibooxtzehnzjwa.supabase.co";
+const SUPABASE_KEY="sb_publishable_Yplii1XM_u7T4-GwkMVcNg_0zjM_tex";
+const IMAGE_BUCKET="Product-images";
+const supabase=createClient(SUPABASE_URL,SUPABASE_KEY);
+const $=id=>document.getElementById(id);
+const money=n=>"Rs "+Number(n||0).toLocaleString("en-PK");
+const safe=value=>String(value??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+const productImages=p=>{const images=Array.isArray(p.images)?p.images:[];return [...new Set([...(p.image_url?[p.image_url]:[]),...images].filter(Boolean))]};
+const variantsOf=p=>Array.isArray(p?.variants)?p.variants:[];
+const optionGroupsOf=p=>Array.isArray(p?.options?.groups)?p.options.groups:[];
+const availableStock=p=>Number(p.stock??0);
+const barcode=()=> "VYR"+Date.now().toString().slice(-8)+Math.floor(Math.random()*90+10);
+let products=[],cart=[],activeCategory="All",editingImages=[],editingProduct=null,toastTimer,optionDrafts=[],variantPhotoFiles=new Map();
+function notify(message){$("toast").textContent=message;$("toast").classList.remove("hidden");clearTimeout(toastTimer);toastTimer=setTimeout(()=>$("toast").classList.add("hidden"),3000)}
+function imageMarkup(url,title){return url?`<img src="${safe(url)}" alt="${safe(title)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="product-image-placeholder" style="display:none">VEYORA</div>`:`<div class="product-image-placeholder">VEYORA</div>`}
+function variantImage(p,v){const imgs=productImages(p);if(v&&v.image_url)return v.image_url;if(v&&Number.isInteger(Number(v.image_index))&&imgs[Number(v.image_index)])return imgs[Number(v.image_index)];return imgs[0]||""}
 function renderProducts(){
-  let list = [...products];
-  if(activeCategory !== "All"){
-    list = list.filter(p => String(p.category || "").toLowerCase().includes(activeCategory.toLowerCase()));
-  }
-  const sort = $("sortProducts").value;
-  if(sort === "low") list.sort((a,b)=>Number(a.price)-Number(b.price));
-  if(sort === "high") list.sort((a,b)=>Number(b.price)-Number(a.price));
-  if(sort === "az") list.sort((a,b)=>String(a.title).localeCompare(String(b.title)));
-  if(sort === "newest") list.sort((a,b)=>new Date(b.created_at||0)-new Date(a.created_at||0));
-
-  $("productCount").textContent = `${list.length} ${list.length === 1 ? "product" : "products"} in the collection`;
-  if(!list.length){
-    $("productGrid").innerHTML = `<div class="empty-state"><div style="font:26px Georgia,serif;color:#8d754d;margin-bottom:8px">Your next favourite awaits</div>No products found in this category yet.</div>`;
-    return;
-  }
-  $("productGrid").innerHTML = list.map(p => {
-    const imgs = productImages(p);
-    const variants = variantsOf(p);
-    const stock = availableStock(p);
-    const optionName = p.options?.name || "Design";
-    const variantSelect = variants.length ? `
-      <select class="product-select" data-variant-select="${safe(p.id)}" aria-label="Choose ${safe(optionName)}">
-        <option value="">Choose ${safe(optionName)}</option>
-        ${variants.map((v,i)=>`<option value="${i}" ${Number(v.stock||0)<=0?"disabled":""}>${safe(v.name || v.value || "Option "+(i+1))}${Number(v.stock||0)<=0?" — Sold out":""}</option>`).join("")}
-      </select>` : "";
-    const out = stock <= 0;
-    return `<article class="product-card">
-      <div class="product-image">
-        ${imageMarkup(imgs[0] || "",p.title)}
-        <span class="product-tag">${out ? "Sold Out" : "VEYORA EDIT"}</span>
-      </div>
-      <div class="product-info">
-        <div class="product-category">${safe(p.category || "Collection")}</div>
-        <h3 class="product-title">${safe(p.title)}</h3>
-        ${p.description ? `<p class="product-description">${safe(p.description).slice(0,115)}${String(p.description).length>115?"…":""}</p>` : ""}
-        <div class="product-price">${money(p.price)}</div>
-        <div class="product-stock">${out ? "Currently unavailable" : stock <= 5 ? `Only ${stock} left` : "Available to order"}</div>
-        ${variantSelect}
-        <button class="btn ${out?"btn-outline":"btn-gold"}" data-add="${safe(p.id)}" ${out?"disabled":""}>${out?"Unavailable":"Add to Bag"}</button>
-      </div>
-    </article>`;
-  }).join("");
+ let list=[...products];if(activeCategory!=="All")list=list.filter(p=>String(p.category||"").toLowerCase().includes(activeCategory.toLowerCase()));
+ const sort=$("sortProducts").value;if(sort==="low")list.sort((a,b)=>Number(a.price)-Number(b.price));if(sort==="high")list.sort((a,b)=>Number(b.price)-Number(a.price));if(sort==="az")list.sort((a,b)=>String(a.title).localeCompare(String(b.title)));if(sort==="newest")list.sort((a,b)=>new Date(b.created_at||0)-new Date(a.created_at||0));
+ $("productCount").textContent=`${list.length} ${list.length===1?"product":"products"} in the collection`;if(!list.length){$("productGrid").innerHTML=`<div class="empty-state"><div style="font:26px Georgia,serif;color:#8d754d;margin-bottom:8px">Your next favourite awaits</div>No products found in this category yet.</div>`;return}
+ $("productGrid").innerHTML=list.map(p=>{const imgs=productImages(p),variants=variantsOf(p),stock=availableStock(p),out=stock<=0,compare=Number(p.compare_at_price||0),sale=compare>Number(p.price||0),optionName=p.options?.name||"Design";
+ const selector=variants.length?`<select class="product-select" data-variant-select="${safe(p.id)}" aria-label="Choose ${safe(optionName)}"><option value="">Choose ${safe(optionName)}</option>${variants.map((v,i)=>`<option value="${i}" ${Number(v.stock||0)<=0?"disabled":""}>${safe(v.name||v.value||"Option "+(i+1))}${Number(v.stock||0)<=0?" — Sold out":""}</option>`).join("")}</select>`:"";
+ return `<article class="product-card" data-product-card="${safe(p.id)}"><div class="product-image" data-main-image>${imageMarkup(imgs[0]||"",p.title)}<span class="product-tag">${out?"Sold Out":"VEYORA EDIT"}</span>${sale?`<span class="sale-badge">SALE</span>`:""}${imgs.length>1?`<div class="gallery-dots">${imgs.map((_,i)=>`<button type="button" data-gallery="${safe(p.id)}" data-image-index="${i}" class="${i===0?"active":""}" aria-label="Show photo ${i+1}"></button>`).join("")}</div>`:""}</div><div class="product-info"><div class="product-category">${safe(p.category||"Collection")}</div><h3 class="product-title">${safe(p.title)}</h3>${p.description?`<p class="product-description">${safe(p.description).slice(0,115)}${String(p.description).length>115?"…":""}</p>`:""}<div class="product-price">${money(p.price)}${sale?`<span class="old-price">${money(compare)}</span>`:""}</div>${sale?`<div class="sale-details">Save ${money(compare-Number(p.price))} · ${Math.round((compare-Number(p.price))/compare*100)}% off</div>`:""}<div class="product-stock">${out?"Currently unavailable":stock<=5?`Only ${stock} left`:"Available to order"}</div>${selector}<button class="btn ${out?"btn-outline":"btn-gold"}" data-add="${safe(p.id)}" ${out?"disabled":""}>${out?"Unavailable":"Add to Bag"}</button></div></article>`}).join("");
 }
-async function loadProducts(){
-  $("productGrid").innerHTML = `<div class="empty-state">Loading the collection…</div>`;
-  const {data,error} = await supabase.from("products").select("*");
-  if(error){
-    console.error(error);
-    $("productGrid").innerHTML = `<div class="empty-state">The collection could not load right now. Please refresh the page or check the Supabase products table and access policies.</div>`;
-    $("productCount").textContent = "Collection unavailable";
-    return;
-  }
-  products = data || [];
-  renderProducts();
-  if(!$("adminPanel").classList.contains("hidden")) renderAdminProducts();
-}
-$("categoryList").addEventListener("click",e=>{
-  const button = e.target.closest("[data-category]");
-  if(!button) return;
-  activeCategory = button.dataset.category;
-  document.querySelectorAll("[data-category]").forEach(el=>el.classList.toggle("active",el===button));
-  renderProducts();
-});
-$("sortProducts").addEventListener("change",renderProducts);
-
-function cartKey(item){return `${item.id}::${item.variant || ""}`;}
-function addToCart(id){
-  const p = products.find(item=>String(item.id)===String(id));
-  if(!p) return;
-  const variants = variantsOf(p);
-  const chosen = selectedVariant(id);
-  if(variants.length && chosen === ""){
-    notify("Please choose a design or colour first.");
-    return;
-  }
-  const variant = variants.length ? variants[Number(chosen)] : null;
-  if(variant && Number(variant.stock||0)<=0){
-    notify("This option is sold out.");
-    return;
-  }
-  const stockLimit = variant ? Number(variant.stock||0) : availableStock(p);
-  const name = variant ? (variant.name || variant.value || "") : "";
-  const key = cartKey({id:p.id,variant:name});
-  const existing = cart.find(i=>i.key===key);
-  if(existing){
-    if(existing.qty >= stockLimit){notify("You have reached the available stock.");return;}
-    existing.qty++;
-  }else{
-    cart.push({key,id:p.id,title:p.title,price:Number(p.price||0),image:productImages(p)[0]||"",variant:name,qty:1,stock:stockLimit});
-  }
-  renderCart();
-  notify("Added to your bag.");
-}
-$("productGrid").addEventListener("click",e=>{
-  const btn=e.target.closest("[data-add]");
-  if(btn) addToCart(btn.dataset.add);
-});
-function cartTotals(){
-  const subtotal=cart.reduce((sum,i)=>sum+i.price*i.qty,0);
-  return {subtotal,delivery:cart.length?deliveryFee:0,total:subtotal+(cart.length?deliveryFee:0)};
-}
-function renderCart(){
-  $("cartCount").textContent=cart.reduce((sum,i)=>sum+i.qty,0);
-  $("cartItems").innerHTML=cart.length?cart.map(item=>`
-    <div class="cart-item">
-      ${imageMarkup(item.image,item.title)}
-      <div><h4>${safe(item.title)}</h4><p>${item.variant?`Design: ${safe(item.variant)} · `:""}${money(item.price)}</p>
-        <div class="qty-controls">
-          <button data-qty="${safe(item.key)}" data-delta="-1" aria-label="Decrease quantity">−</button>
-          <span>${item.qty}</span>
-          <button data-qty="${safe(item.key)}" data-delta="1" aria-label="Increase quantity">+</button>
-        </div>
-        <button class="cart-remove" data-remove="${safe(item.key)}">REMOVE</button>
-      </div>
-      <strong style="font-size:12px">${money(item.price*item.qty)}</strong>
-    </div>`).join(""):`<div class="empty-state"><div style="font:22px Georgia,serif;margin-bottom:8px">Your bag is waiting</div>Add something you love from our collection.</div>`;
-  const totals=cartTotals();
-  $("cartSubtotal").textContent=money(totals.subtotal);
-  $("cartDelivery").textContent=cart.length?money(totals.delivery):"—";
-  $("cartTotal").textContent=money(totals.total);
-  $("placeOrder").disabled=!cart.length;
-}
-$("cartItems").addEventListener("click",e=>{
-  const remove=e.target.closest("[data-remove]");
-  const qty=e.target.closest("[data-qty]");
-  if(remove){cart=cart.filter(i=>i.key!==remove.dataset.remove);renderCart();return;}
-  if(qty){
-    const item=cart.find(i=>i.key===qty.dataset.qty);
-    if(!item)return;
-    const next=item.qty+Number(qty.dataset.delta);
-    if(next<=0) cart=cart.filter(i=>i.key!==item.key);
-    else if(next>item.stock){notify("Available stock limit reached.");return;}
-    else item.qty=next;
-    renderCart();
-  }
-});
-function openCart(){
-  $("cartDrawer").classList.add("show");
-  $("drawerBackdrop").classList.add("show");
-}
-function closeCart(){
-  $("cartDrawer").classList.remove("show");
-  $("drawerBackdrop").classList.remove("show");
-}
-$("cartOpen").addEventListener("click",openCart);
-$("cartClose").addEventListener("click",closeCart);
-$("drawerBackdrop").addEventListener("click",closeCart);
-
-async function loadSettings(){
-  const {data,error}=await supabase.from("store_settings").select("delivery_fee").limit(1).maybeSingle();
-  if(!error && data) deliveryFee=Number(data.delivery_fee||0);
-  renderCart();
-}
-$("checkoutForm").addEventListener("submit",async e=>{
-  e.preventDefault();
-  if(!cart.length){notify("Your bag is empty.");return;}
-  const form=new FormData(e.currentTarget);
-  const name=String(form.get("customer_name")||"").trim();
-  const phone=String(form.get("phone")||"").trim();
-  const city=String(form.get("city")||"").trim();
-  const address=String(form.get("address")||"").trim();
-  if(!name||!phone||!city||!address){$("checkoutMessage").textContent="Please complete all delivery fields.";return;}
-  $("placeOrder").disabled=true;
-  $("checkoutMessage").textContent="Submitting your order…";
-  try{
-    // Re-check current stock before accepting the order.
-    const ids=[...new Set(cart.map(i=>i.id))];
-    const {data:latest,error:stockError}=await supabase.from("products").select("*").in("id",ids);
-    if(stockError) throw stockError;
-    for(const item of cart){
-      const p=(latest||[]).find(x=>String(x.id)===String(item.id));
-      if(!p) throw new Error(`${item.title} is no longer available.`);
-      const v=variantsOf(p).find(x=>String(x.name||x.value||"")===String(item.variant));
-      const stock=item.variant?(v?Number(v.stock||0):0):availableStock(p);
-      if(stock<item.qty) throw new Error(`Stock has changed for ${item.title}. Please update your bag.`);
-    }
-    const totals=cartTotals();
-    const payload={
-      customer_name:name,phone,address:`${address}, ${city}`,
-      city,items:cart.map(i=>({product_id:i.id,title:i.title,price:i.price,quantity:i.qty,variant:i.variant||null})),
-      total:totals.total,delivery_fee:totals.delivery,
-      payment_method:"COD",status:"Pending"
-    };
-    const {error}=await supabase.from("orders").insert(payload);
-    if(error) throw error;
-    cart=[];
-    renderCart();
-    e.currentTarget.reset();
-    $("checkoutMessage").textContent="Your order has been received. We will confirm availability and delivery details.";
-    notify("Order placed successfully.");
-  }catch(err){
-    console.error(err);
-    $("checkoutMessage").textContent=err.message||"Order could not be placed. Please try again.";
-  }finally{$("placeOrder").disabled=!cart.length;}
-});
-
-function openAdmin(){
-  $("adminModal").classList.add("show");
-  checkAdminSession();
-}
-function closeAdmin(){$("adminModal").classList.remove("show");}
-$("adminOpen").addEventListener("click",openAdmin);
-$("adminClose").addEventListener("click",closeAdmin);
-$("adminModal").addEventListener("click",e=>{if(e.target===$("adminModal"))closeAdmin();});
-
-async function checkAdminSession(){
-  const {data}=await supabase.auth.getSession();
-  const signedIn=!!data.session;
-  $("loginForm").classList.toggle("hidden",signedIn);
-  $("adminPanel").classList.toggle("hidden",!signedIn);
-  if(signedIn){
-    await loadProducts();
-    await loadOrders();
-    await loadSettings();
-    renderAdminProducts();
-  }
-}
-$("loginForm").addEventListener("submit",async e=>{
-  e.preventDefault();
-  $("loginMessage").textContent="Signing in…";
-  const {error}=await supabase.auth.signInWithPassword({
-    email:$("adminEmail").value.trim(),password:$("adminPassword").value
-  });
-  if(error){$("loginMessage").textContent=error.message;return;}
-  $("loginMessage").textContent="";
-  await checkAdminSession();
-  notify("Admin signed in.");
-});
-$("adminLogout").addEventListener("click",async()=>{
-  await supabase.auth.signOut();
-  $("adminPanel").classList.add("hidden");
-  $("loginForm").classList.remove("hidden");
-  $("loginMessage").textContent="You have signed out.";
-});
-supabase.auth.onAuthStateChange((_event,session)=>{
-  $("loginForm").classList.toggle("hidden",!!session);
-  $("adminPanel").classList.toggle("hidden",!session);
-});
-
-document.querySelector(".admin-tabs").addEventListener("click",e=>{
-  const btn=e.target.closest("[data-tab]");
-  if(!btn)return;
-  document.querySelectorAll(".admin-tab").forEach(b=>b.classList.toggle("active",b===btn));
-  ["productsTab","ordersTab","settingsTab"].forEach(id=>$(id).classList.toggle("hidden",id!==btn.dataset.tab));
-  if(btn.dataset.tab==="ordersTab")loadOrders();
-  if(btn.dataset.tab==="productsTab")renderAdminProducts();
-});
-
-function renderAdminProducts(){
-  if(!$("adminProducts"))return;
-  if(!products.length){$("adminProducts").innerHTML='<div class="empty-state">No products yet. Add your first product above.</div>';return;}
-  $("adminProducts").innerHTML=products.map(p=>`
-    <div class="admin-row">
-      <div><strong>${safe(p.title)}</strong><small>${safe(p.category||"Uncategorised")} · ${money(p.price)} · Stock: ${availableStock(p)}</small><small>Barcode: ${safe(p.barcode||"Not set")}</small></div>
-      <div class="admin-row-actions"><button data-edit="${safe(p.id)}">Edit</button><button class="delete" data-delete="${safe(p.id)}">Delete</button></div>
-    </div>`).join("");
-}
-function resetProductForm(){
-  $("productForm").reset();
-  $("productId").value="";
-  $("productStock").value="0";
-  $("existingImages").textContent="";
-  $("saveProduct").textContent="Save Product";
-  editingImages=[];
-  editingProduct=null;
-}
+async function loadProducts(){ $("productGrid").innerHTML=`<div class="empty-state">Loading the collection…</div>`;const {data,error}=await supabase.from("products").select("*");if(error){console.error(error);$("productGrid").innerHTML=`<div class="empty-state">The collection could not load. Check the Supabase products table and access policies.</div>`;$("productCount").textContent="Collection unavailable";return}products=data||[];renderProducts();if(!$("adminPanel").classList.contains("hidden"))renderAdminProducts()}
+$("categoryList").addEventListener("click",e=>{const b=e.target.closest("[data-category]");if(!b)return;activeCategory=b.dataset.category;document.querySelectorAll("[data-category]").forEach(el=>el.classList.toggle("active",el===b));renderProducts()});$("sortProducts").addEventListener("change",renderProducts);
+$("productGrid").addEventListener("change",e=>{const sel=e.target.closest("[data-variant-select]");if(!sel)return;const p=products.find(x=>String(x.id)===String(sel.dataset.variantSelect));const v=variantsOf(p)[Number(sel.value)];if(!p||!v)return;const card=sel.closest("[data-product-card]"),url=variantImage(p,v),img=card.querySelector("[data-main-image]");img.querySelector("img")?.remove();img.querySelector(".product-image-placeholder")?.remove();img.insertAdjacentHTML("afterbegin",imageMarkup(url,p.title));});
+$("productGrid").addEventListener("click",e=>{const dot=e.target.closest("[data-gallery]");if(dot){const p=products.find(x=>String(x.id)===String(dot.dataset.gallery));const url=productImages(p)[Number(dot.dataset.imageIndex)];const card=dot.closest("[data-product-card]"),main=card.querySelector("[data-main-image]");main.querySelector("img")?.remove();main.querySelector(".product-image-placeholder")?.remove();main.insertAdjacentHTML("afterbegin",imageMarkup(url,p.title));main.querySelectorAll("[data-gallery]").forEach(d=>d.classList.toggle("active",d===dot));return}const btn=e.target.closest("[data-add]");if(btn)addToCart(btn.dataset.add)});
+function selectedVariant(productId){const s=document.querySelector(`[data-variant-select="${CSS.escape(String(productId))}"]`);return s?s.value:""}
+function cartKey(i){return `${i.id}::${i.variant||""}`}
+function addToCart(id){const p=products.find(x=>String(x.id)===String(id));if(!p)return;const vs=variantsOf(p),chosen=selectedVariant(id);if(vs.length&&chosen===""){notify("Please choose an option first.");return}const v=vs.length?vs[Number(chosen)]:null;if(v&&Number(v.stock||0)<=0){notify("This option is sold out.");return}const stockLimit=v?Number(v.stock||0):availableStock(p),name=v?(v.name||v.value||""):"",key=cartKey({id:p.id,variant:name}),existing=cart.find(i=>i.key===key);if(existing){if(existing.qty>=stockLimit){notify("You have reached the available stock.");return}existing.qty++}else cart.push({key,id:p.id,title:p.title,price:Number(p.price||0),image:variantImage(p,v),variant:name,variantBarcode:v?.barcode||null,qty:1,stock:stockLimit});renderCart();notify("Added to your bag.")}
+function cartTotals(){const subtotal=cart.reduce((s,i)=>s+i.price*i.qty,0),byProduct=new Map();for(const i of cart)byProduct.set(String(i.id),(byProduct.get(String(i.id))||0)+i.qty);let delivery=0;for(const q of byProduct.values())if(q>0)delivery+=200+(q-1)*50;return{subtotal,delivery,total:subtotal+delivery}}
+function renderCart(){$("cartCount").textContent=cart.reduce((s,i)=>s+i.qty,0);$("cartItems").innerHTML=cart.length?cart.map(i=>`<div class="cart-item">${imageMarkup(i.image,i.title)}<div><h4>${safe(i.title)}</h4><p>${i.variant?`${safe(i.variant)} · `:""}${money(i.price)}</p><div class="qty-controls"><button data-qty="${safe(i.key)}" data-delta="-1" aria-label="Decrease quantity">−</button><span>${i.qty}</span><button data-qty="${safe(i.key)}" data-delta="1" aria-label="Increase quantity">+</button></div><button class="cart-remove" data-remove="${safe(i.key)}">REMOVE</button></div><strong style="font-size:12px">${money(i.price*i.qty)}</strong></div>`).join(""):`<div class="empty-state"><div style="font:22px Georgia,serif;margin-bottom:8px">Your bag is waiting</div>Add something you love from our collection.</div>`;const t=cartTotals();$("cartSubtotal").textContent=money(t.subtotal);$("cartDelivery").textContent=cart.length?money(t.delivery):"—";$("cartTotal").textContent=money(t.total);$("placeOrder").disabled=!cart.length}
+$("cartItems").addEventListener("click",e=>{const r=e.target.closest("[data-remove]"),q=e.target.closest("[data-qty]");if(r){cart=cart.filter(i=>i.key!==r.dataset.remove);renderCart();return}if(q){const i=cart.find(x=>x.key===q.dataset.qty);if(!i)return;const n=i.qty+Number(q.dataset.delta);if(n<=0)cart=cart.filter(x=>x.key!==i.key);else if(n>i.stock){notify("Available stock limit reached.");return}else i.qty=n;renderCart()}});
+function openCart(){$("cartDrawer").classList.add("show");$("drawerBackdrop").classList.add("show")}function closeCart(){$("cartDrawer").classList.remove("show");$("drawerBackdrop").classList.remove("show")}$("cartOpen").addEventListener("click",openCart);$("cartClose").addEventListener("click",closeCart);$("drawerBackdrop").addEventListener("click",closeCart);
+  $("checkoutForm").addEventListener("submit",async e=>{e.preventDefault();if(!cart.length){notify("Your bag is empty.");return}const f=new FormData(e.currentTarget),name=String(f.get("customer_name")||"").trim(),phone=String(f.get("phone")||"").trim(),city=String(f.get("city")||"").trim(),address=String(f.get("address")||"").trim();if(!name||!phone||!city||!address){$("checkoutMessage").textContent="Please complete all delivery fields.";return}$("placeOrder").disabled=true;$("checkoutMessage").textContent="Submitting your order…";try{const ids=[...new Set(cart.map(i=>i.id))],{data:latest,error:stockError}=await supabase.from("products").select("*").in("id",ids);if(stockError)throw stockError;for(const i of cart){const p=(latest||[]).find(x=>String(x.id)===String(i.id));if(!p)throw new Error(`${i.title} is no longer available.`);const v=variantsOf(p).find(x=>String(x.name||x.value||"")===String(i.variant));const stock=i.variant?(v?Number(v.stock||0):0):availableStock(p);if(stock<i.qty)throw new Error(`Stock has changed for ${i.title}. Please update your bag.`)}const t=cartTotals(),payload={customer_name:name,phone,address:`${address}, ${city}`,city,items:cart.map(i=>({product_id:i.id,title:i.title,price:i.price,quantity:i.qty,variant:i.variant||null,variant_barcode:i.variantBarcode||null,image:i.image||null})),subtotal:t.subtotal,total:t.total,delivery_fee:t.delivery,payment_method:"COD",status:"Pending"};const {error}=await supabase.from("orders").insert(payload);if(error)throw error;cart=[];renderCart();e.currentTarget.reset();$("checkoutMessage").textContent="Your order has been received. We will confirm availability and delivery details.";notify("Order placed successfully.")}catch(err){console.error(err);$("checkoutMessage").textContent=err.message||"Order could not be placed. Please try again."}finally{$("placeOrder").disabled=!cart.length}});
+function openAdmin(){$("adminModal").classList.add("show");checkAdminSession()}function closeAdmin(){$("adminModal").classList.remove("show")}$("adminOpen").addEventListener("click",openAdmin);$("adminClose").addEventListener("click",closeAdmin);$("adminModal").addEventListener("click",e=>{if(e.target===$("adminModal"))closeAdmin()});
+async function checkAdminSession(){const {data}=await supabase.auth.getSession();const signed=!!data.session;$("loginForm").classList.toggle("hidden",signed);$("adminPanel").classList.toggle("hidden",!signed);if(signed){await loadProducts();await loadOrders();renderAdminProducts()}}
+$("loginForm").addEventListener("submit",async e=>{e.preventDefault();$("loginMessage").textContent="Signing in…";const {error}=await supabase.auth.signInWithPassword({email:$("adminEmail").value.trim(),password:$("adminPassword").value});if(error){$("loginMessage").textContent=error.message;return}$("loginMessage").textContent="";await checkAdminSession();notify("Admin signed in.")});
+$("adminLogout").addEventListener("click",async()=>{await supabase.auth.signOut();$("adminPanel").classList.add("hidden");$("loginForm").classList.remove("hidden");$("loginMessage").textContent="You have signed out."});
+supabase.auth.onAuthStateChange((_event,session)=>{$("loginForm").classList.toggle("hidden",!!session);$("adminPanel").classList.toggle("hidden",!session)});
+document.querySelector(".admin-tabs").addEventListener("click",e=>{const b=e.target.closest("[data-tab]");if(!b)return;document.querySelectorAll(".admin-tab").forEach(x=>x.classList.toggle("active",x===b));["productsTab","ordersTab","settingsTab"].forEach(id=>$(id).classList.toggle("hidden",id!==b.dataset.tab));if(b.dataset.tab==="ordersTab")loadOrders();if(b.dataset.tab==="productsTab")renderAdminProducts()});
+function renderAdminProducts(){if(!products.length){$("adminProducts").innerHTML='<div class="empty-state">No products yet. Add your first product above.</div>';return}$("adminProducts").innerHTML=products.map(p=>{const vs=variantsOf(p),sale=Number(p.compare_at_price||0)>Number(p.price||0);return `<div class="admin-row"><div><strong>${safe(p.title)}</strong><small>${safe(p.category||"Uncategorised")} · ${money(p.price)}${sale?` · Retail ${money(p.compare_at_price)}`:""} · Stock: ${availableStock(p)}</small><small>${vs.length} variant value(s) · Barcode: ${safe(p.barcode||"Not set")}</small></div><div class="admin-row-actions"><button data-edit="${safe(p.id)}">Edit</button><button class="delete" data-delete="${safe(p.id)}">Delete</button></div></div>`}).join("")}
+function freshOption(){return {id:crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random()),name:"",values:[{id:crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random()),name:"",stock:0,image_index:0,barcode:barcode(),image_url:null}]}}
+function renderOptionBuilder(){const root=$("optionsContainer");root.innerHTML=optionDrafts.map((g,gi)=>`<div class="variant-builder" data-option-group="${gi}" style="margin-top:12px"><div class="variant-builder-head"><label style="flex:1"><span class="form-label">Option name</span><input class="field" data-option-name="${gi}" value="${safe(g.name)}" placeholder="e.g. Design, Colour, Size"></label><button type="button" class="admin-row-actions delete" data-remove-option="${gi}">Remove option</button></div><div class="variant-values">${g.values.map((v,vi)=>`<div class="variant-value" data-value-row="${gi}:${vi}"><input data-value-name="${gi}:${vi}" value="${safe(v.name)}" placeholder="Value e.g. Design 1" aria-label="Option value"><input data-value-stock="${gi}:${vi}" type="number" min="0" step="1" value="${Number(v.stock||0)}" placeholder="Stock" aria-label="Stock"><div class="variant-photo-wrap"><input class="file-input" type="file" accept="image/*" data-value-photo="${gi}:${vi}" aria-label="Upload variant photo"><img src="${safe(v.image_url||"")}" alt="Variant photo" style="${v.image_url?"":"display:none"}">${v.image_url?`<span class="mini-help">Photo saved</span>`:`<span class="mini-help">Optional photo</span>`}</div><button type="button" data-remove-value="${gi}:${vi}" aria-label="Remove value">✕</button><small style="grid-column:1/-1;color:var(--muted)">SKU / Barcode: ${safe(v.barcode||"Will be generated on save")}</small></div>`).join("")}</div><button type="button" class="btn btn-outline btn-small" style="margin-top:10px" data-add-value="${gi}">+ Add another value</button></div>`).join("")}
+$("addOption").addEventListener("click",()=>{optionDrafts.push(freshOption());renderOptionBuilder()});
+$("optionsContainer").addEventListener("click",e=>{const add=e.target.closest("[data-add-value]"),ro=e.target.closest("[data-remove-option]"),rv=e.target.closest("[data-remove-value]");if(add){optionDrafts[Number(add.dataset.addValue)].values.push({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random()),name:"",stock:0,image_index:0,barcode:barcode(),image_url:null});renderOptionBuilder()}else if(ro){optionDrafts.splice(Number(ro.dataset.removeOption),1);renderOptionBuilder()}else if(rv){const [g,v]=rv.dataset.removeValue.split(":").map(Number);optionDrafts[g].values.splice(v,1);renderOptionBuilder()}});
+$("optionsContainer").addEventListener("input",e=>{const on=e.target.closest("[data-option-name]");if(on){optionDrafts[Number(on.dataset.optionName)].name=on.value;return}const vn=e.target.closest("[data-value-name]");if(vn){const [g,v]=vn.dataset.valueName.split(":").map(Number);optionDrafts[g].values[v].name=vn.value;return}const st=e.target.closest("[data-value-stock]");if(st){const [g,v]=st.dataset.valueStock.split(":").map(Number);optionDrafts[g].values[v].stock=Math.max(0,Number(st.value)||0)}});
+$("optionsContainer").addEventListener("change",e=>{const f=e.target.closest("[data-value-photo]");if(!f||!f.files?.[0])return;const [g,v]=f.dataset.valuePhoto.split(":").map(Number);variantPhotoFiles.set(`${g}:${v}`,f.files[0]);const row=f.closest(".variant-value"),img=row.querySelector("img"),url=URL.createObjectURL(f.files[0]);img.src=url;img.style.display="block"});
+function resetProductForm(){ $("productForm").reset();$("productId").value="";$("productStock").value="0";$("productComparePrice").value="";$("existingImages").textContent="";$("saveProduct").textContent="Save Product";editingImages=[];editingProduct=null;optionDrafts=[];variantPhotoFiles.clear();renderOptionBuilder()}
 $("productReset").addEventListener("click",resetProductForm);
-$("adminProducts").addEventListener("click",async e=>{
-  const edit=e.target.closest("[data-edit]");
-  const del=e.target.closest("[data-delete]");
-  if(edit){
-    const p=products.find(x=>String(x.id)===String(edit.dataset.edit));
-    if(!p)return;
-    editingProduct=p;
-    editingImages=productImages(p);
-    $("productId").value=p.id;
-    $("productTitle").value=p.title||"";
-    $("productCategory").value=p.category||"";
-    $("productPrice").value=p.price??0;
-    $("productStock").value=availableStock(p);
-    $("productDescription").value=p.description||"";
-    $("optionName").value=p.options?.name||"";
-    $("productVariants").value=variantsOf(p).map(v=>`${v.name||v.value||""} | ${v.stock||0}`).join("\n");
-    $("existingImages").textContent=editingImages.length?`${editingImages.length} existing photo(s) will be kept. Upload additional photos to add more.`:"No existing photos.";
-    $("saveProduct").textContent="Update Product";
-    $("productsTab").scrollIntoView({behavior:"smooth",block:"start"});
-    return;
-  }
-  if(del){
-    if(!confirm("Delete this product? This cannot be undone."))return;
-    const {error}=await supabase.from("products").delete().eq("id",del.dataset.delete);
-    if(error){notify("Delete failed: "+error.message);return;}
-    notify("Product deleted.");
-    await loadProducts();
-  }
-});
-async function uploadPhotos(files){
-  const urls=[];
-  for(const file of files){
-    if(!file.type.startsWith("image/"))continue;
-    if(file.size>8*1024*1024)throw new Error(`${file.name} is over 8 MB. Please use a smaller image.`);
-    const cleanName=file.name.replace(/[^a-zA-Z0-9._-]/g,"-");
-    const path=`products/${Date.now()}-${Math.random().toString(36).slice(2,8)}-${cleanName}`;
-    const {error}=await supabase.storage.from(IMAGE_BUCKET).upload(path,file,{upsert:false,contentType:file.type});
-    if(error)throw error;
-    const {data}=supabase.storage.from(IMAGE_BUCKET).getPublicUrl(path);
-    if(data?.publicUrl)urls.push(data.publicUrl);
-  }
-  return urls;
-}
-$("productForm").addEventListener("submit",async e=>{
-  e.preventDefault();
-  const button=$("saveProduct");
-  button.disabled=true;
-  button.textContent="Saving…";
-  try{
-    const files=[...$("productPhotos").files];
-    const uploaded=files.length?await uploadPhotos(files):[];
-    const images=[...editingImages,...uploaded];
-    const lines=$("productVariants").value.split("\n").map(s=>s.trim()).filter(Boolean);
-    const oldVariants=variantsOf(editingProduct||{});
-    const variants=lines.map(line=>{
-      const parts=line.split("|");
-      const name=(parts[0]||"").trim();
-      const stock=Math.max(0,Number((parts[1]||"0").trim())||0);
-      const old=oldVariants.find(v=>String(v.name||v.value||"")===name);
-      return {name,stock,barcode:old?.barcode||barcode()};
-    });
-    const totalStock=$("productStock").value===""?variants.reduce((n,v)=>n+v.stock,0):Math.max(0,Number($("productStock").value)||0);
-    const payload={
-      title:$("productTitle").value.trim(),
-      category:$("productCategory").value.trim(),
-      price:Math.max(0,Number($("productPrice").value)||0),
-      stock:totalStock,
-      description:$("productDescription").value.trim(),
-      image_url:images[0]||null,images,
-      barcode:editingProduct?.barcode||barcode(),
-      colors:variants.map(v=>v.name),
-      options:{name:$("optionName").value.trim()||"Design"},
-      variants
-    };
-    if(!payload.title||!payload.category)throw new Error("Please enter the product title and category.");
-    let result;
-    if($("productId").value){
-      result=await supabase.from("products").update(payload).eq("id",$("productId").value);
-    }else{
-      result=await supabase.from("products").insert(payload);
-    }
-    if(result.error)throw result.error;
-    notify($("productId").value?"Product updated.":"Product added.");
-    resetProductForm();
-    await loadProducts();
-  }catch(err){
-    console.error(err);
-    notify("Could not save product: "+(err.message||"Please check your settings."));
-  }finally{
-    button.disabled=false;
-    button.textContent=$("productId").value?"Update Product":"Save Product";
-  }
-});
-
-async function loadOrders(){
-  if(!$("adminOrders"))return;
-  $("adminOrders").innerHTML="Loading orders…";
-  const {data,error}=await supabase.from("orders").select("*").order("created_at",{ascending:false}).limit(100);
-  if(error){
-    $("adminOrders").innerHTML=`<div class="empty-state">Orders could not load. Check your orders table and admin read policy. ${safe(error.message)}</div>`;
-    return;
-  }
-  if(!data?.length){$("adminOrders").innerHTML='<div class="empty-state">No customer orders yet.</div>';return;}
-  $("adminOrders").innerHTML=data.map(o=>{
-    const items=Array.isArray(o.items)?o.items:[];
-    const summary=items.map(i=>`${i.title||"Product"}${i.variant?` (${i.variant})`:""} × ${i.quantity||i.qty||1}`).join(", ");
-    return `<div class="admin-row" style="align-items:flex-start">
-      <div style="min-width:200px;flex:1"><strong>${safe(o.customer_name||"Customer")}</strong><small>${safe(o.phone||"")} · ${safe(o.city||"")}</small><small>${safe(o.address||"")}</small><small>${safe(summary)}</small><small>${o.created_at?safe(new Date(o.created_at).toLocaleString()):""}</small></div>
-      <div><strong>${money(o.total)}</strong><small>COD · ${safe(o.status||"Pending")}</small></div>
-    </div>`;
-  }).join("");
-}
+$("adminProducts").addEventListener("click",async e=>{const edit=e.target.closest("[data-edit]"),del=e.target.closest("[data-delete]");if(edit){const p=products.find(x=>String(x.id)===String(edit.dataset.edit));if(!p)return;editingProduct=p;editingImages=productImages(p);$("productId").value=p.id;$("productTitle").value=p.title||"";$("productCategory").value=p.category||"";$("productPrice").value=p.price??0;$("productComparePrice").value=p.compare_at_price??"";$("productStock").value=availableStock(p);$("productDescription").value=p.description||"";const groups=optionGroupsOf(p);if(groups.length){optionDrafts=groups.map(g=>({id:g.id||String(Math.random()),name:g.name||"",values:(g.values||[]).map(v=>({...v}))}))}else{const vs=variantsOf(p);optionDrafts=vs.length?[{id:"legacy",name:p.options?.name||"Design",values:vs.map(v=>({name:v.name||v.value||"",stock:Number(v.stock||0),barcode:v.barcode||barcode(),image_index:Number(v.image_index||0),image_url:v.image_url||null}))}]:[]}variantPhotoFiles.clear();renderOptionBuilder();$("existingImages").textContent=editingImages.length?`${editingImages.length} existing gallery photo(s) will be kept. Upload additional photos to add more.`:"No existing photos."; $("saveProduct").textContent="Update Product";$("productsTab").scrollIntoView({behavior:"smooth",block:"start"});return}if(del){if(!confirm("Delete this product? This cannot be undone."))return;const {error}=await supabase.from("products").delete().eq("id",del.dataset.delete);if(error){notify("Delete failed: "+error.message);return}notify("Product deleted.");await loadProducts()}});
+async function uploadPhotos(files){const urls=[];for(const file of files){if(!file.type.startsWith("image/"))continue;if(file.size>8*1024*1024)throw new Error(`${file.name} is over 8 MB. Please use a smaller image.`);const clean=file.name.replace(/[^a-zA-Z0-9._-]/g,"-"),path=`products/${Date.now()}-${Math.random().toString(36).slice(2,8)}-${clean}`;const {error}=await supabase.storage.from(IMAGE_BUCKET).upload(path,file,{upsert:false,contentType:file.type});if(error)throw error;const {data}=supabase.storage.from(IMAGE_BUCKET).getPublicUrl(path);if(data?.publicUrl)urls.push(data.publicUrl)}return urls}
+$("productForm").addEventListener("submit",async e=>{e.preventDefault();const btn=$("saveProduct");btn.disabled=true;btn.textContent="Saving…";try{
+ const galleryUploads=await uploadPhotos([...$("productPhotos").files]),images=[...editingImages,...galleryUploads],allVariants=[];let newGroups=[];
+ for(let gi=0;gi<optionDrafts.length;gi++){const g=optionDrafts[gi],groupName=String(g.name||"").trim();if(!groupName)throw new Error(`Please enter a name for option ${gi+1}.`);const vals=[];for(let vi=0;vi<g.values.length;vi++){const v=g.values[vi],valueName=String(v.name||"").trim();if(!valueName)throw new Error(`Please enter a value in ${groupName}.`);let imageUrl=v.image_url||null;const file=variantPhotoFiles.get(`${gi}:${vi}`);if(file){const uploaded=await uploadPhotos([file]);imageUrl=uploaded[0]||imageUrl}const variant={name:valueName,stock:Math.max(0,Number(v.stock)||0),barcode:v.barcode||barcode(),image_url:imageUrl,image_index:0};vals.push(variant);allVariants.push({...variant,option_name:groupName})}newGroups.push({name:groupName,values:vals})}
+ const variants=allVariants,variantsStock=variants.reduce((s,v)=>s+Number(v.stock||0),0),hasVariants=variants.length>0,stock=hasVariants?variantsStock:Math.max(0,Number($("productStock").value)||0),compareRaw=$("productComparePrice").value,compare=compareRaw===""?null:Math.max(0,Number(compareRaw)||0);
+ const payload={title:$("productTitle").value.trim(),category:$("productCategory").value.trim(),price:Math.max(0,Number($("productPrice").value)||0),compare_at_price:compare,stock,description:$("productDescription").value.trim(),image_url:images[0]||null,images,barcode:editingProduct?.barcode||barcode(),colors:variants.map(v=>v.name),options:{name:newGroups[0]?.name||"Design",groups:newGroups},variants};
+ if(!payload.title||!payload.category)throw new Error("Please enter the product title and category.");if(compare!==null&&compare<=payload.price)notify("Retail price is not higher than selling price, so no sale badge will show.");
+ let result;if($("productId").value)result=await supabase.from("products").update(payload).eq("id",$("productId").value);else result=await supabase.from("products").insert(payload);if(result.error)throw result.error;notify($("productId").value?"Product updated.":"Product added.");resetProductForm();await loadProducts()
+ }catch(err){console.error(err);notify("Could not save product: "+(err.message||"Please check Supabase settings."))}finally{btn.disabled=false;btn.textContent=$("productId").value?"Update Product":"Save Product"}});
+async function loadOrders(){$("adminOrders").innerHTML="Loading orders…";const {data,error}=await supabase.from("orders").select("*").order("created_at",{ascending:false}).limit(100);if(error){$("adminOrders").innerHTML=`<div class="empty-state">Orders could not load. Check your orders table and admin read policy. ${safe(error.message)}</div>`;return}if(!data?.length){$("adminOrders").innerHTML='<div class="empty-state">No customer orders yet.</div>';return}$("adminOrders").innerHTML=data.map(o=>{const items=Array.isArray(o.items)?o.items:[],summary=items.map(i=>`${i.title||"Product"}${i.variant?` (${i.variant})`:""} × ${i.quantity||i.qty||1}`).join(", "),delivery=Number(o.delivery_fee||0),subtotal=Number(o.subtotal??(Number(o.total||0)-delivery));return `<div class="admin-row" style="align-items:flex-start"><div style="min-width:200px;flex:1"><strong>${safe(o.customer_name||"Customer")}</strong><small>${safe(o.phone||"")} · ${safe(o.city||"")}</small><small>${safe(o.address||"")}</small><small>${safe(summary)}</small><small>${o.created_at?safe(new Date(o.created_at).toLocaleString()):""}</small></div><div><strong>${money(o.total)}</strong><small>Items: ${money(subtotal)}</small><small>Delivery: ${money(delivery)}</small><small>COD · ${safe(o.status||"Pending")}</small></div></div>`}).join("")}
 $("refreshOrders").addEventListener("click",loadOrders);
-
-$("settingsForm").addEventListener("submit",async e=>{
-  e.preventDefault();
-  const fee=Math.max(0,Number($("deliveryFeeInput").value)||0);
-  $("settingsMessage").textContent="Saving…";
-  const {data:existing,error:readError}=await supabase.from("store_settings").select("id").limit(1).maybeSingle();
-  if(readError){$("settingsMessage").textContent="Could not read settings: "+readError.message;return;}
-  let result;
-  if(existing) result=await supabase.from("store_settings").update({delivery_fee:fee}).eq("id",existing.id);
-  else result=await supabase.from("store_settings").insert({delivery_fee:fee});
-  if(result.error){$("settingsMessage").textContent="Save failed: "+result.error.message;return;}
-  deliveryFee=fee;
-  renderCart();
-  $("settingsMessage").textContent="Delivery fee saved.";
-  notify("Delivery fee updated.");
-});
-
 $("year").textContent=new Date().getFullYear();
-await loadSettings();
+renderOptionBuilder();
 await loadProducts();
 renderCart();
 </script>
